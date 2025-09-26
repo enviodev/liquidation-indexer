@@ -15,7 +15,7 @@ type EulerFactory_ProxyCreated {
   id: ID!
   chainId: Int!
   timestamp: BigInt!
-  proxy: String!
+  asset: String!
   upgradeable: Boolean!
   implementation: String!
   trailingData: String!
@@ -91,4 +91,12 @@ type LiquidatorData {
   liquidations: [String!]!
   firstLiquidationTimestamp: BigInt
   lastLiquidationTimestamp: BigInt
+}
+
+type Token {
+  id: ID!
+  chainId: Int!
+  name: String!
+  symbol: String!
+  decimals: Int!
 }
