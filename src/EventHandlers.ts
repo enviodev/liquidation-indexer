@@ -280,7 +280,7 @@ EulerFactory.ProxyCreated.handler(async ({ event, context }) => {
       chainId: event.chainId,
     });
     const entity: EVaultDetails = {
-      id: event.params.proxy,
+      id: `${event.chainId}_${event.params.proxy}`,
       chainId: event.chainId,
       timestamp: BigInt(event.block.timestamp),
       asset: evaultMetadata.asset,
@@ -354,10 +354,6 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
   };
 
   context.EulerVaultProxy_Liquidate.set(entity);
-
-  if (context.isPreload) {
-    return;
-  }
 
   const collateralVault = await context.EVaultDetails.get(
     `${event.chainId}_${event.params.collateral}`
@@ -489,7 +485,7 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
 
 Morpho.CreateMarket.handler(async ({ event, context }) => {
   const entity: Morpho_CreateMarketEntity = {
-    id: event.params.id,
+    id: `${event.chainId}_${event.params.id}`,
     chainId: event.chainId,
     timestamp: BigInt(event.block.timestamp),
     loanToken: event.params.marketParams[0],
@@ -567,16 +563,10 @@ Morpho.Liquidate.handler(async ({ event, context }) => {
 
   context.Morpho_Liquidate.set(entity);
 
-  // Look up the market information to get collateral and debt assets
-  const marketId = event.params.id;
-  if (context.isPreload) {
-    return;
-  }
-
-  const market = await context.Morpho_CreateMarket.get(marketId);
+  const market = await context.Morpho_CreateMarket.get(`${event.chainId}_${event.params.id}`);
   if (!market) {
     context.log.error("Market metadata missing for liquidation", {
-      marketId,
+      marketId: event.params.id,
       chainId: event.chainId,
     });
     return;
@@ -587,7 +577,7 @@ Morpho.Liquidate.handler(async ({ event, context }) => {
 
   if (!collateralAsset || !debtAsset) {
     context.log.error("Market assets not set", {
-      marketId,
+      marketId: event.params.id,
       chainId: event.chainId,
       collateralAsset,
       debtAsset,
