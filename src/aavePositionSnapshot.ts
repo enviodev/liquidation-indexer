@@ -57,7 +57,6 @@ export const getAaveUserPositionData = experimental_createEffect(
         },
         { enableBatch: false, enableMulticall: false }
       );
-      console.log("getUserReservesData result", result);
 
       const [userReservesData, eModeCategory] = result as [any[], number];
 
@@ -65,7 +64,7 @@ export const getAaveUserPositionData = experimental_createEffect(
       const userReserves = userReservesData.map((reserve: any) => ({
         underlyingAsset: reserve.underlyingAsset,
         scaledATokenBalance: BigInt(reserve.scaledATokenBalance),
-        usageAsCollateralEnabledOnUser: reserve.usageAsCollateralEnabledOnUser,
+        usageAsCollateralEnabledOnUser: Boolean(reserve.usageAsCollateralEnabledOnUser),
         scaledVariableDebt: BigInt(reserve.scaledVariableDebt),
       }));
 

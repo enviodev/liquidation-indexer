@@ -1,5 +1,6 @@
 import { Liquidator, Borrower } from "generated";
 import { getAaveUserPositionData } from "./aavePositionSnapshot";
+import { getEulerUserPositionData } from "./eulerPositionSnapshot";
 import { getTokenDetails } from "./tokenDetails";
 import { getAssetPrice } from "./aaveOracle";
 
@@ -249,4 +250,158 @@ export async function updateBorrowerData(
 
   context.Borrower.set(borrowerData);
   return borrowerId;
+}
+
+// Helper function to process Euler position snapshots
+export async function processEulerPositionSnapshot(
+  context: any,
+  userAddress: string,
+  chainId: number,
+  blockNumber: bigint,
+  seizedVault: string,
+  repaidVault: string,
+  snapshotId: string
+): Promise<PositionSnapshotData> {
+  
+  // Fetch user position data from AccountLens
+  const positionData = await context.effect(getEulerUserPositionData, {
+    userAddress,
+    chainId,
+    blockNumber,
+  });
+
+  if (positionData.vaultAccountInfos.length === 0) {
+    context.log.warn(
+      `No position data found for user ${userAddress} on chain ${chainId} at block ${blockNumber}`
+    );
+    return {
+      collaterals: [],
+      debts: [],
+      totalCollateralUSD: 0,
+      totalDebtUSD: 0,
+      ltv: undefined,
+    };
+  }
+
+  const collaterals: ProcessedCollateral[] = [];
+  const debts: ProcessedDebt[] = [];
+  let totalCollateralUSD = 0;
+  let totalDebtUSD = 0;
+  let totalCollateralUSDForLTV = 0;
+
+  // Find a controller vault to get collateral values from its liquidityInfo
+  const controllerVault = positionData.vaultAccountInfos.find((v: any) => v.isController);
+  
+  // Build a map of vault address -> collateral value (in unit of account, typically 1e18)
+  const collateralValueMap = new Map<string, bigint>();
+  if (controllerVault && !controllerVault.liquidityInfo.queryFailure) {
+    for (const collInfo of controllerVault.liquidityInfo.collateralLiquidityLiquidationInfo) {
+      collateralValueMap.set(collInfo.collateral.toLowerCase(), collInfo.collateralValue);
+    }
+  }
+
+  let collateralIndex = 0;
+  let debtIndex = 0;
+
+  // Process each vault
+  for (const vaultInfo of positionData.vaultAccountInfos) {
+    const vaultAddress = vaultInfo.vault;
+    const assetAddress = vaultInfo.asset;
+    
+    // Fetch token metadata (should already exist from vault creation)
+    let tokenMetadata;
+    try {
+      tokenMetadata = await context.Token.get(`${chainId}_${assetAddress}`);
+      if (!tokenMetadata) {
+        // Fallback: fetch if not found
+        tokenMetadata = await context.effect(getTokenDetails, {
+          tokenAddress: assetAddress,
+          chainId,
+        });
+      }
+    } catch (error) {
+      context.log.error(`Failed to fetch token metadata for ${assetAddress}`, {
+        error,
+        chainId,
+      });
+      continue;
+    }
+
+    // Process collateral (if assets > 0 and not a controller)
+    if (vaultInfo.assets > 0n && !vaultInfo.isController) {
+      let collateralPriceUSD: number | undefined;
+      
+      // Get value from collateral value map (already in unit of account, typically 1e18)
+      const collateralValue = collateralValueMap.get(vaultAddress.toLowerCase());
+      if (collateralValue !== undefined) {
+        // Convert from 1e18 units to USD
+        collateralPriceUSD = Number(collateralValue) / 1e18;
+      } else {
+        context.log.warn(`No collateral value found in liquidityInfo for vault ${vaultAddress}`);
+      }
+
+      if (collateralPriceUSD !== undefined) {
+        totalCollateralUSD += collateralPriceUSD;
+        
+        // Only count for LTV if enabled as collateral
+        if (vaultInfo.isCollateral) {
+          totalCollateralUSDForLTV += collateralPriceUSD;
+        }
+      }
+
+      const collateral: ProcessedCollateral = {
+        id: `${snapshotId}_col_${collateralIndex}`,
+        asset: assetAddress,
+        symbol: tokenMetadata.symbol,
+        decimals: tokenMetadata.decimals,
+        amount: vaultInfo.assets,  // Use assets, not assetsAccount
+        amountUSD: collateralPriceUSD,
+        enabledAsCollateral: vaultInfo.isCollateral,
+        isSeized: vaultAddress.toLowerCase() === seizedVault.toLowerCase(),
+      };
+      
+      collaterals.push(collateral);
+      collateralIndex++;
+    }
+
+    // Process debt (if borrowed > 0 and is a controller)
+    if (vaultInfo.borrowed > 0n && vaultInfo.isController) {
+      let debtPriceUSD: number | undefined;
+      
+      // Use liabilityValue directly from liquidityInfo (already in unit of account, typically 1e18)
+      if (!vaultInfo.liquidityInfo.queryFailure) {
+        // Convert from 1e18 units to USD
+        debtPriceUSD = Number(vaultInfo.liquidityInfo.liabilityValue) / 1e18;
+        totalDebtUSD += debtPriceUSD;
+      } else {
+        context.log.warn(`liquidityInfo query failed for debt vault ${vaultAddress}`);
+      }
+
+      const debt: ProcessedDebt = {
+        id: `${snapshotId}_debt_${debtIndex}`,
+        asset: assetAddress,
+        symbol: tokenMetadata.symbol,
+        decimals: tokenMetadata.decimals,
+        amount: vaultInfo.borrowed,
+        amountUSD: debtPriceUSD,
+        isRepaid: vaultAddress.toLowerCase() === repaidVault.toLowerCase(),
+      };
+      
+      debts.push(debt);
+      debtIndex++;
+    }
+  }
+
+  // Calculate LTV: totalDebtUSD / sum(collateralUSD where enabledAsCollateral=true)
+  const ltv = totalCollateralUSDForLTV > 0 
+    ? totalDebtUSD / totalCollateralUSDForLTV 
+    : undefined;
+
+  return {
+    collaterals,
+    debts,
+    totalCollateralUSD,
+    totalDebtUSD,
+    ltv,
+  };
 }

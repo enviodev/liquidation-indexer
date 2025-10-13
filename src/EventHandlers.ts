@@ -14,7 +14,7 @@ import {
   LiquidationStats,
 } from "generated";
 import type { Morpho_CreateMarket as Morpho_CreateMarketEntity } from "generated/src/Types.gen";
-import { updateLiquidatorData, updateBorrowerData, processAavePositionSnapshot } from "./helpers";
+import { updateLiquidatorData, updateBorrowerData, processAavePositionSnapshot, processEulerPositionSnapshot } from "./helpers";
 import { getEVaultMetadata } from "./evaultMetadata";
 import { getTokenDetails } from "./tokenDetails";
 import { getQuote } from "./evaultOracle";
@@ -246,16 +246,16 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     positionSnapshot_id: undefined,
   };
   context.GeneralizedLiquidation.set(generalized);
+  console.log("GeneralizedLiquidation set")
 
   // Create position snapshot
   const snapshotId = `${event.chainId}_${event.block.number}_${event.logIndex}_snapshot`;
-  
   try {
     const snapshotData = await processAavePositionSnapshot(
       context,
       event.params.user,
       event.chainId,
-      BigInt(event.block.number),
+      BigInt(event.block.number-1),
       event.params.collateralAsset,
       event.params.debtAsset,
       snapshotId
@@ -268,6 +268,293 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
       timestamp: BigInt(event.block.timestamp),
       protocol: "Aave",
       borrower: event.params.user,
+      txHash: event.transaction.hash,
+      totalCollateralUSD: snapshotData.totalCollateralUSD,
+      totalDebtUSD: snapshotData.totalDebtUSD,
+      ltv: snapshotData.ltv,
+      liquidation_id: generalized.id,
+    };
+    context.PositionSnapshot.set(positionSnapshot);
+    console.log("PositionSnapshot set")
+    // Create PositionCollateral entities
+    for (const collateral of snapshotData.collaterals) {
+      context.PositionCollateral.set({
+        id: collateral.id,
+        positionSnapshot_id: snapshotId,
+        asset: collateral.asset,
+        symbol: collateral.symbol,
+        decimals: collateral.decimals,
+        amount: collateral.amount,
+        amountUSD: collateral.amountUSD,
+        enabledAsCollateral: collateral.enabledAsCollateral,
+        isSeized: collateral.isSeized,
+      });
+    }
+    console.log("PositionCollateral set")
+    // Create PositionDebt entities
+    for (const debt of snapshotData.debts) {
+      context.PositionDebt.set({
+        id: debt.id,
+        positionSnapshot_id: snapshotId,
+        asset: debt.asset,
+        symbol: debt.symbol,
+        decimals: debt.decimals,
+        amount: debt.amount,
+        amountUSD: debt.amountUSD,
+        isRepaid: debt.isRepaid,
+      });
+    }
+    console.log("PositionDebt set")
+    // Link snapshot to liquidation
+    context.GeneralizedLiquidation.set({
+      ...generalized,
+      positionSnapshot_id: snapshotId,
+    });
+    console.log("EnhancedGeneralizedLiquidation set")
+  } catch (error) {
+    context.log.error(
+      `Failed to create position snapshot for liquidation ${generalized.id}`,
+      {
+        error,
+        userAddress: event.params.user,
+        chainId: event.chainId,
+        blockNumber: event.block.number,
+      }
+    );
+    // Continue without snapshot - don't fail the entire liquidation indexing
+  }
+
+  // Update per-chain stats
+  const perChainStatsId = `stats_${event.chainId}`;
+  const existingPerChain = await context.LiquidationStats.get(perChainStatsId);
+  const perChain: LiquidationStats = {
+    id: perChainStatsId,
+    chainId: event.chainId,
+    aaveCount: BigInt(existingPerChain?.aaveCount ?? 0n) + 1n,
+    eulerCount: BigInt(existingPerChain?.eulerCount ?? 0n),
+    morphoCount: BigInt(existingPerChain?.morphoCount ?? 0n),
+    totalCount: BigInt(existingPerChain?.totalCount ?? 0n) + 1n,
+  };
+  context.LiquidationStats.set(perChain);
+
+  // Update global stats
+  const globalId = `stats_global`;
+  const existingGlobal = await context.LiquidationStats.get(globalId);
+  const global: LiquidationStats = {
+    id: globalId,
+    chainId: undefined,
+    aaveCount: BigInt(existingGlobal?.aaveCount ?? 0n) + 1n,
+    eulerCount: BigInt(existingGlobal?.eulerCount ?? 0n),
+    morphoCount: BigInt(existingGlobal?.morphoCount ?? 0n),
+    totalCount: BigInt(existingGlobal?.totalCount ?? 0n) + 1n,
+  };
+  context.LiquidationStats.set(global);
+  console.log("Finished AaveLiquidation")
+});
+
+EulerFactory.ProxyCreated.handler(async ({ event, context }) => {
+  try {
+    const evaultMetadata = await context.effect(getEVaultMetadata, {
+      vaultAddress: event.params.proxy,
+      chainId: event.chainId,
+    });
+    const entity: EVaultDetails = {
+      id: `${event.chainId}_${event.params.proxy}`,
+      chainId: event.chainId,
+      timestamp: BigInt(event.block.timestamp),
+      asset: evaultMetadata.asset,
+      name: evaultMetadata.name,
+      symbol: evaultMetadata.symbol,
+      oracle: evaultMetadata.oracle,
+      unitOfAccount: evaultMetadata.unitOfAccount,
+      decimals: evaultMetadata.decimals,
+    };
+    context.EVaultDetails.set(entity);
+    if (evaultMetadata.asset) {
+      try {
+        const tokenMetadata = await context.effect(getTokenDetails, {
+          tokenAddress: evaultMetadata.asset,
+          chainId: event.chainId,
+        });
+        context.Token.set({
+          id: `${event.chainId}_${evaultMetadata.asset}`,
+          chainId: event.chainId,
+          name: tokenMetadata.name,
+          symbol: tokenMetadata.symbol,
+          decimals: tokenMetadata.decimals,
+        });
+      } catch (error) {
+        context.log.error(
+          `Failed to fetch Euler token metadata ${evaultMetadata.asset}`,
+          {
+            tokenAddress: evaultMetadata.asset,
+            chainId: event.chainId,
+            err: error,
+          }
+        );
+        return;
+      }
+    } else {
+      context.log.error(
+        `Failed to fetch EVault asset metadata ${event.params.proxy}`,
+        {
+          vaultAddress: event.params.proxy,
+          chainId: event.chainId,
+        }
+      );
+    }
+  } catch (error) {
+    context.log.error(
+      `Failed to fetch EVault asset metadata ${event.params.proxy}`,
+      {
+        vaultAddress: event.params.proxy,
+        chainId: event.chainId,
+        err: error,
+      }
+    );
+    return;
+  }
+});
+
+EulerFactory.ProxyCreated.contractRegister(async ({ event, context }) => {
+  context.addEulerVaultProxy(event.params.proxy);
+});
+
+EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
+  const entity: EulerVaultProxy_Liquidate = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    chainId: event.chainId,
+    timestamp: BigInt(event.block.timestamp),
+    liquidator: event.params.liquidator,
+    violator: event.params.violator,
+    collateral: event.params.collateral,
+    repayAssets: event.params.repayAssets,
+    yieldBalance: event.params.yieldBalance,
+  };
+
+  context.EulerVaultProxy_Liquidate.set(entity);
+
+  const collateralVault = await context.EVaultDetails.get(
+    `${event.chainId}_${event.params.collateral}`
+  );
+  if (!collateralVault?.asset) {
+    context.log.error("Missing collateral vault metadata", {
+      collateralVault: event.params.collateral,
+      chainId: event.chainId,
+    });
+    return;
+  }
+
+  const debtVault = await context.EVaultDetails.get(
+    `${event.chainId}_${event.srcAddress}`
+  );
+  if (!debtVault?.asset) {
+    context.log.error("Missing debt vault metadata", {
+      vaultAddress: event.srcAddress,
+      chainId: event.chainId,
+    });
+    return;
+  }
+  const yieldBalanceUSD = await context.effect(getQuote, {
+    oracle: collateralVault.oracle,
+    inAmount: BigInt(event.params.yieldBalance),
+    base: collateralVault.asset,
+    quote: collateralVault.unitOfAccount,
+    chainId: event.chainId,
+    blockNumber: BigInt(event.block.number),
+  });
+
+  const repayAssetsUSD = await context.effect(getQuote, {
+    oracle: debtVault.oracle,
+    inAmount: BigInt(event.params.repayAssets),
+    base: debtVault.asset,
+    quote: debtVault.unitOfAccount,
+    chainId: event.chainId,
+    blockNumber: BigInt(event.block.number),
+  });
+
+  const collateralToken = await context.Token.get(
+    `${event.chainId}_${collateralVault.asset}`
+  );
+  if (!collateralToken) {
+    context.log.error("Collateral token not loaded", {
+      tokenAddress: collateralVault.asset,
+      chainId: event.chainId,
+    });
+    return;
+  }
+
+  const debtToken = await context.Token.get(
+    `${event.chainId}_${debtVault.asset}`
+  );
+  if (!debtToken) {
+    context.log.error("Debt token not loaded", {
+      tokenAddress: debtVault.asset,
+      chainId: event.chainId,
+    });
+    return;
+  }
+
+  const collateralSymbol = collateralToken.symbol || collateralVault.asset;
+  const debtSymbol = debtToken.symbol || debtVault.asset;
+
+  // Update liquidator data first to get the liquidator ID
+  const liquidatorId = await updateLiquidatorData(
+    context,
+    event.params.liquidator,
+    event.chainId,
+    "Euler",
+    BigInt(event.block.timestamp)
+  );
+
+  // Update borrower data to get the borrower ID
+  const borrowerId = await updateBorrowerData(
+    context,
+    event.params.violator,
+    event.chainId,
+    "Euler",
+    BigInt(event.block.timestamp)
+  );
+
+  const generalized: GeneralizedLiquidation = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    chainId: event.chainId,
+    timestamp: BigInt(event.block.timestamp),
+    protocol: "Euler",
+    borrower_id: borrowerId,
+    liquidator_id: liquidatorId,
+    txHash: event.transaction.hash,
+    collateralAsset: collateralSymbol,
+    debtAsset: debtSymbol,
+    repaidAssets: BigInt(event.params.repayAssets),
+    repaidAssetsUSD: Number(repayAssetsUSD.price) / 1e18,
+    seizedAssets: BigInt(event.params.yieldBalance),
+    seizedAssetsUSD: Number(yieldBalanceUSD.price) / 1e18,
+    positionSnapshot_id: undefined,
+  };
+  context.GeneralizedLiquidation.set(generalized);
+
+  // Create position snapshot
+  const snapshotId = `${event.chainId}_${event.block.number}_${event.logIndex}_snapshot`;
+  
+  try {
+    const snapshotData = await processEulerPositionSnapshot(
+      context,
+      event.params.violator,
+      event.chainId,
+      BigInt(event.block.number-1),
+      event.params.collateral,  // seized vault address
+      event.srcAddress,          // repaid vault address (debt vault that emitted the event)
+      snapshotId
+    );
+
+    // Create PositionSnapshot entity
+    const positionSnapshot = {
+      id: snapshotId,
+      chainId: event.chainId,
+      timestamp: BigInt(event.block.timestamp),
+      protocol: "Euler",
+      borrower: event.params.violator,
       txHash: event.transaction.hash,
       totalCollateralUSD: snapshotData.totalCollateralUSD,
       totalDebtUSD: snapshotData.totalDebtUSD,
@@ -316,7 +603,7 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
       `Failed to create position snapshot for liquidation ${generalized.id}`,
       {
         error,
-        userAddress: event.params.user,
+        userAddress: event.params.violator,
         chainId: event.chainId,
         blockNumber: event.block.number,
       }
@@ -325,29 +612,30 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
   }
 
   // Update per-chain stats
-  const perChainStatsId = `stats_${event.chainId}`;
-  const existingPerChain = await context.LiquidationStats.get(perChainStatsId);
-  const perChain: LiquidationStats = {
-    id: perChainStatsId,
+  const perChainStatsId2 = `stats_${event.chainId}`;
+  const existingPerChain2 = await context.LiquidationStats.get(
+    perChainStatsId2
+  );
+  const perChain2: LiquidationStats = {
+    id: perChainStatsId2,
     chainId: event.chainId,
-    aaveCount: BigInt(existingPerChain?.aaveCount ?? 0n) + 1n,
-    eulerCount: BigInt(existingPerChain?.eulerCount ?? 0n),
-    morphoCount: BigInt(existingPerChain?.morphoCount ?? 0n),
-    totalCount: BigInt(existingPerChain?.totalCount ?? 0n) + 1n,
+    aaveCount: BigInt(existingPerChain2?.aaveCount ?? 0n),
+    eulerCount: BigInt(existingPerChain2?.eulerCount ?? 0n) + 1n,
+    morphoCount: BigInt(existingPerChain2?.morphoCount ?? 0n),
+    totalCount: BigInt(existingPerChain2?.totalCount ?? 0n) + 1n,
   };
-  context.LiquidationStats.set(perChain);
+  context.LiquidationStats.set(perChain2);
 
   // Update global stats
-  const globalId = `stats_global`;
-  const existingGlobal = await context.LiquidationStats.get(globalId);
-  const global: LiquidationStats = {
-    id: globalId,
+  const globalId2 = `stats_global`;
+  const existingGlobal2 = await context.LiquidationStats.get(globalId2);
+  const global2: LiquidationStats = {
+    id: globalId2,
     chainId: undefined,
-    aaveCount: BigInt(existingGlobal?.aaveCount ?? 0n) + 1n,
-    eulerCount: BigInt(existingGlobal?.eulerCount ?? 0n),
-    morphoCount: BigInt(existingGlobal?.morphoCount ?? 0n),
-    totalCount: BigInt(existingGlobal?.totalCount ?? 0n) + 1n,
+    aaveCount: BigInt(existingGlobal2?.aaveCount ?? 0n),
+    eulerCount: BigInt(existingGlobal2?.eulerCount ?? 0n) + 1n,
+    morphoCount: BigInt(existingGlobal2?.morphoCount ?? 0n),
+    totalCount: BigInt(existingGlobal2?.totalCount ?? 0n) + 1n,
   };
-  context.LiquidationStats.set(global);
+  context.LiquidationStats.set(global2);
 });
-

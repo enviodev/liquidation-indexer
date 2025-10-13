@@ -119,9 +119,9 @@ class RPCManager {
       currentIndex: 0,
     });
 
-    console.log(
-      `[RPC Manager] Initialized ${endpoints.length} RPC(s) for chain ${chainId} with per-RPC rate limiting`
-    );
+    // console.log(
+    //   `[RPC Manager] Initialized ${endpoints.length} RPC(s) for chain ${chainId} with per-RPC rate limiting`
+    // );
   }
 
   /**
@@ -321,11 +321,11 @@ class RPCManager {
         const newUrl = config.endpoints[bestIndex].url;
         config.currentIndex = bestIndex;
         
-        console.log(
-          `[RPC Manager] Chain ${chainId}: Proactively switched RPC\n` +
-          `  From: ${new URL(oldUrl).hostname}\n` +
-          `  To: ${new URL(newUrl).hostname} (better rate limit availability)`
-        );
+        // console.log(
+        //   `[RPC Manager] Chain ${chainId}: Proactively switched RPC\n` +
+        //   `  From: ${new URL(oldUrl).hostname}\n` +
+        //   `  To: ${new URL(newUrl).hostname} (better rate limit availability)`
+        // );
       }
     }
   }
@@ -377,10 +377,10 @@ export async function executeWithRPCRotation<T>(
       // Layer 3: Wait for per-RPC rate limit token
       const waitTime = await rpcManager.waitForRPCToken(chainId);
       if (waitTime > 0) {
-        console.log(
-          `[RPC Manager] Chain ${chainId}: Waited ${Math.round(waitTime)}ms ` +
-          `for RPC rate limit (${new URL(rpcUrl).hostname})`
-        );
+        // console.log(
+        //   `[RPC Manager] Chain ${chainId}: Waited ${Math.round(waitTime)}ms ` +
+        //   `for RPC rate limit (${new URL(rpcUrl).hostname})`
+        // );
       }
       
       try {
@@ -413,7 +413,7 @@ export async function executeWithRPCRotation<T>(
         // Rotate to next RPC for next attempt
         if (attempt < maxAttempts - 1) {
           const nextRpc = rpcManager.rotateToNextRPC(chainId);
-          console.log(`[RPC Manager] Rotating to next RPC: ${new URL(nextRpc).hostname}`);
+          // console.log(`[RPC Manager] Rotating to next RPC: ${new URL(nextRpc).hostname}`);
         }
       }
     }

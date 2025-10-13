@@ -25,6 +25,14 @@ const aaveV3ProtocolDataProviderAbi = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../abis/AaveV3ProtocolDataProvider.json"), "utf8")
 );
 
+const accountLensAbi = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../abis/AccountLens.json"), "utf8")
+);
+
+const evcAbi = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../abis/EVC.json"), "utf8")
+);
+
 export function getERC20Contract(address: Address) {
     return { address: address as `0x${string}`, abi: erc20Abi };
 }
@@ -56,6 +64,14 @@ export function getAaveV3ProtocolDataProviderContract(address: Address) {
     return { address: address as `0x${string}`, abi: aaveV3ProtocolDataProviderAbi };
 }
 
+export function getAccountLensContract(address: Address) {
+    return { address: address as `0x${string}`, abi: accountLensAbi };
+}
+
+export function getEVCContract(address: Address) {
+    return { address: address as `0x${string}`, abi: evcAbi };
+}
+
 // Re-export RPC manager functions for backward compatibility and convenience
 export { getRPCUrl, getAllRPCUrls, executeWithRPCRotation } from "./rpcManager";
 
@@ -81,7 +97,7 @@ export const getChain = (chainId: number) => {
 
 export const getAaveV3UiPoolDataProviderAddress = (chainId: number) => {
     const chainMap: Record<number, string> = {
-        1: AaveV3Ethereum.UI_POOL_DATA_PROVIDER,
+        1: "0x91c0eA31b49B69Ea18607702c5d9aC360bf3dE7d", // AaveV3Ethereum.UI_POOL_DATA_PROVIDER,
         10: AaveV3Optimism.UI_POOL_DATA_PROVIDER,
         42161: AaveV3Arbitrum.UI_POOL_DATA_PROVIDER,
         137: AaveV3Polygon.UI_POOL_DATA_PROVIDER,
@@ -142,6 +158,40 @@ export const getAaveV3ProtocolDataProviderAddress = (chainId: number) => {
         534352: "0xa99F4E69acF23C6838DE90dD1B5c02EA928A53ee",
         43114: "0x7F23D86Ee20D869112572136221e173428DD740B",
         56: "0x41585C50524fb8c3899B43D7D797d9486AAc94DB",
+    };
+    const address = chainMap[chainId] || "";
+    return address;
+};
+
+export const getEulerEVCAddress = (chainId: number) => {
+    const chainMap: Record<number, string> = {
+        1: "0x0C9a3dd6b8F28529d72d7f9cE918D493519EE383",
+        10: "0xbfB28650Cd13CE879E7D56569Ed4715c299823E4",
+        42161: "0x6302ef0F34100CDDFb5489fbcB6eE1AA95CD1066",
+        137: "0xa1C13F5c4929521F0bf31cBE03025cb75C214DCB",
+        8453: "0x5301c7dD20bD945D2013b48ed0DEE3A284ca8989",
+        100: "0xD1446CDaa29b342C04c6162023f3A645CB318736",
+        59144: "0xd8CeCEe9A04eA3d941a959F68fb4486f23271d09",
+        534352: "",
+        43114: "0xddcbe30A761Edd2e19bba930A977475265F36Fa1",
+        56: "0xb2E5a73CeE08593d1a076a2AE7A6e02925a640ea",
+    };
+    const address = chainMap[chainId] || "";
+    return address;
+};
+
+export const getEulerAccountLensAddress = (chainId: number) => {
+    const chainMap: Record<number, string> = {
+        1: "0x8F59c64fA1Fb2a57e9D084ab3481a13e7db68753",
+        10: "0xA932bF52EB25Ff4Cf7C1Cc4193992df699E001AE",
+        42161: "0x032F247D272BF573F094ea4670281Bee11BAa559",
+        137: "0x766989B70F2561Bb724671Cc95B5a13345438f1f",
+        8453: "0x2f5d8dF1C98f84d8844A091F855a873B0d22a50b",
+        100: "0x88dba8F560b7AC7C0Fa58Ec515E76e1577E43aBb",
+        59144: "0x48Ab6Cd0667C84766C0aaE6CDa657F565C6Fc3f9",
+        534352: "",
+        43114: "0xECe15aF37c8C5aBD931d63F31cF696F8942A77E4",
+        56: "0x505f3214DF11F3e7C7351e7C262E2bA1459fea60",
     };
     const address = chainMap[chainId] || "";
     return address;

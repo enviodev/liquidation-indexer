@@ -75,10 +75,10 @@ class RPCRequestQueue {
         `(active: ${this.activeRequests}/${this.maxConcurrent})`
       );
     } else {
-      console.log(
-        `[Throttle] Chain ${this.chainId}: Executing request ` +
-        `(active: ${this.activeRequests}/${this.maxConcurrent})`
-      );
+      // console.log(
+      //   `[Throttle] Chain ${this.chainId}: Executing request ` +
+      //   `(active: ${this.activeRequests}/${this.maxConcurrent})`
+      // );
     }
 
     try {
@@ -119,11 +119,11 @@ class RPCRequestQueue {
   private onRequestComplete(): void {
     this.activeRequests--;
 
-    console.log(
-      `[Throttle] Chain ${this.chainId}: Request complete ` +
-      `(active: ${this.activeRequests}/${this.maxConcurrent}, ` +
-      `queued: ${this.queue.length})`
-    );
+    // console.log(
+    //   `[Throttle] Chain ${this.chainId}: Request complete ` +
+    //   `(active: ${this.activeRequests}/${this.maxConcurrent}, ` +
+    //   `queued: ${this.queue.length})`
+    // );
 
     // Process next request in queue if available
     if (this.queue.length > 0 && this.activeRequests < this.maxConcurrent) {
