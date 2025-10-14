@@ -228,6 +228,7 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     "Aave",
     BigInt(event.block.timestamp)
   );
+  console.log("collateralMarketDetails for collateral at block", event.params.collateralAsset, event.block.number, collateralMarketDetails);
 
   const generalized: GeneralizedLiquidation = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
@@ -244,9 +245,12 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     seizedAssets: event.params.liquidatedCollateralAmount,
     seizedAssetsUSD: seizedAssetsUSD,
     positionSnapshot_id: undefined,
+    liqLtv: collateralMarketDetails.ltv,
+    closingFactor: collateralMarketDetails.cf,
+    liqInc: collateralMarketDetails.liq_inc,
+    reserveFactor: collateralMarketDetails.reserve_factor,
   };
   context.GeneralizedLiquidation.set(generalized);
-  console.log("GeneralizedLiquidation set")
 
   // Create position snapshot
   const snapshotId = `${event.chainId}_${event.block.number}_${event.logIndex}_snapshot`;
@@ -275,7 +279,6 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
       liquidation_id: generalized.id,
     };
     context.PositionSnapshot.set(positionSnapshot);
-    console.log("PositionSnapshot set")
     // Create PositionCollateral entities
     for (const collateral of snapshotData.collaterals) {
       context.PositionCollateral.set({
@@ -290,7 +293,6 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
         isSeized: collateral.isSeized,
       });
     }
-    console.log("PositionCollateral set")
     // Create PositionDebt entities
     for (const debt of snapshotData.debts) {
       context.PositionDebt.set({
@@ -304,13 +306,11 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
         isRepaid: debt.isRepaid,
       });
     }
-    console.log("PositionDebt set")
     // Link snapshot to liquidation
     context.GeneralizedLiquidation.set({
       ...generalized,
       positionSnapshot_id: snapshotId,
     });
-    console.log("EnhancedGeneralizedLiquidation set")
   } catch (error) {
     context.log.error(
       `Failed to create position snapshot for liquidation ${generalized.id}`,
@@ -349,7 +349,6 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     totalCount: BigInt(existingGlobal?.totalCount ?? 0n) + 1n,
   };
   context.LiquidationStats.set(global);
-  console.log("Finished AaveLiquidation")
 });
 
 EulerFactory.ProxyCreated.handler(async ({ event, context }) => {
@@ -531,6 +530,10 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
     seizedAssets: BigInt(event.params.yieldBalance),
     seizedAssetsUSD: Number(yieldBalanceUSD.price) / 1e18,
     positionSnapshot_id: undefined,
+    liqLtv: 0n,
+    closingFactor: 0n,
+    liqInc: 0n,
+    reserveFactor: 0n,
   };
   context.GeneralizedLiquidation.set(generalized);
 

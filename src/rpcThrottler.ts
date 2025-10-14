@@ -64,22 +64,6 @@ class RPCRequestQueue {
    */
   private async executeImmediate<T>(operation: () => Promise<T>): Promise<T> {
     this.activeRequests++;
-    
-    // Wait for rate limit token before executing
-    const waitTime = await this.tokenBucket.waitForToken();
-    
-    if (waitTime > 0) {
-      console.log(
-        `[Throttle] Chain ${this.chainId}: Rate limited. ` +
-        `Waited ${Math.round(waitTime)}ms before executing ` +
-        `(active: ${this.activeRequests}/${this.maxConcurrent})`
-      );
-    } else {
-      // console.log(
-      //   `[Throttle] Chain ${this.chainId}: Executing request ` +
-      //   `(active: ${this.activeRequests}/${this.maxConcurrent})`
-      // );
-    }
 
     try {
       const result = await operation();
@@ -95,21 +79,6 @@ class RPCRequestQueue {
   private async queueRequest<T>(operation: () => Promise<T>): Promise<T> {
     return new Promise<T>((resolve, reject) => {
       this.queue.push({ operation, resolve, reject });
-      
-      console.log(
-        `[Throttle] Chain ${this.chainId}: Request queued ` +
-        `(active: ${this.activeRequests}/${this.maxConcurrent}, ` +
-        `queued: ${this.queue.length})`
-      );
-
-      // Warning for large queues
-      if (this.queue.length > 50) {
-        console.warn(
-          `[Throttle] Chain ${this.chainId}: Large queue detected ` +
-          `(${this.queue.length} requests waiting). ` +
-          `Consider increasing RPC_MAX_CONCURRENT_${this.chainId} or adding more RPCs.`
-        );
-      }
     });
   }
 
@@ -118,12 +87,6 @@ class RPCRequestQueue {
    */
   private onRequestComplete(): void {
     this.activeRequests--;
-
-    // console.log(
-    //   `[Throttle] Chain ${this.chainId}: Request complete ` +
-    //   `(active: ${this.activeRequests}/${this.maxConcurrent}, ` +
-    //   `queued: ${this.queue.length})`
-    // );
 
     // Process next request in queue if available
     if (this.queue.length > 0 && this.activeRequests < this.maxConcurrent) {
@@ -142,22 +105,6 @@ class RPCRequestQueue {
     }
 
     this.activeRequests++;
-
-    console.log(
-      `[Throttle] Chain ${this.chainId}: Processing queued request ` +
-      `(active: ${this.activeRequests}/${this.maxConcurrent}, ` +
-      `remaining: ${this.queue.length})`
-    );
-
-    // Wait for rate limit token before executing
-    const waitTime = await this.tokenBucket.waitForToken();
-    
-    if (waitTime > 0) {
-      console.log(
-        `[Throttle] Chain ${this.chainId}: Rate limited on queue processing. ` +
-        `Waited ${Math.round(waitTime)}ms`
-      );
-    }
 
     // Execute the queued operation
     nextRequest.operation()
@@ -260,13 +207,6 @@ class RPCThrottleManager {
       const maxConcurrent = this.getMaxConcurrentForChain(chainId);
       queue = new RPCRequestQueue(chainId, maxConcurrent);
       this.queues.set(chainId, queue);
-      
-      const rateLimit = queue.getStats().rateLimit;
-      console.log(
-        `[Throttle] Initialized queue for chain ${chainId}:\n` +
-        `  - Max Concurrent: ${maxConcurrent} requests\n` +
-        `  - Rate Limit: ${rateLimit.refillRate} req/sec (burst: ${rateLimit.capacity})`
-      );
     }
 
     return queue;

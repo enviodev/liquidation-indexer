@@ -83,12 +83,12 @@ export class TokenBucket {
     const tokensNeeded = 1 - this.tokens;
     const waitTimeMs = (tokensNeeded / this.refillRate) * 1000;
 
-    console.log(
-      `[RateLimit] ${this.identifier}: Rate limit reached. ` +
-      `Waiting ${Math.round(waitTimeMs)}ms for token. ` +
-      `(tokens: ${this.tokens.toFixed(2)}/${this.capacity}, ` +
-      `rate: ${this.refillRate}/sec)`
-    );
+    // console.log(
+    //   `[RateLimit] ${this.identifier}: Rate limit reached. ` +
+    //   `Waiting ${Math.round(waitTimeMs)}ms for token. ` +
+    //   `(tokens: ${this.tokens.toFixed(2)}/${this.capacity}, ` +
+    //   `rate: ${this.refillRate}/sec)`
+    // );
 
     // Wait for token to be available
     await new Promise(resolve => setTimeout(resolve, waitTimeMs));
