@@ -228,7 +228,7 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     "Aave",
     BigInt(event.block.timestamp)
   );
-  console.log("collateralMarketDetails for collateral at block", event.params.collateralAsset, event.block.number, collateralMarketDetails);
+  // console.log("collateralMarketDetails for collateral at block", event.params.collateralAsset, event.block.number, collateralMarketDetails);
 
   const generalized: GeneralizedLiquidation = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
