@@ -31,63 +31,63 @@ contracts:
           transaction_fields:
             - hash
 networks:
-#   - id: 1
-#     start_block: 0
-#     contracts:
-#       - name: AaveProxy
-#         address:
-#           - 0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2
+  - id: 1
+    start_block: 0
+    contracts:
+      - name: AaveProxy
+        address:
+          - 0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2
   - id: 10
     start_block: 0
     contracts:
       - name: AaveProxy
         address:
           - 0x794a61358D6845594F94dc1DB02A252b5b4814aD
-#   - id: 42161
-#     start_block: 0
-#     contracts:
-#       - name: AaveProxy
-#         address:
-#           - 0x794a61358D6845594F94dc1DB02A252b5b4814aD
-#   - id: 137
-#     start_block: 0
-#     contracts:
-#       - name: AaveProxy
-#         address:
-#           - 0x794a61358D6845594F94dc1DB02A252b5b4814aD
-#   - id: 8453
-#     start_block: 0
-#     contracts:
-#       - name: AaveProxy
-#         address:
-#           - 0xA238Dd80C259a72e81d7e4664a9801593F98d1c5
-#   - id: 100
-#     start_block: 0
-#     contracts:
-#       - name: AaveProxy
-#         address:
-#           - 0xb50201558B00496A145fE76f7424749556E326D8
-#   - id: 59144
-#     start_block: 0
-#     contracts:
-#       - name: AaveProxy
-#         address:
-#           - 0xc47b8C00b0f69a36fa203Ffeac0334874574a8Ac
-#   - id: 534352
-#     start_block: 0
-#     contracts:
-#       - name: AaveProxy
-#         address:
-#           - 0x11fCfe756c05AD438e312a7fd934381537D3cFfe
-#   - id: 43114
-#     start_block: 0
-#     contracts:
-#       - name: AaveProxy
-#         address:
-#           - 0x794a61358D6845594F94dc1DB02A252b5b4814aD
-#   - id: 56
-#     start_block: 0
-#     contracts:
-#       - name: AaveProxy
-#         address:
-#           - 0x6807dc923806fE8Fd134338EABCA509979a7e0cB
+  - id: 42161
+    start_block: 0
+    contracts:
+      - name: AaveProxy
+        address:
+          - 0x794a61358D6845594F94dc1DB02A252b5b4814aD
+  - id: 137
+    start_block: 0
+    contracts:
+      - name: AaveProxy
+        address:
+          - 0x794a61358D6845594F94dc1DB02A252b5b4814aD
+  - id: 8453
+    start_block: 0
+    contracts:
+      - name: AaveProxy
+        address:
+          - 0xA238Dd80C259a72e81d7e4664a9801593F98d1c5
+  - id: 100
+    start_block: 0
+    contracts:
+      - name: AaveProxy
+        address:
+          - 0xb50201558B00496A145fE76f7424749556E326D8
+  - id: 59144
+    start_block: 0
+    contracts:
+      - name: AaveProxy
+        address:
+          - 0xc47b8C00b0f69a36fa203Ffeac0334874574a8Ac
+  - id: 534352
+    start_block: 0
+    contracts:
+      - name: AaveProxy
+        address:
+          - 0x11fCfe756c05AD438e312a7fd934381537D3cFfe
+  - id: 43114
+    start_block: 0
+    contracts:
+      - name: AaveProxy
+        address:
+          - 0x794a61358D6845594F94dc1DB02A252b5b4814aD
+  - id: 56
+    start_block: 0
+    contracts:
+      - name: AaveProxy
+        address:
+          - 0x6807dc923806fE8Fd134338EABCA509979a7e0cB
