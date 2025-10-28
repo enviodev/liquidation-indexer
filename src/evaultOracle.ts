@@ -55,7 +55,7 @@ export const getQuote = experimental_createEffect(
       price = results[0];
     } catch (error) {
       console.error(
-        `All RPC attempts failed for getQuote on chain ${chainId}. ` +
+        `All RPC attempts failed for getQuote on chain ${chainId}, block ${blockNumber}. ` +
         `Returning default value. Error: ${error}`
       );
       price = 0;

@@ -37,42 +37,77 @@ networks:
       - name: AaveProxy
         address:
           - 0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2
+      - name: EulerFactory
+        address:
+          - 0x29a56a1b8214D9Cf7c5561811750D5cBDb45CC8e
+      - name: EulerVaultProxy
+        address:
   - id: 10
     start_block: 0
     contracts:
       - name: AaveProxy
         address:
           - 0x794a61358D6845594F94dc1DB02A252b5b4814aD
+      - name: EulerFactory
+        address:
+          - 0x7943231a109703937bB7fb3D4dfB55D824deDe99
+      - name: EulerVaultProxy
+        address:
   - id: 42161
     start_block: 0
     contracts:
       - name: AaveProxy
         address:
           - 0x794a61358D6845594F94dc1DB02A252b5b4814aD
+      - name: EulerFactory
+        address:
+          - 0x78Df1CF5bf06a7f27f2ACc580B934238C1b80D50
+      - name: EulerVaultProxy
+        address:
   - id: 137
     start_block: 0
     contracts:
       - name: AaveProxy
         address:
           - 0x794a61358D6845594F94dc1DB02A252b5b4814aD
+      - name: EulerFactory
+        address:
+          - 0x3f23552A0ABd8E01AFf5E8704E8A5671A80432B5
+      - name: EulerVaultProxy
+        address:
   - id: 8453
     start_block: 0
     contracts:
       - name: AaveProxy
         address:
           - 0xA238Dd80C259a72e81d7e4664a9801593F98d1c5
+      - name: EulerFactory
+        address:
+          - 0x7F321498A801A191a93C840750ed637149dDf8D0
+      - name: EulerVaultProxy
+        address:
   - id: 100
     start_block: 0
     contracts:
       - name: AaveProxy
         address:
           - 0xb50201558B00496A145fE76f7424749556E326D8
+      - name: EulerFactory
+        address:
+          - 0x4CB405C3515841c9BBFB363CD3105479e15ce5B0
+      - name: EulerVaultProxy
+        address:
   - id: 59144
     start_block: 0
     contracts:
       - name: AaveProxy
         address:
           - 0xc47b8C00b0f69a36fa203Ffeac0334874574a8Ac
+      - name: EulerFactory
+        address:
+          - 0x84711986Fd3BF0bFe4a8e6d7f4E22E67f7f27F04
+      - name: EulerVaultProxy
+        address:
   - id: 534352
     start_block: 0
     contracts:
@@ -85,9 +120,19 @@ networks:
       - name: AaveProxy
         address:
           - 0x794a61358D6845594F94dc1DB02A252b5b4814aD
+      - name: EulerFactory
+        address:
+          - 0xaf4B4c18B17F6a2B32F6c398a3910bdCD7f26181
+      - name: EulerVaultProxy
+        address:
   - id: 56
     start_block: 0
     contracts:
       - name: AaveProxy
         address:
           - 0x6807dc923806fE8Fd134338EABCA509979a7e0cB
+      - name: EulerFactory
+        address:
+          - 0x7F53E2755eB3c43824E162F7F6F087832B9C9Df6
+      - name: EulerVaultProxy
+        address:

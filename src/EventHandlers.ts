@@ -21,6 +21,8 @@ import { getQuote } from "./evaultOracle";
 import { getAssetPrice } from "./aaveOracle";
 import { getMorphoHistoricalPrice } from "./morphoOracle";
 import { getAaveV3ReserveData } from "./aaveMetadata";
+import { getEulerOracleAddress, getEulerUSDAddress } from "./utils";
+import { getEulerVaultLtvInfo } from "./eulerVaultInfo";
 
 AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
   const entity: AaveProxy_LiquidationCall = {
@@ -228,7 +230,6 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     "Aave",
     BigInt(event.block.timestamp)
   );
-  // console.log("collateralMarketDetails for collateral at block", event.params.collateralAsset, event.block.number, collateralMarketDetails);
 
   const generalized: GeneralizedLiquidation = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
@@ -245,12 +246,11 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     seizedAssets: event.params.liquidatedCollateralAmount,
     seizedAssetsUSD: seizedAssetsUSD,
     positionSnapshot_id: undefined,
-    liqLtv: collateralMarketDetails.ltv,
-    closingFactor: collateralMarketDetails.cf,
-    liqInc: collateralMarketDetails.liq_inc,
-    reserveFactor: collateralMarketDetails.reserve_factor,
+    liqLtv: Number(collateralMarketDetails.ltv) / 1e4,
+    closingFactor: undefined,
+    liqInc: Number(collateralMarketDetails.liq_inc) / 1e4,
+    reserveFactor: Number(collateralMarketDetails.reserve_factor) / 1e4,
   };
-  context.GeneralizedLiquidation.set(generalized);
 
   // Create position snapshot
   const snapshotId = `${event.chainId}_${event.block.number}_${event.logIndex}_snapshot`;
@@ -310,6 +310,7 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     context.GeneralizedLiquidation.set({
       ...generalized,
       positionSnapshot_id: snapshotId,
+      closingFactor: seizedAssetsUSD / snapshotData.totalDebtUSD
     });
   } catch (error) {
     context.log.error(
@@ -356,6 +357,7 @@ EulerFactory.ProxyCreated.handler(async ({ event, context }) => {
     const evaultMetadata = await context.effect(getEVaultMetadata, {
       vaultAddress: event.params.proxy,
       chainId: event.chainId,
+      blockNumber: BigInt(event.block.number),
     });
     const entity: EVaultDetails = {
       id: `${event.chainId}_${event.params.proxy}`,
@@ -433,6 +435,9 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
 
   context.EulerVaultProxy_Liquidate.set(entity);
 
+  const usdAddress = getEulerUSDAddress(event.chainId);
+  // const eulerOracleAddress = getEulerOracleAddress(event.chainId);
+
   const collateralVault = await context.EVaultDetails.get(
     `${event.chainId}_${event.params.collateral}`
   );
@@ -458,7 +463,7 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
     oracle: collateralVault.oracle,
     inAmount: BigInt(event.params.yieldBalance),
     base: collateralVault.asset,
-    quote: collateralVault.unitOfAccount,
+    quote: usdAddress,
     chainId: event.chainId,
     blockNumber: BigInt(event.block.number),
   });
@@ -467,7 +472,7 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
     oracle: debtVault.oracle,
     inAmount: BigInt(event.params.repayAssets),
     base: debtVault.asset,
-    quote: debtVault.unitOfAccount,
+    quote: usdAddress,
     chainId: event.chainId,
     blockNumber: BigInt(event.block.number),
   });
@@ -515,6 +520,35 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
     BigInt(event.block.timestamp)
   );
 
+  // Fetch vault LTV info before creating snapshot
+  let ltvInfo;
+  try {
+    ltvInfo = await context.effect(getEulerVaultLtvInfo, {
+      debtVaultAddress: event.srcAddress,
+      collateralVaultAddress: event.params.collateral,
+      chainId: event.chainId,
+      blockNumber: BigInt(event.block.number),
+    });
+  } catch (error) {
+    context.log.warn(
+      `Failed to fetch LTV info for Euler liquidation, using defaults`,
+      {
+        debtVault: event.srcAddress,
+        collateralVault: event.params.collateral,
+        chainId: event.chainId,
+        error,
+      }
+    );
+    // Use default values if LTV info fetch fails
+    ltvInfo = {
+      liquidationLTV: 0n,
+      borrowLTV: 0n,
+      initialLiquidationLTV: 0n,
+      targetTimestamp: 0n,
+      rampDuration: 0n,
+    };
+  }
+
   const generalized: GeneralizedLiquidation = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     chainId: event.chainId,
@@ -530,10 +564,10 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
     seizedAssets: BigInt(event.params.yieldBalance),
     seizedAssetsUSD: Number(yieldBalanceUSD.price) / 1e18,
     positionSnapshot_id: undefined,
-    liqLtv: 0n,
-    closingFactor: 0n,
-    liqInc: 0n,
-    reserveFactor: 0n,
+    liqLtv: Number(ltvInfo.liquidationLTV) / 1e4,
+    closingFactor: 0,
+    liqInc: 0,
+    reserveFactor: 0,
   };
   context.GeneralizedLiquidation.set(generalized);
 
@@ -599,6 +633,8 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
     context.GeneralizedLiquidation.set({
       ...generalized,
       positionSnapshot_id: snapshotId,
+      closingFactor: (Number(repayAssetsUSD.price) / 1e18) / snapshotData.totalDebtUSD,
+      liqInc: (Number(yieldBalanceUSD.price) / 1e18) / (Number(repayAssetsUSD.price) / 1e18) - 1,
     });
 
   } catch (error) {

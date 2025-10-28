@@ -25,13 +25,51 @@ const aaveV3ProtocolDataProviderAbi = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../abis/AaveV3ProtocolDataProvider.json"), "utf8")
 );
 
+// Load default AccountLens ABI
 const accountLensAbi = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../abis/AccountLens.json"), "utf8")
+);
+
+// Load Arbitrum-specific AccountLens ABI
+const accountLensAbi_42161 = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../abis/AccountLens_42161.json"), "utf8")
+);
+
+// Load Base-specific AccountLens ABI
+const accountLensAbi_8453 = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../abis/AccountLens_8453.json"), "utf8")
+);
+
+// Load Avalanche-specific AccountLens ABI
+const accountLensAbi_43114 = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../abis/AccountLens_43114.json"), "utf8")
+);
+
+// Load BSC-specific AccountLens ABI
+const accountLensAbi_56 = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../abis/AccountLens_56.json"), "utf8")
 );
 
 const evcAbi = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../abis/EVC.json"), "utf8")
 );
+
+// Helper function to get the correct AccountLens ABI based on chain ID
+function getAccountLensAbi(chainId?: number): any {
+    if (chainId === 42161) {
+        return accountLensAbi_42161;
+    }
+    if (chainId === 8453) {
+        return accountLensAbi_8453;
+    }
+    if (chainId === 43114) {
+        return accountLensAbi_43114;
+    }
+    if (chainId === 56) {
+        return accountLensAbi_56;
+    }
+    return accountLensAbi;
+}
 
 export function getERC20Contract(address: Address) {
     return { address: address as `0x${string}`, abi: erc20Abi };
@@ -64,8 +102,8 @@ export function getAaveV3ProtocolDataProviderContract(address: Address) {
     return { address: address as `0x${string}`, abi: aaveV3ProtocolDataProviderAbi };
 }
 
-export function getAccountLensContract(address: Address) {
-    return { address: address as `0x${string}`, abi: accountLensAbi };
+export function getAccountLensContract(address: Address, chainId?: number) {
+    return { address: address as `0x${string}`, abi: getAccountLensAbi(chainId) };
 }
 
 export function getEVCContract(address: Address) {
@@ -184,7 +222,7 @@ export const getEulerAccountLensAddress = (chainId: number) => {
     const chainMap: Record<number, string> = {
         1: "0x8F59c64fA1Fb2a57e9D084ab3481a13e7db68753",
         10: "0xA932bF52EB25Ff4Cf7C1Cc4193992df699E001AE",
-        42161: "0x032F247D272BF573F094ea4670281Bee11BAa559",
+        42161: "0x48263ed0339Bd229578785FaD52627080D09ddBc",
         137: "0x766989B70F2561Bb724671Cc95B5a13345438f1f",
         8453: "0x2f5d8dF1C98f84d8844A091F855a873B0d22a50b",
         100: "0x88dba8F560b7AC7C0Fa58Ec515E76e1577E43aBb",
@@ -192,6 +230,57 @@ export const getEulerAccountLensAddress = (chainId: number) => {
         534352: "",
         43114: "0xECe15aF37c8C5aBD931d63F31cF696F8942A77E4",
         56: "0x505f3214DF11F3e7C7351e7C262E2bA1459fea60",
+    };
+    const address = chainMap[chainId] || "";
+    return address;
+};
+
+export const getEulerUSDAddress = (chainId: number) => {
+    const chainMap: Record<number, string> = {
+        1: "0x0000000000000000000000000000000000000348",
+        10: "0x0000000000000000000000000000000000000348",
+        42161: "0x0000000000000000000000000000000000000348",
+        137: "0x0000000000000000000000000000000000000348",
+        8453: "0x0000000000000000000000000000000000000348",
+        100: "0x0000000000000000000000000000000000000348",
+        59144: "0x0000000000000000000000000000000000000348",
+        534352: "0x0000000000000000000000000000000000000348",
+        43114: "0x0000000000000000000000000000000000000348",
+        56: "0x0000000000000000000000000000000000000348",
+    };
+    const address = chainMap[chainId] || "";
+    return address;
+};
+
+export const getEulerOracleAddress = (chainId: number) => {
+    const chainMap: Record<number, string> = {
+        1: "0x83B3b76873D36A28440cF53371dF404c42497136",
+        10: "",
+        42161: "",
+        137: "",
+        8453: "",
+        100: "",
+        59144: "",
+        534352: "",
+        43114: "",
+        56: "",
+    };
+    const address = chainMap[chainId] || "";
+    return address;
+};
+
+export const getEulerVaultLensAddress = (chainId: number) => {
+    const chainMap: Record<number, string> = {
+        1: "0xE4044D26C879f58Acc97f27db04c1686fa9ED29E",
+        10: "0x01BDeaF6b983d58c943D35CEaD7aF05fc3Fecb11",
+        42161: "0xFAbaF88Ec8eBb841905efbc2C10e78096128C57E",
+        137: "0x5d732df9A01fFF01Aeac5f6A1DB0C5DFcdC826A5",
+        8453: "0x161d35DfEb8C1023C42DcD1c930d7F9cDe5b867E",
+        100: "0x34F5FE8A0327D6472cd87fE8412aC7D918977dDD",
+        59144: "0x93f8beaaDBa45459f70aE99095927A73c396eac0",
+        534352: "",
+        43114: "0xFda61DBbD2D17140cb492a4fC9Cb9A0052C6CbEB",
+        56: "0x3D32Ec533a9c67F149100E5c63c2A7302266fE9F",
     };
     const address = chainMap[chainId] || "";
     return address;

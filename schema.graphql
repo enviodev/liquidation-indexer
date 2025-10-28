@@ -74,10 +74,10 @@ type GeneralizedLiquidation {
   seizedAssets: BigInt
   seizedAssetsUSD: Float
   positionSnapshot_id: ID
-  liqLtv: BigInt
-  closingFactor: BigInt
-  liqInc: BigInt
-  reserveFactor: BigInt
+  liqLtv: Float
+  closingFactor: Float
+  liqInc: Float
+  reserveFactor: Float
 }
 
 type LiquidationStats {

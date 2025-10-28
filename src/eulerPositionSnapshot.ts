@@ -44,7 +44,7 @@ export const getEulerUserPositionData = experimental_createEffect(
       blockNumber: S.bigint,
     },
     output: getUserPositionDataSchema,
-    cache: true,
+    cache: false,
   },
   async ({ input }) => {
     const { userAddress, chainId, blockNumber } = input;
@@ -62,7 +62,8 @@ export const getEulerUserPositionData = experimental_createEffect(
     }
 
     const accountLensContract = getAccountLensContract(
-      accountLensAddress as `0x${string}`
+      accountLensAddress as `0x${string}`,
+      chainId
     );
 
     try {
@@ -86,9 +87,7 @@ export const getEulerUserPositionData = experimental_createEffect(
       //   accountRewardInfo: [...]
       // }
       const accountMultipleVaultsInfo = result as any;
-      console.log("accountMultipleVaultsInfo", accountMultipleVaultsInfo);
       const vaultAccountInfos = accountMultipleVaultsInfo.vaultAccountInfo || [];
-      console.log("vaultAccountInfos", vaultAccountInfos);
 
       // Map the raw data to our schema format
       const mappedVaultInfos = vaultAccountInfos.map((vaultInfo: any) => ({

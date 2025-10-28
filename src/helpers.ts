@@ -262,7 +262,6 @@ export async function processEulerPositionSnapshot(
   repaidVault: string,
   snapshotId: string
 ): Promise<PositionSnapshotData> {
-  
   // Fetch user position data from AccountLens
   const positionData = await context.effect(getEulerUserPositionData, {
     userAddress,

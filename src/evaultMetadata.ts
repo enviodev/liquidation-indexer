@@ -21,13 +21,14 @@ export const getEVaultMetadata = experimental_createEffect(
     input: {
       vaultAddress: S.string,
       chainId: S.number,
+      blockNumber: S.bigint,
     },
     output: EVaultMetadataSchema,
     // Enable caching to avoid duplicated calls
     cache: false,
   },
   async ({ input }) => {
-    const { vaultAddress, chainId } = input
+    const { vaultAddress, chainId, blockNumber } = input
 
     const evault = getEVaultContract(vaultAddress as `0x${string}`)
 
@@ -45,6 +46,7 @@ export const getEVaultMetadata = experimental_createEffect(
         async (client) => {
           return await client.multicall({
             allowFailure: false,
+            blockNumber: BigInt(blockNumber),
             contracts: [
               {
                 ...evault,
@@ -83,6 +85,25 @@ export const getEVaultMetadata = experimental_createEffect(
       );
       
       [asset, name, symbol, oracle, unitOfAccount, decimals] = results;
+      if (oracle === "0x0000000000000000000000000000000000000000") {
+        const oracleResult = await executeWithRPCRotation(
+          chainId,
+          async (client) => {
+            return await client.multicall({
+              allowFailure: false,
+              contracts: [
+                {
+                  ...evault,
+                  functionName: "oracle",
+                  args: [],
+                },
+              ],
+            }) as [string];
+          },
+          { enableBatch: true, enableMulticall: true }
+        );
+        oracle = oracleResult[0];
+      }
     } catch (error) {
       console.error(
         `All RPC attempts failed for getEVaultMetadata on chain ${chainId}. ` +
