@@ -1,8 +1,22 @@
 import { Liquidator, Borrower } from "generated";
 import { getAaveUserPositionData } from "./aavePositionSnapshot";
 import { getEulerUserPositionData } from "./eulerPositionSnapshot";
+import { getMorphoUserPositionData, getMorphoOraclePrice } from "./morphoPositionSnapshot";
 import { getTokenDetails } from "./tokenDetails";
 import { getAssetPrice } from "./aaveOracle";
+import { getMorphoHistoricalPrice } from "./morphoOracle";
+import { executeWithRPCRotation } from "./utils";
+import * as fs from "fs";
+import * as path from "path";
+
+// Load Morpho Blue ABI
+const morphoBlueAbi = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "../abis/Morpho.json"), "utf8")
+);
+
+function getMorphoBlueContract(address: string) {
+  return { address: address as `0x${string}`, abi: morphoBlueAbi };
+}
 
 interface ProcessedCollateral {
   id: string;

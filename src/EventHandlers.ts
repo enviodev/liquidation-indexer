@@ -23,6 +23,7 @@ import { getMorphoHistoricalPrice } from "./morphoOracle";
 import { getAaveV3ReserveData } from "./aaveMetadata";
 import { getEulerOracleAddress, getEulerUSDAddress } from "./utils";
 import { getEulerVaultLtvInfo } from "./eulerVaultInfo";
+import { getMorphoUserPositionData, getMorphoOraclePrice } from "./morphoPositionSnapshot";
 
 AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
   const entity: AaveProxy_LiquidationCall = {
@@ -677,4 +678,342 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
     totalCount: BigInt(existingGlobal2?.totalCount ?? 0n) + 1n,
   };
   context.LiquidationStats.set(global2);
+});
+
+Morpho.CreateMarket.handler(async ({ event, context }) => {
+  const entity: Morpho_CreateMarketEntity = {
+    id: `${event.chainId}_${event.params.id}`,
+    chainId: event.chainId,
+    timestamp: BigInt(event.block.timestamp),
+    loanToken: event.params.marketParams[0],
+    collateralToken: event.params.marketParams[1],
+    oracle: event.params.marketParams[2],
+    irm: event.params.marketParams[3],
+    lltv: event.params.marketParams[4],
+  };
+
+  try {
+    const loanTokenMetadata = await context.effect(getTokenDetails, {
+      tokenAddress: event.params.marketParams[0],
+      chainId: event.chainId,
+    });
+    context.Token.set({
+      id: `${event.chainId}_${event.params.marketParams[0]}`,
+      chainId: event.chainId,
+      name: loanTokenMetadata.name,
+      symbol: loanTokenMetadata.symbol,
+      decimals: loanTokenMetadata.decimals,
+    });
+  } catch (error) {
+    context.log.error(
+      `Failed to fetch loan token metadata ${event.params.marketParams[0]}`,
+      {
+        tokenAddress: event.params.marketParams[0],
+        chainId: event.chainId,
+        err: error,
+      }
+    );
+    return;
+  }
+
+  try {
+    const collateralTokenMetadata = await context.effect(getTokenDetails, {
+      tokenAddress: event.params.marketParams[1],
+      chainId: event.chainId,
+    });
+    context.Token.set({
+      id: `${event.chainId}_${event.params.marketParams[1]}`,
+      chainId: event.chainId,
+      name: collateralTokenMetadata.name,
+      symbol: collateralTokenMetadata.symbol,
+      decimals: collateralTokenMetadata.decimals,
+    });
+  } catch (error) {
+    context.log.error(
+      `Failed to fetch collateral token metadata ${event.params.marketParams[1]}`,
+      {
+        tokenAddress: event.params.marketParams[1],
+        chainId: event.chainId,
+        err: error,
+      }
+    );
+    return;
+  }
+
+  context.Morpho_CreateMarket.set(entity);
+});
+
+Morpho.Liquidate.handler(async ({ event, context }) => {
+  const entity: Morpho_Liquidate = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    chainId: event.chainId,
+    timestamp: BigInt(event.block.timestamp),
+    id_bytes32: event.params.id,
+    caller: event.params.caller,
+    borrower: event.params.borrower,
+    repaidAssets: event.params.repaidAssets,
+    repaidShares: event.params.repaidShares,
+    seizedAssets: event.params.seizedAssets,
+    badDebtAssets: event.params.badDebtAssets,
+    badDebtShares: event.params.badDebtShares,
+  };
+
+  context.Morpho_Liquidate.set(entity);
+
+  const market = await context.Morpho_CreateMarket.get(`${event.chainId}_${event.params.id}`);
+  if (!market) {
+    context.log.error("Market metadata missing for liquidation", {
+      marketId: event.params.id,
+      chainId: event.chainId,
+    });
+    return;
+  }
+
+  const collateralAsset = market.collateralToken;
+  const debtAsset = market.loanToken;
+
+  if (!collateralAsset || !debtAsset) {
+    context.log.error("Market assets not set", {
+      marketId: event.params.id,
+      chainId: event.chainId,
+      collateralAsset,
+      debtAsset,
+    });
+    return;
+  }
+
+  const collateralToken = await context.Token.get(
+    `${event.chainId}_${collateralAsset}`
+  );
+  if (!collateralToken) {
+    context.log.error("Collateral token not loaded", {
+      tokenAddress: collateralAsset,
+      chainId: event.chainId,
+    });
+    return;
+  }
+
+  const debtToken = await context.Token.get(`${event.chainId}_${debtAsset}`);
+  if (!debtToken) {
+    context.log.error("Debt token not loaded", {
+      tokenAddress: debtAsset,
+      chainId: event.chainId,
+    });
+    return;
+  }
+
+  const collateralSymbol = collateralToken.symbol || collateralAsset;
+  const debtSymbol = debtToken.symbol || debtAsset;
+
+  const collateralDecimals = collateralToken.decimals || 18;
+  const debtDecimals = debtToken.decimals || 18;
+
+  // Fetch historical prices from Morpho API for USD calculations
+  let collateralPrice = { price: 0 };
+  let debtPrice = { price: 0 };
+
+  try {
+    collateralPrice = await context.effect(getMorphoHistoricalPrice, {
+      assetAddress: collateralAsset,
+      chainId: event.chainId,
+      timestamp: BigInt(event.block.timestamp),
+    });
+  } catch (error) {
+    context.log.warn(`Failed to fetch Morpho collateral price, using 0`, {
+      tokenAddress: collateralAsset,
+      chainId: event.chainId,
+      err: error,
+    });
+  }
+
+  try {
+    debtPrice = await context.effect(getMorphoHistoricalPrice, {
+      assetAddress: debtAsset,
+      chainId: event.chainId,
+      timestamp: BigInt(event.block.timestamp),
+    });
+  } catch (error) {
+    context.log.warn(`Failed to fetch Morpho debt price, using 0`, {
+      tokenAddress: debtAsset,
+      chainId: event.chainId,
+      err: error,
+    });
+  }
+
+  const seizedAssetsUSD =
+    (Number(event.params.seizedAssets) / 10 ** collateralDecimals) *
+    Number(collateralPrice.price);
+  const repaidAssetsUSD =
+    (Number(event.params.repaidAssets) / 10 ** debtDecimals) *
+    Number(debtPrice.price);
+
+  // Update liquidator data first to get the liquidator ID
+  const liquidatorId = await updateLiquidatorData(
+    context,
+    event.params.caller,
+    event.chainId,
+    "Morpho",
+    BigInt(event.block.timestamp)
+  );
+
+  // Update borrower data to get the borrower ID
+  const borrowerId = await updateBorrowerData(
+    context,
+    event.params.borrower,
+    event.chainId,
+    "Morpho",
+    BigInt(event.block.timestamp)
+  );
+
+  let preLiqCollateralAmount = 0n;
+  let preLiqBorrowAmount = 0n;
+  let preLiqSupplyShares = 0n;
+
+  try {const positionData = await context.effect(getMorphoUserPositionData, {
+    userAddress: event.params.borrower,
+    marketId: event.params.id,
+    morphoAddress: event.srcAddress,
+    chainId: event.chainId,
+    blockNumber: BigInt(event.block.number-1),
+  });
+  preLiqCollateralAmount = positionData.collateralAmount;
+  preLiqBorrowAmount = positionData.borrowAmount;
+  preLiqSupplyShares = positionData.supplyShares;
+
+  } catch (error) {
+    context.log.error(`Failed to fetch Morpho user position data`, {
+      error,
+      borrower: event.params.borrower,
+      marketId: event.params.id,
+      chainId: event.chainId,
+    });
+  }
+
+  let oraclePrice = { price: 0n };
+  try {oraclePrice = await context.effect(getMorphoOraclePrice, {
+    oracleAddress: market.oracle,
+    chainId: event.chainId,
+    blockNumber: BigInt(event.block.number-1),
+  });
+  } catch (error) {
+    context.log.error(`Failed to fetch Morpho oracle price`, {
+    error,
+    oracleAddress: market.oracle,
+    chainId: event.chainId,
+    blockNumber: BigInt(event.block.number-1),
+  });
+  }
+
+  const collateralValueInLoanTokens = (preLiqCollateralAmount * oraclePrice.price) / BigInt(1e36);
+  const ltv = Number(preLiqBorrowAmount) / Number(collateralValueInLoanTokens);
+
+  const totalCollateralUSD = (Number(preLiqCollateralAmount) / 10 ** collateralDecimals) * Number(collateralPrice.price)
+  const totalDebtUSD = (Number(preLiqBorrowAmount) / 10 ** debtDecimals) * Number(debtPrice.price)
+  let closingFactor = 0;
+
+  const LIQUIDATION_CURSOR = 0.3;
+  const MAX_LIQUIDATION_INCENTIVE_FACTOR = 1.15;
+  const WAD = 1;
+  const scaledLiqLtv = Number(market.lltv) / 1e18;
+  const liqInc = Math.min(
+      MAX_LIQUIDATION_INCENTIVE_FACTOR,
+      WAD / (WAD - LIQUIDATION_CURSOR * (WAD - scaledLiqLtv))
+  ) - 1;
+
+  if (totalDebtUSD > 0 && repaidAssetsUSD > 0) {
+    closingFactor = repaidAssetsUSD / totalDebtUSD;
+  } else {
+    closingFactor = Number(event.params.repaidAssets) / Number(preLiqBorrowAmount);
+  }
+
+  // Process position snapshot
+  const snapshotId = `${event.chainId}_${event.block.number}_${event.logIndex}_snapshot`;
+
+  const liquidationId = `${event.chainId}_${event.block.number}_${event.logIndex}`;
+    context.PositionSnapshot.set({
+      id: snapshotId,
+      chainId: event.chainId,
+      timestamp: BigInt(event.block.timestamp),
+      borrower: event.params.borrower,
+      protocol: "Morpho",
+      txHash: event.transaction.hash,
+      liquidation_id: liquidationId,
+      totalCollateralUSD: totalCollateralUSD,
+      totalDebtUSD: totalDebtUSD,
+      ltv: ltv,
+    });
+
+    context.PositionCollateral.set({
+      id: `${snapshotId}_col_0`,
+      positionSnapshot_id: snapshotId,
+      asset: collateralAsset,
+      symbol: collateralSymbol,
+      decimals: collateralDecimals,
+      amount: preLiqCollateralAmount,
+      amountUSD: totalCollateralUSD,
+      enabledAsCollateral: true,
+      isSeized: true,
+    });
+
+    context.PositionDebt.set({
+      id: `${snapshotId}_debt_0`,
+      positionSnapshot_id: snapshotId,
+      asset: debtAsset,
+      symbol: debtSymbol,
+      decimals: debtDecimals,
+      amount: preLiqBorrowAmount,
+      amountUSD: totalDebtUSD,
+      isRepaid: false,
+    });
+
+
+  const generalized: GeneralizedLiquidation = {
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    chainId: event.chainId,
+    timestamp: BigInt(event.block.timestamp),
+    protocol: "Morpho",
+    borrower_id: borrowerId,
+    liquidator_id: liquidatorId,
+    txHash: event.transaction.hash,
+    collateralAsset: collateralSymbol,
+    debtAsset: debtSymbol,
+    repaidAssets: event.params.repaidAssets,
+    repaidAssetsUSD: repaidAssetsUSD,
+    seizedAssets: event.params.seizedAssets,
+    seizedAssetsUSD: seizedAssetsUSD,
+    positionSnapshot_id: snapshotId,
+    liqLtv: scaledLiqLtv,
+    closingFactor: closingFactor,
+    liqInc: liqInc,
+    reserveFactor: 0,
+  };
+  context.GeneralizedLiquidation.set(generalized);
+
+  // Update per-chain stats
+  const perChainStatsId3 = `stats_${event.chainId}`;
+  const existingPerChain3 = await context.LiquidationStats.get(
+    perChainStatsId3
+  );
+  const perChain3: LiquidationStats = {
+    id: perChainStatsId3,
+    chainId: event.chainId,
+    aaveCount: BigInt(existingPerChain3?.aaveCount ?? 0n),
+    eulerCount: BigInt(existingPerChain3?.eulerCount ?? 0n),
+    morphoCount: BigInt(existingPerChain3?.morphoCount ?? 0n) + 1n,
+    totalCount: BigInt(existingPerChain3?.totalCount ?? 0n) + 1n,
+  };
+  context.LiquidationStats.set(perChain3);
+
+  // Update global stats
+  const globalId3 = `stats_global`;
+  const existingGlobal3 = await context.LiquidationStats.get(globalId3);
+  const global3: LiquidationStats = {
+    id: globalId3,
+    chainId: undefined,
+    aaveCount: BigInt(existingGlobal3?.aaveCount ?? 0n),
+    eulerCount: BigInt(existingGlobal3?.eulerCount ?? 0n),
+    morphoCount: BigInt(existingGlobal3?.morphoCount ?? 0n) + 1n,
+    totalCount: BigInt(existingGlobal3?.totalCount ?? 0n) + 1n,
+  };
+  context.LiquidationStats.set(global3);
 });

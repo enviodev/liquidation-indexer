@@ -42,6 +42,9 @@ networks:
           - 0x29a56a1b8214D9Cf7c5561811750D5cBDb45CC8e
       - name: EulerVaultProxy
         address:
+      - name: Morpho
+        address:
+          - 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb
   - id: 10
     start_block: 0
     contracts:
@@ -64,6 +67,9 @@ networks:
           - 0x78Df1CF5bf06a7f27f2ACc580B934238C1b80D50
       - name: EulerVaultProxy
         address:
+      - name: Morpho
+        address:
+          - 0x6c247b1F6182318877311737BaC0844bAa518F5e
   - id: 137
     start_block: 0
     contracts:
@@ -75,6 +81,9 @@ networks:
           - 0x3f23552A0ABd8E01AFf5E8704E8A5671A80432B5
       - name: EulerVaultProxy
         address:
+      - name: Morpho
+        address:
+          - 0x1bF0c2541F820E775182832f06c0B7Fc27A25f67
   - id: 8453
     start_block: 0
     contracts:
@@ -86,6 +95,9 @@ networks:
           - 0x7F321498A801A191a93C840750ed637149dDf8D0
       - name: EulerVaultProxy
         address:
+      - name: Morpho
+        address:
+          - 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb
   - id: 100
     start_block: 0
     contracts:
