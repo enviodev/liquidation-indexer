@@ -73,6 +73,11 @@ type GeneralizedLiquidation {
   repaidAssetsUSD: Float
   seizedAssets: BigInt
   seizedAssetsUSD: Float
+  positionSnapshot_id: ID
+  liqLtv: Float
+  closingFactor: Float
+  liqInc: Float
+  reserveFactor: Float
 }
 
 type LiquidationStats {
@@ -126,4 +131,62 @@ type AaveV3ReserveConfigurationData {
   cf: BigInt
   liq_inc: BigInt
   reserve_factor: BigInt
+}
+
+type PositionSnapshot {
+  id: ID!
+  chainId: Int!
+  timestamp: BigInt! @index
+  protocol: String!
+  borrower: String! @index
+  txHash: String!
+  
+  # Summary metrics
+  totalCollateralUSD: Float!
+  totalDebtUSD: Float!
+  ltv: Float
+  
+  # Relationships
+  liquidation_id: ID!
+  collateralAssets: [PositionCollateral!]! @derivedFrom(field: "positionSnapshot")
+  debtAssets: [PositionDebt!]! @derivedFrom(field: "positionSnapshot")
+}
+
+type PositionCollateral {
+  id: ID!
+  
+  # Asset details
+  asset: String!
+  symbol: String!
+  decimals: Int!
+  
+  # Amounts (scaled balances for Aave)
+  amount: BigInt!
+  amountUSD: Float
+  
+  # Aave-specific fields
+  enabledAsCollateral: Boolean!
+  isSeized: Boolean!
+  
+  # Relationship to parent snapshot
+  positionSnapshot: PositionSnapshot!
+}
+
+type PositionDebt {
+  id: ID!
+  
+  # Asset details
+  asset: String!
+  symbol: String!
+  decimals: Int!
+  
+  # Amounts (scaled balances for Aave)
+  amount: BigInt!
+  amountUSD: Float
+  
+  # Protocol-specific fields
+  isRepaid: Boolean!
+  
+  # Relationship to parent snapshot
+  positionSnapshot: PositionSnapshot!
 }

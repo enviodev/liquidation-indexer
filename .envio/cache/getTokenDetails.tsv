@@ -884,3 +884,5 @@ id	output
 {"chainId":56,"tokenAddress":"unknown"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
 {"chainId":8453,"tokenAddress":"0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b"}	{"name": "Base tBTC v2", "symbol": "tBTC", "decimals": 18}
 {"chainId":8453,"tokenAddress":"0xe9f6D9898f9269B519E1435E6ebafF766c7f46BF"}	{"name": "vTAO", "symbol": "vTAO", "decimals": 18}
+{"chainId":100,"tokenAddress":"0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73"}	{"name": "Gho Token", "symbol": "GHO", "decimals": 18}
+{"chainId":42161,"tokenAddress":"0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"}	{"name": "Arbitrum tBTC v2", "symbol": "tBTC", "decimals": 18}
