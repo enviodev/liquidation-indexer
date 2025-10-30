@@ -1,5 +1,6 @@
+import { createPublicClient, http } from "viem";
 import { experimental_createEffect, S } from "envio";
-import { executeWithRPCRotation, getEVaultContract } from "./utils";
+import { getChain, getRPCUrl, getEVaultContract } from "./utils";
 
 
 // Define the schema for the effect output
@@ -21,95 +22,77 @@ export const getEVaultMetadata = experimental_createEffect(
     input: {
       vaultAddress: S.string,
       chainId: S.number,
-      blockNumber: S.bigint,
     },
     output: EVaultMetadataSchema,
     // Enable caching to avoid duplicated calls
     cache: false,
   },
   async ({ input }) => {
-    const { vaultAddress, chainId, blockNumber } = input
+    const { vaultAddress, chainId } = input
+
+    // Map chain IDs to RPC URLs for all configured chains
+    const chain = getChain(chainId)
+    const RPC_URL = getRPCUrl(chainId)
+
+    // Create a public client for the specific chain
+    const client = createPublicClient({
+      chain: chain,
+      batch: { multicall: true },
+      transport: http(RPC_URL, { batch: true }),
+    })
 
     const evault = getEVaultContract(vaultAddress as `0x${string}`)
 
-    let asset = "unknown";
-    let name = "unknown";
-    let symbol = "unknown";
-    let oracle = "unknown";
-    let unitOfAccount = "unknown";
-    let decimals = 0;
-
+    let results: [string, string, string, string, string, number]
     try {
-      // Execute RPC call with automatic rotation on failure
-      const results = await executeWithRPCRotation(
-        chainId,
-        async (client) => {
-          return await client.multicall({
-            allowFailure: false,
-            blockNumber: BigInt(blockNumber),
-            contracts: [
-              {
-                ...evault,
-                functionName: "asset",
-                args: [],
-              },
-              {
-                ...evault,
-                functionName: "name",
-                args: [],
-              },
-              {
-                ...evault,
-                functionName: "symbol",
-                args: [],
-              },
-              {
-                ...evault,
-                functionName: "oracle",
-                args: [],
-              },
-              {
-                ...evault,
-                functionName: "unitOfAccount",
-                args: [],
-              },
-              {
-                ...evault,
-                functionName: "decimals",
-                args: [],
-              },
-            ],
-          }) as [string, string, string, string, string, number];
-        },
-        { enableBatch: true, enableMulticall: true }
-      );
-      
-      [asset, name, symbol, oracle, unitOfAccount, decimals] = results;
-      if (oracle === "0x0000000000000000000000000000000000000000") {
-        const oracleResult = await executeWithRPCRotation(
-          chainId,
-          async (client) => {
-            return await client.multicall({
-              allowFailure: false,
-              contracts: [
-                {
-                  ...evault,
-                  functionName: "oracle",
-                  args: [],
-                },
-              ],
-            }) as [string];
+      results = await client.multicall({
+        allowFailure: false,
+        contracts: [
+          {
+            ...evault,
+            functionName: "asset",
+            args: [],
           },
-          { enableBatch: true, enableMulticall: true }
-        );
-        oracle = oracleResult[0];
-      }
+          {
+            ...evault,
+            functionName: "name",
+            args: [],
+          },
+          {
+            ...evault,
+            functionName: "symbol",
+            args: [],
+          },
+          {
+            ...evault,
+            functionName: "oracle",
+            args: [],
+          },
+          {
+            ...evault,
+            functionName: "unitOfAccount",
+            args: [],
+          },
+          {
+            ...evault,
+            functionName: "decimals",
+            args: [],
+          },
+        ],
+      }) as [string, string, string, string, string, number]
     } catch (error) {
-      console.error(
-        `All RPC attempts failed for getEVaultMetadata on chain ${chainId}. ` +
-        `Returning default values. Error: ${error}`
-      );
+      results = [
+        "unknown",
+        "unknown",  
+        "unknown",
+        "unknown",
+        "unknown",
+        0,  
+      ]
+      console.error("First multicall failed, trying alternate method", error)
     }
+
+    const [asset, name, symbol, oracle, unitOfAccount, decimals] = results
 
     return {
       asset,

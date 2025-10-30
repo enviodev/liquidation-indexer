@@ -1,5 +1,6 @@
+import { createPublicClient, http } from "viem";
 import { experimental_createEffect, S } from "envio";
-import { executeWithRPCRotation, getEulerRouterContract } from "./utils";
+import { getChain, getRPCUrl, getEulerRouterContract } from "./utils";
 
 
 // Define the schema for the effect output
@@ -28,38 +29,38 @@ export const getQuote = experimental_createEffect(
   async ({ input }) => {
     const { oracle, inAmount, base, quote, chainId, blockNumber } = input
 
+    // Map chain IDs to RPC URLs for all configured chains
+    const chain = getChain(chainId)
+    const RPC_URL = getRPCUrl(chainId)
+
+    // Create a public client for the specific chain
+    const client = createPublicClient({
+      chain: chain,
+      batch: { multicall: true },
+      transport: http(RPC_URL, { batch: true }),
+    })
+
     const router = getEulerRouterContract(oracle as `0x${string}`)
 
-    let price = 0;
-    
+    let results: [number]
     try {
-      // Execute RPC call with automatic rotation on failure
-      const results = await executeWithRPCRotation(
-        chainId,
-        async (client) => {
-          return await client.multicall({
-            allowFailure: false,
-            blockNumber: BigInt(blockNumber),
-            contracts: [
-              {
-                ...router,
-                functionName: "getQuote",
-                args: [inAmount, base, quote],
-              }
-            ],
-          }) as [number];
-        },
-        { enableBatch: true, enableMulticall: true }
-      );
-      
-      price = results[0];
+      results = await client.multicall({
+        allowFailure: false,
+        blockNumber: BigInt(blockNumber),
+        contracts: [
+          {
+            ...router,
+            functionName: "getQuote",
+            args: [inAmount, base, quote],
+          }
+        ],
+      }) as [number]
     } catch (error) {
-      console.error(
-        `All RPC attempts failed for getQuote on chain ${chainId}, block ${blockNumber}. ` +
-        `Returning default value. Error: ${error}`
-      );
-      price = 0;
+      results = [0]
+      console.error("First multicall failed, trying alternate method", error)
     }
+
+    const [price] = results
 
     return {
       price,
