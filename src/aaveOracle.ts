@@ -1,5 +1,6 @@
+import { createPublicClient, http } from "viem";
 import { experimental_createEffect, S } from "envio";
-import { executeWithRPCRotation, getAaveV3OracleContract, getAaveV3OracleAddress } from "./utils";
+import { getChain, getRPCUrl, getAaveV3OracleContract, getAaveV3OracleAddress } from "./utils";
 
 
 // Define the schema for the effect output
@@ -26,38 +27,38 @@ export const getAssetPrice = experimental_createEffect(
     const { assetAddress, chainId, blockNumber } = input
     const oracleAddress = getAaveV3OracleAddress(chainId)
 
+    // Map chain IDs to RPC URLs for all configured chains
+    const chain = getChain(chainId)
+    const RPC_URL = getRPCUrl(chainId)
+
+    // Create a public client for the specific chain
+    const client = createPublicClient({
+      chain: chain,
+      batch: { multicall: true },
+      transport: http(RPC_URL, { batch: true }),
+    })
+
     const oracle = getAaveV3OracleContract(oracleAddress as `0x${string}`)
 
-    let price = 0n;
-
+    let results: [bigint]
     try {
-      // Execute RPC call with automatic rotation on failure
-      const results = await executeWithRPCRotation(
-        chainId,
-        async (client) => {
-          return await client.multicall({
-            allowFailure: false,
-            blockNumber: BigInt(blockNumber),
-            contracts: [
-              {
-                ...oracle,
-                functionName: "getAssetPrice",
-                args: [assetAddress],
-              }
-            ],
-          }) as [bigint];
-        },
-        { enableBatch: true, enableMulticall: true }
-      );
-      
-      price = results[0];
+      results = await client.multicall({
+        allowFailure: false,
+        blockNumber: BigInt(blockNumber),
+        contracts: [
+          {
+            ...oracle,
+            functionName: "getAssetPrice",
+            args: [assetAddress],
+          }
+        ],
+      }) as [bigint]
     } catch (error) {
-      console.error(
-        `All RPC attempts failed for getAssetPrice on chain ${chainId}. ` +
-        `Returning default value. Error: ${error}`
-      );
-      price = 0n;
+      results = [0n]
+      console.error("First multicall failed, trying alternate method", error)
     }
+
+    const price = results[0]
 
     return {
       price,
