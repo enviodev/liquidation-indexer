@@ -44,7 +44,7 @@ export const getEulerUserPositionData = experimental_createEffect(
       blockNumber: S.bigint,
     },
     output: getUserPositionDataSchema,
-    cache: false,
+    cache: true,
   },
   async ({ input }) => {
     const { userAddress, chainId, blockNumber } = input;

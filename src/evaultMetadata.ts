@@ -25,7 +25,7 @@ export const getEVaultMetadata = experimental_createEffect(
     },
     output: EVaultMetadataSchema,
     // Enable caching to avoid duplicated calls
-    cache: false,
+    cache: true,
   },
   async ({ input }) => {
     const { vaultAddress, chainId, blockNumber } = input

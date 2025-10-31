@@ -23,7 +23,7 @@ export const getQuote = experimental_createEffect(
     },
     output: getQuoteSchema,
     // Enable caching to avoid duplicated calls
-    cache: false,
+    cache: true,
   },
   async ({ input }) => {
     const { oracle, inAmount, base, quote, chainId, blockNumber } = input
@@ -52,7 +52,7 @@ export const getQuote = experimental_createEffect(
         { enableBatch: true, enableMulticall: true }
       );
       
-      price = results[0];
+      price = Number(results[0]);
     } catch (error) {
       console.error(
         `All RPC attempts failed for getQuote on chain ${chainId}, block ${blockNumber}. ` +

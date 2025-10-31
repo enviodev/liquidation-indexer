@@ -886,3 +886,80 @@ id	output
 {"chainId":8453,"tokenAddress":"0xe9f6D9898f9269B519E1435E6ebafF766c7f46BF"}	{"name": "vTAO", "symbol": "vTAO", "decimals": 18}
 {"chainId":100,"tokenAddress":"0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73"}	{"name": "Gho Token", "symbol": "GHO", "decimals": 18}
 {"chainId":42161,"tokenAddress":"0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"}	{"name": "Arbitrum tBTC v2", "symbol": "tBTC", "decimals": 18}
+{"chainId":59144,"tokenAddress":"0x3FB52887B61224823EDD3680ecA0A2fDbA7DE4D1"}	{"name": "Staked deUSD", "symbol": "sdeUSD", "decimals": 18}
+{"chainId":59144,"tokenAddress":"0x4e559dBCCbe87De66c6a9F3f25231096F24c2e28"}	{"name": "YieldFi yUSD", "symbol": "yUSD", "decimals": 18}
+{"chainId":59144,"tokenAddress":"0xB728946DD750c60C75C40f434c38E2F5aFe48a01"}	{"name": "deUSD", "symbol": "deUSD", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":1,"tokenAddress":"0xA3Ca88cfb7bBe9CfBd47df053ffA2130C7E6f770"}	{"name": "Wrapped Stroom Bitcoin", "symbol": "wstrBTC", "decimals": 8}
+{"chainId":1,"tokenAddress":"0x8d8b981E034B188c754EB5B4b592cedCe7Ad8ab5"}	{"name": "PT hwHLP 18DEC2025", "symbol": "PT-hwHLP-18DEC2025", "decimals": 6}
+{"chainId":1,"tokenAddress":"0xA19f6e0dF08a7917F2F8A33Db66D0AF31fF5ECA6"}	{"name": "Midas Farm Capital", "symbol": "mFARM", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x3E7736d0b1Ed0F6A0A555355b72c2C2d416564E1"}	{"name": "PT Midas mFARM 11DEC2025", "symbol": "PT-mFARM-11DEC2025", "decimals": 6}
+{"chainId":1,"tokenAddress":"0xb64C014307622eB15046C66fF71D04258F5963DC"}	{"name": "Bitcoin MEV Capital", "symbol": "mevBTC", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x3d7d6fdf07EE548B939A80edbc9B2256d0cdc003"}	{"name": "Strata Senior USDe", "symbol": "srUSDe", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x1Fb3C5c35D95F48e48FFC8e36bCCe5CB5f29F57c"}	{"name": "PT Strata Senior USDe 15JAN2026", "symbol": "PT-srUSDe-15JAN2026", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xC58D044404d8B14e953C115E67823784dEA53d8F"}	{"name": "Strata Junior USDe", "symbol": "jrUSDe", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x53F3373F0D811902405f91eB0d5cc3957887220D"}	{"name": "PT Strata Junior USDe 15JAN2026", "symbol": "PT-jrUSDe-15JAN2026", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xb95c605635a3486d0A346CA790095d729F186E58"}	{"name": "Pendle Market Wrapped", "symbol": "PENDLE-LPT-WRAPPED", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xEC6a70F62a83418c7fb238182eD2865F80491a8B"}	{"name": "Pareto AA Tranche - RockawayXUSDC", "symbol": "AA_RockawayXUSDC", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x1b2CB79a4564206f53Ba80b4d780F251b4Ae6765"}	{"name": "Syntropia USDC Core", "symbol": "synUSD", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x5510B080449d5E3Bf345b6635eD40A35B36b081f"}	{"name": "PT Staked infiniFi USD 8JAN2026", "symbol": "PT-siUSD-8JAN2026", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x594DaaD7D77592a2b97b725A7AD59D7E188b5bFa"}	{"name": "Apu Apustaja", "symbol": "APU", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xB90B2A35C65dBC466b04240097Ca756ad2005295"}	{"name": "BOBO", "symbol": "BOBO", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x812Ba41e071C7b7fA4EBcFB62dF5F45f6fA853Ee"}	{"name": "Neiro", "symbol": "Neiro", "decimals": 9}
+{"chainId":1,"tokenAddress":"0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE"}	{"name": "SHIBA INU", "symbol": "SHIB", "decimals": 18}
+{"chainId":56,"tokenAddress":"0xacA92E438df0B2401fF60dA7E4337B687a2435DA"}	{"name": "MetaMask USD", "symbol": "mUSD", "decimals": 6}
+{"chainId":42161,"tokenAddress":"0x4B6F1C9E5d470b97181786b26da0d0945A7cf027"}	{"name": "Hyperithm USDC", "symbol": "hyperUSDC", "decimals": 18}
+{"chainId":42161,"tokenAddress":"0xa60643c90A542A95026C0F1dbdB0615fF42019Cf"}	{"name": "MEV Capital USDC", "symbol": "MCUSDC", "decimals": 18}
+{"chainId":42161,"tokenAddress":"0xe4783824593a50Bfe9dc873204CEc171ebC62dE0"}	{"name": "Euler Earn USDC", "symbol": "eeUSDC", "decimals": 6}
+{"chainId":42161,"tokenAddress":"0x7e97fa6893871A2751B5fE961978DCCb2c201E65"}	{"name": "Gauntlet USDC Core", "symbol": "gtUSDCc", "decimals": 18}
+{"chainId":42161,"tokenAddress":"0xdF03EEd325b82bC1d4Db8b49c30ecc9E05104b96"}	{"name": "GMX Liquidity Vault [WBTC-USDC]", "symbol": "GLV [WBTC-USDC]", "decimals": 18}
+{"chainId":42161,"tokenAddress":"0x528A5bac7E746C9A509A1f4F6dF58A03d44279F9"}	{"name": "GMX Liquidity Vault [WETH-USDC]", "symbol": "GLV [WETH-USDC]", "decimals": 18}
+{"chainId":42161,"tokenAddress":"0xF4F447E6AFa04c9D11Ef0e2fC0d7f19C24Ee55de"}	{"name": "YieldFi vyUSD", "symbol": "vyUSD", "decimals": 18}
+{"chainId":42161,"tokenAddress":"0x62dDf301B21970e7Cc12c34cAAc9CE9bC975c0a9"}	{"name": "autoUSDai", "symbol": "autoUSDai", "decimals": 15}
+{"chainId":42161,"tokenAddress":"0x252b965400862d94BDa35FeCF7Ee0f204a53Cc36"}	{"name": "Yearn USND", "symbol": "yUSND", "decimals": 18}
+{"chainId":42161,"tokenAddress":"0x4ecf61a6c2FaB8A047CEB3B3B263B401763e9D49"}	{"name": "US Nerite Dollar", "symbol": "USND", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb48bcF35acD74E69BBDeF17cdBEa9DE9983e786b"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"chainId":8453,"tokenAddress":"0x4dA9A0f397dB1397902070f93a4D6ddBC0E0E6e8"}	{"name": "CF Large Cap Index", "symbol": "LCAP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xfB9BD0Cde61c6aEDa32e8f4fA866dF87b2583d98"}	{"name": "Tether USD", "symbol": "USDT", "decimals": 6}
+{"chainId":8453,"tokenAddress":"0xc2cBffD3dB2925DE4904C49867E6299e1cd164f2"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7D214438D0F27AfCcC23B3d1e1a53906aCE5CFEa"}	{"name": "Re Protocol reUSD", "symbol": "reUSD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xcb17C9Db87B595717C857a08468793f5bAb6445F"}	{"name": "Coinbase Wrapped LTC", "symbol": "cbLTC", "decimals": 8}
+{"chainId":8453,"tokenAddress":"0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b"}	{"name": "Virtual Protocol", "symbol": "VIRTUAL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xF4F447E6AFa04c9D11Ef0e2fC0d7f19C24Ee55de"}	{"name": "YieldFi vyUSD", "symbol": "vyUSD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x295206568Bd64D54eE3BC0880E6a91055c0Ca46c"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1F52Edf2815BfA625890B61d6bf43dDC24671Fe8"}	{"name": "YieldFi yETH", "symbol": "yETH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xECa2C68d29fC93370bA20d435f2EF05804C93b66"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xcb585250f852C6c6bf90434AB21A00f02833a4af"}	{"name": "Coinbase Wrapped XRP", "symbol": "cbXRP", "decimals": 6}
+{"chainId":8453,"tokenAddress":"0xcbADA732173e39521CDBE8bf59a6Dc85A9fc7b8c"}	{"name": "Coinbase Wrapped ADA", "symbol": "cbADA", "decimals": 6}
+{"chainId":8453,"tokenAddress":"0xe66E3A37C3274Ac24FE8590f7D84A2427194DC17"}	{"name": "Staked WELL", "symbol": "stkWELL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xA121e16FB1DEf975C2B53C778a67b81926622687"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":43114,"tokenAddress":"0x468BbabAEf852C134b584382C0fef83F2954Cd5c"}	{"name": "xBTC.b", "symbol": "xBTC.b", "decimals": 8}
+{"chainId":8453,"tokenAddress":"0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf"}	{"name": "Venice Token", "symbol": "VVV", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x87b881EF276a2e7FecB65ad75568aab78a52f2d4"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xcbD06E5A2B0C65597161de254AA074E489dEb510"}	{"name": "Coinbase Wrapped DOGE", "symbol": "cbDOGE", "decimals": 8}
+{"chainId":8453,"tokenAddress":"0x7300B37DfdfAb110d83290A29DfB31B1740219fE"}	{"name": "Mamo", "symbol": "MAMO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9C005A17721C1Be0b63ed18C3a29BEe4Dca9f74B"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x2ec5F3E6EF81117C159e7C79C436f474F08b94c3"}	{"name": "Pendle Market Wrapped", "symbol": "PENDLE-LPT-WRAPPED", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x97F7957F74B3eA8A372e1Fa0a153Bb9bd7b1CA61"}	{"name": "Bitcoin Vault Experiment Token", "symbol": "expVaultBTC", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x5FA487BCa6158c64046B2813623e20755091DA0b"}	{"name": "Theo Short Duration US Treasury Fund", "symbol": "thBILL", "decimals": 6}
+{"chainId":1,"tokenAddress":"0x5F0E654410a281E7Ed04c370B9D25d2A0286b935"}	{"name": "Pendle Market Wrapped", "symbol": "PENDLE-LPT-WRAPPED", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xd2E230f71CA8DB211067BC4070A94D268b313fA3"}	{"name": "PT Autonomous Liquidity USD 11DEC2025", "symbol": "PT-alUSD-11DEC2025", "decimals": 6}
+{"chainId":1,"tokenAddress":"0x5AA4AfE7359d5a68D193f03E013d553DEb7DbD1f"}	{"name": "PT Wrapped Savings rUSD 26FEB2026", "symbol": "PT-wsrUSD-26FEB2026", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x6503de9FE77d256d9d823f2D335Ce83EcE9E153f"}	{"name": "Stable USDT Pre-Deposit", "symbol": "ctStableUSDT", "decimals": 6}
+{"chainId":1,"tokenAddress":"0xDA06eE2dACF9245Aa80072a4407deBDea0D7e341"}	{"name": "Staked avETH", "symbol": "savETH", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x6A9A65B84843F5fD4aC9a0471C4fc11AFfFBce4a"}	{"name": "Lorenzo Wrapped Bitcoin", "symbol": "enzoBTC", "decimals": 8}
+{"chainId":1,"tokenAddress":"0xF3B5390E6D5DEf55a817Aa8f3e6391c31825990C"}	{"name": "Stake DAO Curve Vault for crvUSD Vault wrapped forUSD Coin", "symbol": "sd-cvcrvUSD-vault-wrapped-USDC", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x2c543181871718C05bB191B8CE8F2A6538D72762"}	{"name": "PT Midas MEV 29JAN2026", "symbol": "PT-mMEV-29JAN2026", "decimals": 6}
+{"chainId":1,"tokenAddress":"0xd2757C74CC58e7DEE9D39A0641181E7be4354C10"}	{"name": "sd-llamalend-sreusd-crvusd", "symbol": "sd-llamalend-sreusd-crvusd", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x76589A6707a765f499BBF33C7be4db41C1Db7f58"}	{"name": "stakedao-lamalend-sreUSD", "symbol": "stakedao-llsreUSD", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xeEAa924eB3667F30Be02Db9C55d87566a3F4dF7A"}	{"name": "PT Reservoir Protocol RUSD 26FEB2026", "symbol": "PT-RUSD-26FEB2026", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xfa9fbcF2e52037328F9376aD8FADbaC07B0E863D"}	{"name": "PT Syrup USDC 18DEC2025", "symbol": "PT-syrupUSDC-18DEC2025", "decimals": 6}
+{"chainId":1,"tokenAddress":"0x5a42864b14C0C8241EF5ab62Dae975b163a2E0C1"}	{"name": "Midas Hyperithm ETH", "symbol": "mHyperETH", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x84B78Bc998E4B1a63F2CF9EbfE76C55FC96a5A9b"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":1,"tokenAddress":"0x41d49208a7E61EEd06b3504262C54E7C5fF04bFc"}	{"name": "PT Bitcoin MEV Capital 25DEC2025", "symbol": "PT-mevBTC-25DEC2025", "decimals": 8}
+{"chainId":1,"tokenAddress":"0x9a34eB848C06d438d8747060A383dd13cFf33317"}	{"name": "PT Midas mEDGE 29JAN2026", "symbol": "PT-mEDGE-29JAN2026", "decimals": 6}
+{"chainId":1,"tokenAddress":"0xB0fFa8000886e57F86dd5264b9582b2Ad87b2b91"}	{"name": "Wormhole Token", "symbol": "W", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x01Ba69727E2860b37bc1a2bd56999c1aFb4C15D8"}	{"name": "YieldNest RWA MAX", "symbol": "ynRWAx", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xE7C3D8C9a439feDe00D2600032D5dB0Be71C3c29"}	{"name": "JPY Coin", "symbol": "JPYC", "decimals": 18}
+{"chainId":43114,"tokenAddress":"0x8835A2F66A7AaCCB297Cb985831A616B75e2E16c"}	{"name": "EURØP", "symbol": "EUROP", "decimals": 6}
+{"chainId":1,"tokenAddress":"0x10674C8C1aE2072d4a75FE83f1E159425fd84E1D"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
