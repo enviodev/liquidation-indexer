@@ -1,4 +1,4 @@
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import { executeWithRPCRotation, getAaveV3OracleContract, getAaveV3OracleAddress } from "./utils";
 
 
@@ -10,7 +10,7 @@ const getAssetPriceSchema = S.schema({
 // Infer the type from the schema
 type getAssetPrice = S.Infer<typeof getAssetPriceSchema>;
 
-export const getAssetPrice = experimental_createEffect(
+export const getAssetPrice = createEffect(
   {
     name: "getAssetPrice",
     input: {
@@ -21,8 +21,12 @@ export const getAssetPrice = experimental_createEffect(
     output: getAssetPriceSchema,
     // Enable caching to avoid duplicated calls
     cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     const { assetAddress, chainId, blockNumber } = input
     const oracleAddress = getAaveV3OracleAddress(chainId)
 
@@ -56,6 +60,7 @@ export const getAssetPrice = experimental_createEffect(
         `All RPC attempts failed for getAssetPrice on chain ${chainId}. ` +
         `Returning default value. Error: ${error}`
       );
+      context.cache = false
       price = 0n;
     }
 

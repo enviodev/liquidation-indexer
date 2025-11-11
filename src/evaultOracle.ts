@@ -1,4 +1,4 @@
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import { executeWithRPCRotation, getEulerRouterContract } from "./utils";
 
 
@@ -10,7 +10,7 @@ const getQuoteSchema = S.schema({
 // Infer the type from the schema
 type getQuote = S.Infer<typeof getQuoteSchema>;
 
-export const getQuote = experimental_createEffect(
+export const getQuote = createEffect(
   {
     name: "getQuote",
     input: {
@@ -24,8 +24,12 @@ export const getQuote = experimental_createEffect(
     output: getQuoteSchema,
     // Enable caching to avoid duplicated calls
     cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     const { oracle, inAmount, base, quote, chainId, blockNumber } = input
 
     const router = getEulerRouterContract(oracle as `0x${string}`)
@@ -58,6 +62,7 @@ export const getQuote = experimental_createEffect(
         `All RPC attempts failed for getQuote on chain ${chainId}, block ${blockNumber}. ` +
         `Returning default value. Error: ${error}`
       );
+      context.cache = false
       price = 0;
     }
 

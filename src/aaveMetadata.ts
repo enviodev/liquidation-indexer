@@ -1,4 +1,4 @@
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import { 
   executeWithRPCRotation,
   getAaveV3ProtocolDataProviderAddress,
@@ -17,7 +17,7 @@ const getAaveV3ReserveDataSchema = S.schema({
 // Infer the type from the schema
 type getAaveV3ReserveData = S.Infer<typeof getAaveV3ReserveDataSchema>;
 
-export const getAaveV3ReserveData = experimental_createEffect(
+export const getAaveV3ReserveData = createEffect(
   {
     name: "getAaveV3ReserveData",
     input: {
@@ -27,9 +27,13 @@ export const getAaveV3ReserveData = experimental_createEffect(
     },
     output: getAaveV3ReserveDataSchema,
     // Enable caching to avoid duplicated calls
-    cache: false,
+    cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     const { tokenAddress, chainId, blockNumber } = input;
 
     try {
@@ -59,6 +63,10 @@ export const getAaveV3ReserveData = experimental_createEffect(
       const liq_inc = BigInt(reservesData[3]);
       const reserve_factor = BigInt(reservesData[4]);
 
+      if (ltv === 0n) {
+        context.cache = false
+      }
+
       return {
         decimals: decimals,
         ltv: ltv,
@@ -72,6 +80,7 @@ export const getAaveV3ReserveData = experimental_createEffect(
         `Failed to getAaveV3ReserveData on chain ${chainId}. ` +
         `Token: ${tokenAddress}, Block: ${blockNumber}. Error: ${error}`
       );
+      context.cache = false
       return {
         decimals: 0,
         ltv: 0n,

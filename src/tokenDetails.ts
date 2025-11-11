@@ -1,5 +1,5 @@
 import { hexToString } from 'viem'
-import { experimental_createEffect, S } from 'envio'
+import { createEffect, S } from 'envio'
 import { getERC20BytesContract, getERC20Contract, executeWithRPCRotation } from './utils'
 
 // Define the schema for token metadata
@@ -12,7 +12,7 @@ const tokenMetadataSchema = S.schema({
 // Infer the type from the schema
 type TokenMetadata = S.Infer<typeof tokenMetadataSchema>
 
-export const getTokenDetails = experimental_createEffect(
+export const getTokenDetails = createEffect(
   {
     name: "getTokenDetails",
     input: {
@@ -20,7 +20,11 @@ export const getTokenDetails = experimental_createEffect(
       chainId: S.number,
     },
     output: tokenMetadataSchema,
-    cache: true, // Enable caching
+    cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
   async ({ input, context }) => {
     const { tokenAddress, chainId } = input
@@ -95,6 +99,7 @@ export const getTokenDetails = experimental_createEffect(
         name = hexToString(alternateResults[1] as `0x${string}`).replace(/\u0000/g, '');
         symbol = hexToString(alternateResults[2] as `0x${string}`).replace(/\u0000/g, '');
       } catch (alternateError) {
+        context.cache = false
         context.log.error(
           `All RPC attempts failed for getTokenDetails on chain ${chainId}. ` +
           `Token: ${tokenAddress}. Error: ${alternateError}`

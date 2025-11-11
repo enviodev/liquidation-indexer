@@ -1,4 +1,4 @@
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import { 
   executeWithRPCRotation,
   getAccountLensContract, 
@@ -35,7 +35,7 @@ const getUserPositionDataSchema = S.schema({
 // Infer the type from the schema
 type GetEulerUserPositionData = S.Infer<typeof getUserPositionDataSchema>;
 
-export const getEulerUserPositionData = experimental_createEffect(
+export const getEulerUserPositionData = createEffect(
   {
     name: "getEulerUserPositionData",
     input: {
@@ -45,8 +45,12 @@ export const getEulerUserPositionData = experimental_createEffect(
     },
     output: getUserPositionDataSchema,
     cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     const { userAddress, chainId, blockNumber } = input;
 
     const accountLensAddress = getEulerAccountLensAddress(chainId);
@@ -117,6 +121,7 @@ export const getEulerUserPositionData = experimental_createEffect(
       console.error(
         `Failed to fetch Euler user position data for ${userAddress} on chain ${chainId} at block ${blockNumber}. Error: ${error}`
       );
+      context.cache = false
       // Return empty data on failure
       return {
         vaultAccountInfos: [],

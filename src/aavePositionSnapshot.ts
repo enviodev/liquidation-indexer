@@ -1,4 +1,4 @@
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import { 
   executeWithRPCRotation,
   getAaveUiPoolDataProviderContract, 
@@ -25,7 +25,7 @@ const getUserPositionDataSchema = S.schema({
 // Infer the type from the schema
 type GetUserPositionData = S.Infer<typeof getUserPositionDataSchema>;
 
-export const getAaveUserPositionData = experimental_createEffect(
+export const getAaveUserPositionData = createEffect(
   {
     name: "getAaveUserPositionData",
     input: {
@@ -35,8 +35,12 @@ export const getAaveUserPositionData = experimental_createEffect(
     },
     output: getUserPositionDataSchema,
     cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     const { userAddress, chainId, blockNumber } = input;
 
     try {
@@ -167,6 +171,7 @@ export const getAaveUserPositionData = experimental_createEffect(
         console.error(
           `Fallback method also failed for user ${userAddress} on chain ${chainId} at block ${blockNumber}. Error: ${fallbackError}`
         );
+        context.cache = false
         // Return empty data when both methods fail
         return {
           userReserves: [],

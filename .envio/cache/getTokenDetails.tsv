@@ -963,3 +963,97 @@ id	output
 {"chainId":1,"tokenAddress":"0xE7C3D8C9a439feDe00D2600032D5dB0Be71C3c29"}	{"name": "JPY Coin", "symbol": "JPYC", "decimals": 18}
 {"chainId":43114,"tokenAddress":"0x8835A2F66A7AaCCB297Cb985831A616B75e2E16c"}	{"name": "EURØP", "symbol": "EUROP", "decimals": 6}
 {"chainId":1,"tokenAddress":"0x10674C8C1aE2072d4a75FE83f1E159425fd84E1D"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":1,"tokenAddress":"0x77B80F4ac4c6Cbb4982689749177349cf1635115"}	{"name": "ezUSD", "symbol": "ezUSD", "decimals": 6}
+{"chainId":1,"tokenAddress":"0x660ee976951DcF061a9a7f77AA43eDf17Ede8015"}	{"name": "Fighting", "symbol": "Fighting", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xF169457F89bEeC726e0e9344a59C85328D285f2C"}	{"name": "Stake DAO Curve.fi Factory Plain Pool: crvUSD/USDC", "symbol": "stakedao-crvUSDUSDC-f", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x2343f786fc8366f0fA7C9A80B43CDA5731D9d1B4"}	{"name": "Stake DAO Curve.fi Factory Plain Pool: crvUSD/USDT", "symbol": "stakedao-crvUSDUSDT-f", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xeBc3554f3659e8425e1Fb30E6f99ae08A03EE932"}	{"name": "Stake DAO crvUSD/frxUSD", "symbol": "stakedao-crvfrxUSD", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xd7A7992989C5B20eF48452C96aC4C6B71A17D61e"}	{"name": "Stake DAO pyUSD/crvUSD", "symbol": "stakedao-PYcrvUSD", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xBe53A109B494E5c9f97b9Cd39Fe969BE68BF6204"}	{"name": "USDC-1 yVault", "symbol": "yvUSDC-1", "decimals": 6}
+{"chainId":1,"tokenAddress":"0x1769AA7B5B4AAe76B7E6D797B379c21cAE12c46d"}	{"name": "ArtCubeSociety", "symbol": "ACS", "decimals": 18}
+{"chainId":1,"tokenAddress":"0xE74dD7525663193B5e5e596b581B5343735a585c"}	{"name": "USDC/USDU", "symbol": "USDCUSDU", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x9b58b8a40Fd8Be64b5f8652b2CaE230D3987B369"}	{"name": "Decipher", "symbol": "Decipher", "decimals": 18}
+{"chainId":42161,"tokenAddress":"0x5c0C306Aaa9F877de636f4d5822cA9F2E81563BA"}	{"name": "Steakhouse High Yield USDC", "symbol": "bbqUSDC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5Bd4514367eB6E4823686C79C3a9133e320dF156"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x25D4f3F8DFeB5261110EfF6dA8584aDDcC21dd26"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7e78505D714cc801a0A51cfA0E7870538310934E"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x764e2866c4D41A29EdFb53c431D76e2ACd44df31"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2F4Ed4191ed7A9951C3d31Db99356805B15bE86E"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xAe7738a415c7c9E05D21d3f8117273bfD839671F"}	{"name": "MD LP", "symbol": "MDLP", "decimals": 18}
+{"chainId":137,"tokenAddress":"0xE0aEa583266584DafBB3f9C3211d5588c73fEa8d"}	{"name": "Monerium EURe", "symbol": "EURe", "decimals": 18}
+{"chainId":137,"tokenAddress":"0x553d3D295e0f695B9228246232eDF400ed3560B5"}	{"name": "Paxos Gold (PoS)", "symbol": "PAXG", "decimals": 18}
+{"chainId":137,"tokenAddress":"0xE6A537a407488807F0bbeb0038B79004f19DDDFb"}	{"name": "BRLA Token", "symbol": "BRLA", "decimals": 18}
+{"chainId":137,"tokenAddress":"0x2dAc58BFd935a526cf90a715941A52CF81bA1dF7"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x58ad505Ec6498B1C1FCAAFDADd6281aa894Ef13b"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xC659729e63f27C5818d5d622fF707B66507E5594"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x0d459f70500abEc5a73979CD677ac2F1C6C68B8d"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x326EA63e9a968eD5C9039d31c61C939F72B793Ac"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x4E16eBe75b962D84c374bb16b55e1645DB86cE55"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xE41Db3CD54d1E8B1f2904eC683c94AF9dF7132E5"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x0CB54F4Fd140a2dFEa71b730247964DA0946bC71"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x84d34bE1FF5cBcA109D00edAc668C79e9Bb33Ed6"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xb3eBd708D5F12280C37e0BDD48e4e2FBBB43d49A"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x6C119d70a6b83aa6cf6165732f3A5cBdD9816D90"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x110229CAc00aD30D89b75F5a01afd3C97288A3a9"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x2C13dC30AE58eC1e60BA672B76b4Fd6C15e9BfAf"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xa963B74f68eBDB7Ee0ebC80EA033EdA161435102"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x35fB4Aaf8618812a740141B1B9454D11d8151924"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x01d7eE52cF26Ec75fF2B25E59bd1fC11eB06a5ea"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xb01f87A2815B73411240f8B771aBcf52DcFa8B91"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xBc84a857c6833564D66fCE8538ad0bD6B95D22E9"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x2111908D75CF2F13ccCEDDb76f45c73D9C6B3F45"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x0593E3877FAad51a6e4e5EBF5c60221043d85678"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x93F4a77710624F15605b269147096E59B9c99d8C"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xA41505CCCeF8B88A9b885f4Cf5BfC96E12C8Cc4A"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xb0F5B56C78c1d705187Cf9397BE408396bdE1Eb2"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x96D69292b035c5FE102759e6ef99ec55F9cC1939"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x6Fe2d04aCe9Fa51F8109D509A7Dc18fbE64AF8de"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x703b14a1c4C55e67a7355388377C23b5A0636064"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xd839e91f8326dD8dFa5d94A91Aa6a2Cbd6a741D8"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xB098E5031aD75F2cbFb319c3ad8745b9256081D7"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xc5087c5415F1698B216A5b77779C71182d7DA211"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x9888214688229108b59E401591F48cE3a35935Ea"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x7918C8Fe55Ef1655E73a787065F2D7Be2B424e39"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x9270feB61BFa2b8D70A5D7E3d5f39500BDF1d5ca"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xF51FA307555ED564F40C69E15c5c1CA06c4EEC7f"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x15Da3718B136e4478a5FAc730864DdCbE34DCD1E"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x3b58Ab184c44Cd196c3a859F0eA05Fb244d74Ce4"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x700F75f7B86D44Af38fC12aF1A55Aed5f8E6d406"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x5CC9AaB9D2174a893e1A784653f13F41f37370F7"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x28D10712E243FAA0cA07F45970eC7eDfB7ffc233"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xefA87d6B995C7b9912368E72DB6e8d07d1d9b1c9"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x820A5FA72005E7E0e249C5CbBc3071A5dffB6A04"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xD98C16a63B829A6Ff2BE3f7a15F7d74e1fFb1AF4"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xFC6e6b56dDF8CD818d4fD70507801036c8C27baA"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x84E8c1725df526Bb116Ee165B4C49Fc8E4617136"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xa46d9923A79f9eA3F2E1350D43A3475347577372"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x28a87b596100E03381C43D5ecC87F04B51Ab4fbF"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xeB815B47d389149c69AA2BAaEe53944B825621F2"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x0E63E1F07147a6e49a7c9E8808Fb98248a238f71"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xff531fB379E483e7820b0978De91E5112B2B7FE8"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xd2015352B9F0fB6492DaBb552C3756E0c073943a"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xfaa57780efCAF4F6bC057B1aB1DB9e7eDf93841A"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x5Fb83DD6F73373023eD06471cCb44F1cfbA4F47e"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x9c1763BFCf2c8480123Be7f756416f248D1F6951"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x9b440e8811605b7c1dB97defecd078d264Cf1A3a"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xE9351545360724c62050584Debb97ee9c6f4f51E"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xA324Dce3E286A414E87aC2D52DE2ebb369865e2A"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xa9986Dc83dA2A51827d7F2300Df859b7797DEBBd"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x839000cefbf09b9285A0A35FF22B5cC7e824B2d2"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x81Fcc21Ad9d382dDf7Ef66f815F7828880208784"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xb140246B9F6Efbf4EDfFCc10dFc7126650Fd35bB"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xD71830043bf3a082BB9B5F01cdcf1927eBf02a66"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xD0577B4149F378efD61D1E90552007bD236c4e7e"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x71EA4033A3093C8Efb7C2dAaCbE369229746F0a1"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xFC8250908577bAfCFaa37a0EFD49F9c06fD69692"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x3F3DfE5E38ae41f51C8C60FB62055528272c82bA"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x7E5908Ba71f2A29310658d6545f4D8Ea9F6bB226"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x30dD5F437B95A3Dc7B1129751524b108762098Df"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x56eEA737E3B1b3484e110d8049739835a496aAFA"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x57130714686d84Ca401C495eA9B3F932eD368C93"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x9a28ffA44a293105c018bfd138B23491590B3FDf"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xdF1a2251bE81D63c2328bF1406dF3a184DEf82C6"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x4DB666f0D0861b230452aBb8Ea035b5593f2D867"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xf66F96e0e93A2E0d8a91a291909990079fFe501d"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0xDC83c42A956d3e10A9CD6B8E09987D946F46b845"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}
+{"chainId":137,"tokenAddress":"0x3Cd15C3e0531163CE831692CB158266db2bCa677"}	{"name": "unknown", "symbol": "unknown", "decimals": 0}

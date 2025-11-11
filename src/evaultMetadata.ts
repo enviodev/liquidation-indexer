@@ -1,4 +1,4 @@
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import { executeWithRPCRotation, getEVaultContract } from "./utils";
 
 
@@ -15,7 +15,7 @@ const EVaultMetadataSchema = S.schema({
 // Infer the type from the schema
 type EVaultMetadata = S.Infer<typeof EVaultMetadataSchema>;
 
-export const getEVaultMetadata = experimental_createEffect(
+export const getEVaultMetadata = createEffect(
   {
     name: "getEVaultMetadata",
     input: {
@@ -26,8 +26,12 @@ export const getEVaultMetadata = experimental_createEffect(
     output: EVaultMetadataSchema,
     // Enable caching to avoid duplicated calls
     cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     const { vaultAddress, chainId, blockNumber } = input
 
     const evault = getEVaultContract(vaultAddress as `0x${string}`)
@@ -109,6 +113,7 @@ export const getEVaultMetadata = experimental_createEffect(
         `All RPC attempts failed for getEVaultMetadata on chain ${chainId}. ` +
         `Returning default values. Error: ${error}`
       );
+      context.cache = false
     }
 
     return {

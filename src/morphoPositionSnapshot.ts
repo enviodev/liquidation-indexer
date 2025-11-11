@@ -1,4 +1,4 @@
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import { executeWithRPCRotation } from "./utils";
 import * as fs from "fs";
 import * as path from "path";
@@ -31,7 +31,7 @@ const morphoPositionSchema = S.schema({
 // Infer the type from the schema
 type MorphoPositionData = S.Infer<typeof morphoPositionSchema>;
 
-export const getMorphoUserPositionData = experimental_createEffect(
+export const getMorphoUserPositionData = createEffect(
   {
     name: "getMorphoUserPositionData",
     input: {
@@ -43,6 +43,10 @@ export const getMorphoUserPositionData = experimental_createEffect(
     },
     output: morphoPositionSchema,
     cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
   async ({ input }) => {
     const { userAddress, marketId, morphoAddress, chainId, blockNumber } = input;
@@ -123,7 +127,7 @@ const morphoOraclePriceSchema = S.schema({
 // Infer the type from the schema
 type MorphoOraclePriceData = S.Infer<typeof morphoOraclePriceSchema>;
 
-export const getMorphoOraclePrice = experimental_createEffect(
+export const getMorphoOraclePrice = createEffect(
   {
     name: "getMorphoOraclePrice",
     input: {
@@ -133,8 +137,12 @@ export const getMorphoOraclePrice = experimental_createEffect(
     },
     output: morphoOraclePriceSchema,
     cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     const { oracleAddress, chainId, blockNumber } = input;
 
     const oracleContract = getMorphoOracleContract(oracleAddress);
@@ -160,6 +168,7 @@ export const getMorphoOraclePrice = experimental_createEffect(
       console.error(
         `Failed to fetch Morpho oracle price from ${oracleAddress} at block ${blockNumber}. Error: ${error}`
       );
+      context.cache = false
       return {
         price: 0n,
       };

@@ -1,4 +1,4 @@
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import * as fs from "fs";
 import * as path from "path";
 import {
@@ -27,7 +27,7 @@ const vaultLtvInfoSchema = S.schema({
 // Infer the type from the schema
 type VaultLtvInfo = S.Infer<typeof vaultLtvInfoSchema>;
 
-export const getEulerVaultLtvInfo = experimental_createEffect(
+export const getEulerVaultLtvInfo = createEffect(
   {
     name: "getEulerVaultLtvInfo",
     input: {
@@ -38,8 +38,12 @@ export const getEulerVaultLtvInfo = experimental_createEffect(
     },
     output: vaultLtvInfoSchema,
     cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     const { debtVaultAddress, collateralVaultAddress, chainId, blockNumber } = input;
 
     const vaultLensAddress = getEulerVaultLensAddress(chainId);
@@ -99,6 +103,7 @@ export const getEulerVaultLtvInfo = experimental_createEffect(
       console.error(
         `Failed to fetch Euler vault LTV info for debt vault ${debtVaultAddress}, collateral ${collateralVaultAddress} on chain ${chainId} at block ${blockNumber}. Error: ${error}`
       );
+      context.cache = false
       throw error;
     }
   }
