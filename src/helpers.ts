@@ -148,8 +148,9 @@ export async function processAavePositionSnapshot(
       collateralIndex++;
     }
 
-    // Process debt (if scaledVariableDebt > 0)
-    if (reserve.scaledVariableDebt > 0n) {
+    // Process debt (if currentVariableDebt > 0)
+    // Use currentVariableDebt (actual debt with accrued interest) instead of scaledVariableDebt
+    if (reserve.currentVariableDebt > 0n) {
       let debtPriceUSD: number | undefined;
       try {
         const price = await context.effect(getAssetPrice, {
@@ -157,12 +158,12 @@ export async function processAavePositionSnapshot(
           chainId,
           blockNumber,
         });
-        
-        // Convert scaled balance to USD
-        const amountInTokens = Number(reserve.scaledVariableDebt) / (10 ** tokenMetadata.decimals);
+
+        // Convert current debt balance to USD (includes accrued interest)
+        const amountInTokens = Number(reserve.currentVariableDebt) / (10 ** tokenMetadata.decimals);
         const priceInUSD = Number(price.price) / (10 ** 8);
         debtPriceUSD = amountInTokens * priceInUSD;
-        
+
         totalDebtUSD += debtPriceUSD;
       } catch (error) {
         context.log.warn(`Failed to fetch price for debt ${assetAddress}`, {
@@ -176,11 +177,11 @@ export async function processAavePositionSnapshot(
         asset: assetAddress,
         symbol: tokenMetadata.symbol,
         decimals: tokenMetadata.decimals,
-        amount: reserve.scaledVariableDebt,
+        amount: reserve.currentVariableDebt,  // Store actual debt with interest
         amountUSD: debtPriceUSD,
         isRepaid: assetAddress.toLowerCase() === repaidAsset.toLowerCase(),
       };
-      
+
       debts.push(debt);
       debtIndex++;
     }
