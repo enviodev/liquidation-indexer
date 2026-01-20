@@ -14,6 +14,7 @@ const userReserveDataSchema = S.schema({
   scaledATokenBalance: S.bigint,
   usageAsCollateralEnabledOnUser: S.boolean,
   scaledVariableDebt: S.bigint,
+  currentVariableDebt: S.bigint,  // Actual debt with accrued interest
 });
 
 // Define the schema for the effect output
@@ -101,9 +102,9 @@ export const getAaveUserPositionData = createEffect(
         const [
           currentATokenBalance,
           _currentStableDebt,
-          _currentVariableDebt,
+          currentVariableDebt,  // Actual debt with accrued interest
           _principalStableDebt,
-          scaledVariableDebt,
+          scaledVariableDebt,   // Principal debt without interest
           _stableBorrowRate,
           _liquidityRate,
           _stableRateLastUpdated,
@@ -111,12 +112,13 @@ export const getAaveUserPositionData = createEffect(
         ] = result.result as [bigint, bigint, bigint, bigint, bigint, bigint, bigint, number, boolean];
 
         // Use aTokenBalance as scaledATokenBalance, filter out empty positions
-        if (currentATokenBalance > 0n || scaledVariableDebt > 0n) {
+        if (currentATokenBalance > 0n || currentVariableDebt > 0n) {
           userReserves.push({
             underlyingAsset: allReserves[i].tokenAddress,
             scaledATokenBalance: currentATokenBalance,
             usageAsCollateralEnabledOnUser: usageAsCollateralEnabled,
             scaledVariableDebt: scaledVariableDebt,
+            currentVariableDebt: currentVariableDebt,  // Include actual debt
           });
         }
       }
@@ -156,11 +158,15 @@ export const getAaveUserPositionData = createEffect(
         const [userReservesData, eModeCategory] = result as [any[], number];
 
         // Map the raw data to our schema format
+        // Note: UiPoolDataProvider returns scaledVariableDebt; we use it as currentVariableDebt
+        // since this fallback path doesn't provide currentVariableDebt directly.
+        // For accurate data, the primary method (ProtocolDataProvider) should be used.
         const userReserves = userReservesData.map((reserve: any) => ({
           underlyingAsset: reserve.underlyingAsset,
           scaledATokenBalance: BigInt(reserve.scaledATokenBalance), // The scaled balance of the aToken. scaledBalance = balance/liquidityIndex
           usageAsCollateralEnabledOnUser: Boolean(reserve.usageAsCollateralEnabledOnUser),
-          scaledVariableDebt: BigInt(reserve.scaledVariableDebt), // The scaled balance of borrow position: (current balance = scaled balance * liquidity index)
+          scaledVariableDebt: BigInt(reserve.scaledVariableDebt), // The scaled balance of borrow position
+          currentVariableDebt: BigInt(reserve.currentVariableDebt || reserve.scaledVariableDebt), // Actual debt with interest (fallback to scaled if not available)
         }));
 
         return {
