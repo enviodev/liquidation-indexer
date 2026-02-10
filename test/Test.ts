@@ -1,4 +1,4 @@
-import assert from "assert";
+import { describe, expect, it } from "vitest";
 import { TestHelpers, AaveProxy_LiquidationCall } from "generated";
 const { MockDb, AaveProxy } = TestHelpers;
 
@@ -30,10 +30,6 @@ describe("AaveProxy contract LiquidationCall event tests", () => {
       receiveAToken: event.params.receiveAToken,
     };
 
-    assert.deepEqual(
-      actual,
-      expected,
-      "Actual AaveProxy_LiquidationCall should equal expected"
-    );
+    expect(actual).toEqual(expected);
   });
 });

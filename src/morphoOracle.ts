@@ -1,4 +1,4 @@
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 
 type HistoricalPricePoint = {
   x: number
@@ -22,7 +22,7 @@ const getMorphoHistoricalPriceSchema = S.schema({
 // Infer the type from the schema
 type getMorphoHistoricalPrice = S.Infer<typeof getMorphoHistoricalPriceSchema>;
 
-export const getMorphoHistoricalPrice = experimental_createEffect(
+export const getMorphoHistoricalPrice = createEffect(
   {
     name: "getMorphoHistoricalPrice",
     input: {
@@ -31,6 +31,7 @@ export const getMorphoHistoricalPrice = experimental_createEffect(
       timestamp: S.bigint,
     },
     output: getMorphoHistoricalPriceSchema,
+    rateLimit: false,
     // Enable caching to avoid duplicated calls
     cache: true,
   },

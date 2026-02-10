@@ -1,5 +1,5 @@
 import { createPublicClient, http } from "viem";
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import { 
   getChain, 
   getRPCUrl, 
@@ -22,7 +22,7 @@ const getAaveV3ReserveDataSchema = S.schema({
 // Infer the type from the schema
 type getAaveV3ReserveData = S.Infer<typeof getAaveV3ReserveDataSchema>;
 
-export const getAaveV3ReserveData = experimental_createEffect(
+export const getAaveV3ReserveData = createEffect(
   {
     name: "getAaveV3ReserveData",
     input: {
@@ -31,6 +31,7 @@ export const getAaveV3ReserveData = experimental_createEffect(
       blockNumber: S.bigint,
     },
     output: getAaveV3ReserveDataSchema,
+    rateLimit: false,
     // Enable caching to avoid duplicated calls
     cache: true,
   },

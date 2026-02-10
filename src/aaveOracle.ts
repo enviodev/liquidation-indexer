@@ -1,5 +1,5 @@
 import { createPublicClient, http } from "viem";
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import { getChain, getRPCUrl, getAaveV3OracleContract, getAaveV3OracleAddress } from "./utils";
 
 
@@ -11,7 +11,7 @@ const getAssetPriceSchema = S.schema({
 // Infer the type from the schema
 type getAssetPrice = S.Infer<typeof getAssetPriceSchema>;
 
-export const getAssetPrice = experimental_createEffect(
+export const getAssetPrice = createEffect(
   {
     name: "getAssetPrice",
     input: {
@@ -20,6 +20,7 @@ export const getAssetPrice = experimental_createEffect(
       blockNumber: S.bigint,
     },
     output: getAssetPriceSchema,
+    rateLimit: false,
     // Enable caching to avoid duplicated calls
     cache: true,
   },

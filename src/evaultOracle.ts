@@ -1,5 +1,5 @@
 import { createPublicClient, http } from "viem";
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import { getChain, getRPCUrl, getEulerRouterContract } from "./utils";
 
 
@@ -11,7 +11,7 @@ const getQuoteSchema = S.schema({
 // Infer the type from the schema
 type getQuote = S.Infer<typeof getQuoteSchema>;
 
-export const getQuote = experimental_createEffect(
+export const getQuote = createEffect(
   {
     name: "getQuote",
     input: {
@@ -23,6 +23,7 @@ export const getQuote = experimental_createEffect(
       blockNumber: S.bigint,
     },
     output: getQuoteSchema,
+    rateLimit: false,
     // Enable caching to avoid duplicated calls
     cache: false,
   },

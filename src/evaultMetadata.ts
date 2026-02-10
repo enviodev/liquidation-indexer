@@ -1,5 +1,5 @@
 import { createPublicClient, http } from "viem";
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 import { getChain, getRPCUrl, getEVaultContract } from "./utils";
 
 
@@ -16,7 +16,7 @@ const EVaultMetadataSchema = S.schema({
 // Infer the type from the schema
 type EVaultMetadata = S.Infer<typeof EVaultMetadataSchema>;
 
-export const getEVaultMetadata = experimental_createEffect(
+export const getEVaultMetadata = createEffect(
   {
     name: "getEVaultMetadata",
     input: {
@@ -24,6 +24,7 @@ export const getEVaultMetadata = experimental_createEffect(
       chainId: S.number,
     },
     output: EVaultMetadataSchema,
+    rateLimit: false,
     // Enable caching to avoid duplicated calls
     cache: false,
   },

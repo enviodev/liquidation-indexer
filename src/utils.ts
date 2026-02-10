@@ -1,29 +1,11 @@
 import { Address, erc20Abi, erc20Abi_bytes32 } from "viem";
 import { mainnet, optimism, arbitrum, polygon, base, gnosis, linea, scroll, avalanche, bsc } from 'viem/chains'
-import * as fs from "fs";
-import * as path from "path";
 import { AaveV3Ethereum, AaveV3Optimism, AaveV3Arbitrum, AaveV3Polygon, AaveV3Base, AaveV3Gnosis, AaveV3Linea, AaveV3Scroll, AaveV3Avalanche, AaveV3BNB } from "@bgd-labs/aave-address-book"; 
-
-
-const evaultAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/EVault.json"), "utf8")
-);
-
-const eulerRouterAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/EulerRouter.json"), "utf8")
-);
-
-const aaveV3OracleAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AaveV3Oracle.json"), "utf8")
-);
-
-const aaveUiPoolDataProviderAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AaveUiPoolDataProvider.json"), "utf8")
-);
-
-const aaveV3ProtocolDataProviderAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AaveV3ProtocolDataProvider.json"), "utf8")
-);
+import evaultAbi from "../abis/EVault.json";
+import eulerRouterAbi from "../abis/EulerRouter.json";
+import aaveV3OracleAbi from "../abis/AaveV3Oracle.json";
+import aaveUiPoolDataProviderAbi from "../abis/AaveUiPoolDataProvider.json";
+import aaveV3ProtocolDataProviderAbi from "../abis/AaveV3ProtocolDataProvider.json";
 
 export function getERC20Contract(address: Address) {
     return { address: address as `0x${string}`, abi: erc20Abi };

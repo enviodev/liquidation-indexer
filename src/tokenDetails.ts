@@ -1,5 +1,5 @@
 import { createPublicClient, http, hexToString } from 'viem'
-import { experimental_createEffect, S } from 'envio'
+import { createEffect, S } from 'envio'
 import { getERC20BytesContract, getERC20Contract, getChain, getRPCUrl } from './utils'
 
 // Define the schema for token metadata
@@ -12,7 +12,7 @@ const tokenMetadataSchema = S.schema({
 // Infer the type from the schema
 type TokenMetadata = S.Infer<typeof tokenMetadataSchema>
 
-export const getTokenDetails = experimental_createEffect(
+export const getTokenDetails = createEffect(
   {
     name: "getTokenDetails",
     input: {
@@ -20,6 +20,7 @@ export const getTokenDetails = experimental_createEffect(
       chainId: S.number,
     },
     output: tokenMetadataSchema,
+    rateLimit: false,
     cache: true, // Enable caching
   },
   async ({ input, context }) => {
