@@ -4,8 +4,8 @@ import { AaveV3Ethereum, AaveV3Optimism, AaveV3Arbitrum, AaveV3Polygon, AaveV3Ba
 import evaultAbi from "../abis/EVault.json";
 import eulerRouterAbi from "../abis/EulerRouter.json";
 import aaveV3OracleAbi from "../abis/AaveV3Oracle.json";
-import aaveUiPoolDataProviderAbi from "../abis/AaveUiPoolDataProvider.json";
 import aaveV3ProtocolDataProviderAbi from "../abis/AaveV3ProtocolDataProvider.json";
+import aaveUiPoolDataProviderAbi from "../abis/AaveUiPoolDataProvider.json";
 
 export function getERC20Contract(address: Address) {
     return { address: address as `0x${string}`, abi: erc20Abi };
