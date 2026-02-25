@@ -129,7 +129,7 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
         id: `${event.chainId}_${event.params.collateralAsset}`,
         chainId: event.chainId,
         decimals: collateralMarketDetails.decimals,
-        ltv: collateralMarketDetails.ltv,
+        liqLTV: collateralMarketDetails.liqLTV,
         cf: collateralMarketDetails.cf,
         liq_inc: collateralMarketDetails.liq_inc,
         reserve_factor: collateralMarketDetails.reserve_factor,
@@ -158,7 +158,7 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
         id: `${event.chainId}_${event.params.debtAsset}`,
         chainId: event.chainId,
         decimals: debtMarketDetails.decimals,
-        ltv: debtMarketDetails.ltv,
+        liqLTV: debtMarketDetails.liqLTV,
         cf: debtMarketDetails.cf,
         liq_inc: debtMarketDetails.liq_inc,
         reserve_factor: debtMarketDetails.reserve_factor,
@@ -236,6 +236,7 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     chainId: event.chainId,
     timestamp: BigInt(event.block.timestamp),
+    blockNumber: BigInt(event.block.number),
     protocol: "Aave",
     borrower_id: borrowerId,
     liquidator_id: liquidatorId,
@@ -247,10 +248,11 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     seizedAssets: event.params.liquidatedCollateralAmount,
     seizedAssetsUSD: seizedAssetsUSD,
     positionSnapshot_id: undefined,
-    liqLtv: Number(collateralMarketDetails.ltv) / 1e4,
+    liqLtv: undefined,  // Will be set from snapshot data (EMode-adjusted)
     closingFactor: undefined,
-    liqInc: Number(collateralMarketDetails.liq_inc) / 1e4,
-    reserveFactor: Number(collateralMarketDetails.reserve_factor) / 1e4,
+    liqInc: collateralMarketDetails ? Number(collateralMarketDetails.liq_inc) / 1e4 - 1 : undefined,
+    reserveFactor: collateralMarketDetails ? Number(collateralMarketDetails.reserve_factor) / 1e4 : undefined,
+    eModeCategory: undefined,  // Will be set from snapshot data
   };
 
   // Create position snapshot
@@ -311,7 +313,9 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     context.GeneralizedLiquidation.set({
       ...generalized,
       positionSnapshot_id: snapshotId,
-      closingFactor: seizedAssetsUSD / snapshotData.totalDebtUSD
+      liqLtv: snapshotData.effectiveLiqLtv,  // EMode-adjusted weighted average
+      closingFactor: seizedAssetsUSD / snapshotData.totalDebtUSD,
+      eModeCategory: snapshotData.eModeCategory,
     });
   } catch (error) {
     context.log.error(
@@ -323,7 +327,12 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
         blockNumber: event.block.number,
       }
     );
-    // Continue without snapshot - don't fail the entire liquidation indexing
+    // Continue without snapshot - use fallback liquidation threshold from reserve data
+    context.GeneralizedLiquidation.set({
+      ...generalized,
+      liqLtv: collateralMarketDetails ? Number(collateralMarketDetails.liqLTV) / 1e4 : undefined,  // Fallback to reserve LTV
+      eModeCategory: 0,  // Unknown EMode category
+    });
   }
 
   // Update per-chain stats
@@ -552,6 +561,7 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
 
   const generalized: GeneralizedLiquidation = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    blockNumber: BigInt(event.block.number),
     chainId: event.chainId,
     timestamp: BigInt(event.block.timestamp),
     protocol: "Euler",
@@ -566,15 +576,15 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
     seizedAssetsUSD: Number(yieldBalanceUSD.price) / 1e18,
     positionSnapshot_id: undefined,
     liqLtv: Number(ltvInfo.liquidationLTV) / 1e4,
-    closingFactor: 0,
-    liqInc: 0,
+    closingFactor: undefined,
+    liqInc: undefined,
     reserveFactor: 0,
+    eModeCategory: undefined,  // EMode is Aave-specific
   };
-  context.GeneralizedLiquidation.set(generalized);
 
   // Create position snapshot
   const snapshotId = `${event.chainId}_${event.block.number}_${event.logIndex}_snapshot`;
-  
+
   try {
     const snapshotData = await processEulerPositionSnapshot(
       context,
@@ -630,7 +640,7 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
       });
     }
 
-    // Link snapshot to liquidation
+    // Link snapshot to liquidation with computed values
     context.GeneralizedLiquidation.set({
       ...generalized,
       positionSnapshot_id: snapshotId,
@@ -648,7 +658,8 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
         blockNumber: event.block.number,
       }
     );
-    // Continue without snapshot - don't fail the entire liquidation indexing
+    // Persist liquidation without snapshot data (liqInc/closingFactor remain undefined)
+    context.GeneralizedLiquidation.set(generalized);
   }
 
   // Update per-chain stats
@@ -691,6 +702,10 @@ Morpho.CreateMarket.handler(async ({ event, context }) => {
     irm: event.params.marketParams[3],
     lltv: event.params.marketParams[4],
   };
+
+  // Persist market entity before token fetches so it's available for future Liquidate events
+  // even if token metadata fetches fail
+  context.Morpho_CreateMarket.set(entity);
 
   try {
     const loanTokenMetadata = await context.effect(getTokenDetails, {
@@ -740,8 +755,8 @@ Morpho.CreateMarket.handler(async ({ event, context }) => {
     return;
   }
 
-  context.Morpho_CreateMarket.set(entity);
 });
+
 
 Morpho.Liquidate.handler(async ({ event, context }) => {
   const entity: Morpho_Liquidate = {
@@ -904,12 +919,17 @@ Morpho.Liquidate.handler(async ({ event, context }) => {
   });
   }
 
-  const collateralValueInLoanTokens = (preLiqCollateralAmount * oraclePrice.price) / BigInt(1e36);
-  const ltv = Number(preLiqBorrowAmount) / Number(collateralValueInLoanTokens);
+  // Compute LTV and USD values, guarding against zero/missing data
+  let ltv: number | undefined = undefined;
+  if (preLiqCollateralAmount > 0n && oraclePrice.price > 0n) {
+    const collateralValueInLoanTokens = (preLiqCollateralAmount * oraclePrice.price) / (10n ** 36n);
+    if (collateralValueInLoanTokens > 0n) {
+      ltv = Number(preLiqBorrowAmount) / Number(collateralValueInLoanTokens);
+    }
+  }
 
-  const totalCollateralUSD = (Number(preLiqCollateralAmount) / 10 ** collateralDecimals) * Number(collateralPrice.price)
-  const totalDebtUSD = (Number(preLiqBorrowAmount) / 10 ** debtDecimals) * Number(debtPrice.price)
-  let closingFactor = 0;
+  const totalCollateralUSD = (Number(preLiqCollateralAmount) / 10 ** collateralDecimals) * Number(collateralPrice.price);
+  const totalDebtUSD = (Number(preLiqBorrowAmount) / 10 ** debtDecimals) * Number(debtPrice.price);
 
   const LIQUIDATION_CURSOR = 0.3;
   const MAX_LIQUIDATION_INCENTIVE_FACTOR = 1.15;
@@ -920,16 +940,18 @@ Morpho.Liquidate.handler(async ({ event, context }) => {
       WAD / (WAD - LIQUIDATION_CURSOR * (WAD - scaledLiqLtv))
   ) - 1;
 
+  let closingFactor: number | undefined = undefined;
   if (totalDebtUSD > 0 && repaidAssetsUSD > 0) {
     closingFactor = repaidAssetsUSD / totalDebtUSD;
-  } else {
+  } else if (preLiqBorrowAmount > 0n) {
     closingFactor = Number(event.params.repaidAssets) / Number(preLiqBorrowAmount);
   }
 
-  // Process position snapshot
+  // Process position snapshot - only create if we have valid position data
   const snapshotId = `${event.chainId}_${event.block.number}_${event.logIndex}_snapshot`;
-
   const liquidationId = `${event.chainId}_${event.block.number}_${event.logIndex}`;
+
+  if (preLiqCollateralAmount > 0n || preLiqBorrowAmount > 0n) {
     context.PositionSnapshot.set({
       id: snapshotId,
       chainId: event.chainId,
@@ -965,10 +987,11 @@ Morpho.Liquidate.handler(async ({ event, context }) => {
       amountUSD: totalDebtUSD,
       isRepaid: false,
     });
-
+  }
 
   const generalized: GeneralizedLiquidation = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    blockNumber: BigInt(event.block.number),
     chainId: event.chainId,
     timestamp: BigInt(event.block.timestamp),
     protocol: "Morpho",
@@ -981,11 +1004,12 @@ Morpho.Liquidate.handler(async ({ event, context }) => {
     repaidAssetsUSD: repaidAssetsUSD,
     seizedAssets: event.params.seizedAssets,
     seizedAssetsUSD: seizedAssetsUSD,
-    positionSnapshot_id: snapshotId,
+    positionSnapshot_id: (preLiqCollateralAmount > 0n || preLiqBorrowAmount > 0n) ? snapshotId : undefined,
     liqLtv: scaledLiqLtv,
     closingFactor: closingFactor,
     liqInc: liqInc,
     reserveFactor: 0,
+    eModeCategory: undefined,  // EMode is Aave-specific
   };
   context.GeneralizedLiquidation.set(generalized);
 

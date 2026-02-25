@@ -63,6 +63,7 @@ type GeneralizedLiquidation {
   id: ID!
   chainId: Int!
   timestamp: BigInt! @index
+  blockNumber: BigInt!
   protocol: String!
   borrower: Borrower!
   liquidator: Liquidator!
@@ -78,6 +79,7 @@ type GeneralizedLiquidation {
   closingFactor: Float
   liqInc: Float
   reserveFactor: Float
+  eModeCategory: Int
 }
 
 type LiquidationStats {
@@ -127,10 +129,10 @@ type AaveV3ReserveConfigurationData {
   id: ID!
   chainId: Int!
   decimals: Int
-  ltv: BigInt
-  cf: BigInt
-  liq_inc: BigInt
-  reserve_factor: BigInt
+  liqLTV: Int
+  cf: Int
+  liq_inc: Int
+  reserve_factor: Int
 }
 
 type PositionSnapshot {

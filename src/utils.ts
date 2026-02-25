@@ -25,6 +25,14 @@ const aaveV3ProtocolDataProviderAbi = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../abis/AaveV3ProtocolDataProvider.json"), "utf8")
 );
 
+const aaveV3PoolAbi = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../abis/AaveV3Pool.json"), "utf8")
+);
+
+const aavePoolAddressesProviderAbi = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../abis/AavePoolAddressesProvider.json"), "utf8")
+);
+
 // Load default AccountLens ABI
 const accountLensAbi = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../abis/AccountLens.json"), "utf8")
@@ -100,6 +108,14 @@ export function getAaveUiPoolDataProviderContract(address: Address) {
 
 export function getAaveV3ProtocolDataProviderContract(address: Address) {
     return { address: address as `0x${string}`, abi: aaveV3ProtocolDataProviderAbi };
+}
+
+export function getAaveV3PoolContract(address: Address) {
+    return { address: address as `0x${string}`, abi: aaveV3PoolAbi };
+}
+
+export function getAavePoolAddressesProviderContract(address: Address) {
+    return { address: address as `0x${string}`, abi: aavePoolAddressesProviderAbi };
 }
 
 export function getAccountLensContract(address: Address, chainId?: number) {
@@ -282,3 +298,19 @@ export const getEulerVaultLensAddress = (chainId: number) => {
     const address = chainMap[chainId] || "";
     return address;
 };
+
+/**
+ * Check if an asset is enabled in an EMode bitmap
+ * @param bitmap The EMode bitmap (collateralBitmap or borrowableBitmap)
+ * @param reserveId The reserve ID (0-127)
+ * @returns true if the asset is enabled in the EMode, false otherwise
+ */
+export function isAssetEnabledInEModeBitmap(
+    bitmap: bigint,
+    reserveId: number
+): boolean {
+    if (reserveId < 0 || reserveId > 127) {
+        return false;
+    }
+    return ((bitmap >> BigInt(reserveId)) & 1n) !== 0n;
+}

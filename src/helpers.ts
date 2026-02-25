@@ -1,22 +1,10 @@
 import { Liquidator, Borrower } from "generated";
 import { getAaveUserPositionData } from "./aavePositionSnapshot";
 import { getEulerUserPositionData } from "./eulerPositionSnapshot";
-import { getMorphoUserPositionData, getMorphoOraclePrice } from "./morphoPositionSnapshot";
 import { getTokenDetails } from "./tokenDetails";
 import { getAssetPrice } from "./aaveOracle";
-import { getMorphoHistoricalPrice } from "./morphoOracle";
-import { executeWithRPCRotation } from "./utils";
-import * as fs from "fs";
-import * as path from "path";
-
-// Load Morpho Blue ABI
-const morphoBlueAbi = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "../abis/Morpho.json"), "utf8")
-);
-
-function getMorphoBlueContract(address: string) {
-  return { address: address as `0x${string}`, abi: morphoBlueAbi };
-}
+import { getQuote } from "./evaultOracle";
+import { getEulerUSDAddress } from "./utils";
 
 interface ProcessedCollateral {
   id: string;
@@ -45,6 +33,8 @@ interface PositionSnapshotData {
   totalCollateralUSD: number;
   totalDebtUSD: number;
   ltv: number | undefined;
+  effectiveLiqLtv: number | undefined;
+  eModeCategory: number;
 }
 
 export async function processAavePositionSnapshot(
@@ -74,6 +64,8 @@ export async function processAavePositionSnapshot(
       totalCollateralUSD: 0,
       totalDebtUSD: 0,
       ltv: undefined,
+      effectiveLiqLtv: undefined,
+      eModeCategory: 0,
     };
   }
 
@@ -82,6 +74,7 @@ export async function processAavePositionSnapshot(
   let totalCollateralUSD = 0;
   let totalDebtUSD = 0;
   let totalCollateralUSDForLTV = 0;
+  let weightedLiquidationThreshold = 0;  // For calculating effective liquidation LTV
 
   let collateralIndex = 0;
   let debtIndex = 0;
@@ -121,10 +114,14 @@ export async function processAavePositionSnapshot(
         collateralPriceUSD = amountInTokens * priceInUSD;
         
         totalCollateralUSD += collateralPriceUSD;
-        
+
         // Only count for LTV if enabled as collateral
         if (reserve.usageAsCollateralEnabledOnUser) {
           totalCollateralUSDForLTV += collateralPriceUSD;
+
+          // Accumulate weighted liquidation threshold (using EMode-adjusted value)
+          const liqThreshold = Number(reserve.liquidationThreshold) / 1e4;
+          weightedLiquidationThreshold += collateralPriceUSD * liqThreshold;
         }
       } catch (error) {
         context.log.warn(`Failed to fetch price for collateral ${assetAddress}`, {
@@ -188,8 +185,13 @@ export async function processAavePositionSnapshot(
   }
 
   // Calculate LTV: totalDebtUSD / sum(collateralUSD where enabledAsCollateral=true)
-  const ltv = totalCollateralUSDForLTV > 0 
-    ? totalDebtUSD / totalCollateralUSDForLTV 
+  const ltv = totalCollateralUSDForLTV > 0
+    ? totalDebtUSD / totalCollateralUSDForLTV
+    : undefined;
+
+  // Calculate effective liquidation LTV (weighted average of liquidation thresholds)
+  const effectiveLiqLtv = totalCollateralUSDForLTV > 0
+    ? weightedLiquidationThreshold / totalCollateralUSDForLTV
     : undefined;
 
   return {
@@ -198,6 +200,8 @@ export async function processAavePositionSnapshot(
     totalCollateralUSD,
     totalDebtUSD,
     ltv,
+    effectiveLiqLtv,
+    eModeCategory: positionData.eModeCategory,
   };
 }
 
@@ -294,6 +298,8 @@ export async function processEulerPositionSnapshot(
       totalCollateralUSD: 0,
       totalDebtUSD: 0,
       ltv: undefined,
+      effectiveLiqLtv: undefined,
+      eModeCategory: 0,
     };
   }
 
@@ -303,16 +309,7 @@ export async function processEulerPositionSnapshot(
   let totalDebtUSD = 0;
   let totalCollateralUSDForLTV = 0;
 
-  // Find a controller vault to get collateral values from its liquidityInfo
-  const controllerVault = positionData.vaultAccountInfos.find((v: any) => v.isController);
-  
-  // Build a map of vault address -> collateral value (in unit of account, typically 1e18)
-  const collateralValueMap = new Map<string, bigint>();
-  if (controllerVault && !controllerVault.liquidityInfo.queryFailure) {
-    for (const collInfo of controllerVault.liquidityInfo.collateralLiquidityLiquidationInfo) {
-      collateralValueMap.set(collInfo.collateral.toLowerCase(), collInfo.collateralValue);
-    }
-  }
+  const usdAddress = getEulerUSDAddress(chainId);
 
   let collateralIndex = 0;
   let debtIndex = 0;
@@ -344,14 +341,26 @@ export async function processEulerPositionSnapshot(
     // Process collateral (if assets > 0 and not a controller)
     if (vaultInfo.assets > 0n && !vaultInfo.isController) {
       let collateralPriceUSD: number | undefined;
-      
-      // Get value from collateral value map (already in unit of account, typically 1e18)
-      const collateralValue = collateralValueMap.get(vaultAddress.toLowerCase());
-      if (collateralValue !== undefined) {
-        // Convert from 1e18 units to USD
-        collateralPriceUSD = Number(collateralValue) / 1e18;
-      } else {
-        context.log.warn(`No collateral value found in liquidityInfo for vault ${vaultAddress}`);
+
+      // Look up vault details to get the oracle, then quote to USD
+      const collateralVaultDetails = await context.EVaultDetails.get(`${chainId}_${vaultAddress}`);
+      if (collateralVaultDetails?.oracle) {
+        try {
+          const quoteResult = await context.effect(getQuote, {
+            oracle: collateralVaultDetails.oracle,
+            inAmount: vaultInfo.assets,
+            base: assetAddress,
+            quote: usdAddress,
+            chainId,
+            blockNumber,
+          });
+          collateralPriceUSD = Number(quoteResult.price) / 1e18;
+        } catch (error) {
+          context.log.error(`Failed to get USD quote for collateral vault ${vaultAddress}`, {
+            error,
+            chainId,
+          });
+        }
       }
 
       if (collateralPriceUSD !== undefined) {
@@ -381,14 +390,27 @@ export async function processEulerPositionSnapshot(
     // Process debt (if borrowed > 0 and is a controller)
     if (vaultInfo.borrowed > 0n && vaultInfo.isController) {
       let debtPriceUSD: number | undefined;
-      
-      // Use liabilityValue directly from liquidityInfo (already in unit of account, typically 1e18)
-      if (!vaultInfo.liquidityInfo.queryFailure) {
-        // Convert from 1e18 units to USD
-        debtPriceUSD = Number(vaultInfo.liquidityInfo.liabilityValue) / 1e18;
-        totalDebtUSD += debtPriceUSD;
-      } else {
-        context.log.warn(`liquidityInfo query failed for debt vault ${vaultAddress}`);
+
+      // Look up vault details to get the oracle, then quote to USD
+      const debtVaultDetails = await context.EVaultDetails.get(`${chainId}_${vaultAddress}`);
+      if (debtVaultDetails?.oracle) {
+        try {
+          const quoteResult = await context.effect(getQuote, {
+            oracle: debtVaultDetails.oracle,
+            inAmount: vaultInfo.borrowed,
+            base: assetAddress,
+            quote: usdAddress,
+            chainId,
+            blockNumber,
+          });
+          debtPriceUSD = Number(quoteResult.price) / 1e18;
+          totalDebtUSD += debtPriceUSD;
+        } catch (error) {
+          context.log.error(`Failed to get USD quote for debt vault ${vaultAddress}`, {
+            error,
+            chainId,
+          });
+        }
       }
 
       const debt: ProcessedDebt = {
@@ -407,8 +429,8 @@ export async function processEulerPositionSnapshot(
   }
 
   // Calculate LTV: totalDebtUSD / sum(collateralUSD where enabledAsCollateral=true)
-  const ltv = totalCollateralUSDForLTV > 0 
-    ? totalDebtUSD / totalCollateralUSDForLTV 
+  const ltv = totalCollateralUSDForLTV > 0
+    ? totalDebtUSD / totalCollateralUSDForLTV
     : undefined;
 
   return {
@@ -417,5 +439,7 @@ export async function processEulerPositionSnapshot(
     totalCollateralUSD,
     totalDebtUSD,
     ltv,
+    effectiveLiqLtv: undefined,  // Euler doesn't use EMode
+    eModeCategory: 0,  // Euler doesn't use EMode
   };
 }

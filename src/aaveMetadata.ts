@@ -8,10 +8,10 @@ import {
 // Define the schema for the effect output
 const getAaveV3ReserveDataSchema = S.schema({
   decimals: S.number,
-  ltv: S.bigint,
-  cf: S.bigint,
-  liq_inc: S.bigint,
-  reserve_factor: S.bigint,
+  liqLTV: S.number,
+  cf: S.number,
+  liq_inc: S.number,
+  reserve_factor: S.number,
 });
 
 // Infer the type from the schema
@@ -58,18 +58,18 @@ export const getAaveV3ReserveData = createEffect(
 
       const reservesData = result as any;
       const decimals = Number(reservesData[0]);
-      const ltv = BigInt(reservesData[2]);
-      const cf = BigInt(5000n);
-      const liq_inc = BigInt(reservesData[3]);
-      const reserve_factor = BigInt(reservesData[4]);
+      const liqLTV = Number(reservesData[2]);
+      const cf = Number(reservesData[1]);
+      const liq_inc = Number(reservesData[3]);
+      const reserve_factor = Number(reservesData[4]);
 
-      if (ltv === 0n) {
+      if (liqLTV === 0) {
         context.cache = false
       }
 
       return {
         decimals: decimals,
-        ltv: ltv,
+        liqLTV: liqLTV,
         cf: cf,
         liq_inc: liq_inc,
         reserve_factor: reserve_factor,
@@ -83,10 +83,10 @@ export const getAaveV3ReserveData = createEffect(
       context.cache = false
       return {
         decimals: 0,
-        ltv: 0n,
-        cf: 0n,
-        liq_inc: 0n,
-        reserve_factor: 0n,
+        liqLTV: 0,
+        cf: 0,
+        liq_inc: 0,
+        reserve_factor: 0,
       };
     }
   }
