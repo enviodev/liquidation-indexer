@@ -1,6 +1,5 @@
-import { createPublicClient, http } from "viem";
-import { experimental_createEffect, S } from "envio";
-import { getChain, getRPCUrl, getEulerRouterContract } from "./utils";
+import { createEffect, S } from "envio";
+import { executeWithRPCRotation, getEulerRouterContract } from "./utils";
 
 
 // Define the schema for the effect output
@@ -11,7 +10,7 @@ const getQuoteSchema = S.schema({
 // Infer the type from the schema
 type getQuote = S.Infer<typeof getQuoteSchema>;
 
-export const getQuote = experimental_createEffect(
+export const getQuote = createEffect(
   {
     name: "getQuote",
     input: {
@@ -24,43 +23,48 @@ export const getQuote = experimental_createEffect(
     },
     output: getQuoteSchema,
     // Enable caching to avoid duplicated calls
-    cache: false,
+    cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     const { oracle, inAmount, base, quote, chainId, blockNumber } = input
-
-    // Map chain IDs to RPC URLs for all configured chains
-    const chain = getChain(chainId)
-    const RPC_URL = getRPCUrl(chainId)
-
-    // Create a public client for the specific chain
-    const client = createPublicClient({
-      chain: chain,
-      batch: { multicall: true },
-      transport: http(RPC_URL, { batch: true }),
-    })
 
     const router = getEulerRouterContract(oracle as `0x${string}`)
 
-    let results: [number]
+    let price = 0;
+    
     try {
-      results = await client.multicall({
-        allowFailure: false,
-        blockNumber: BigInt(blockNumber),
-        contracts: [
-          {
-            ...router,
-            functionName: "getQuote",
-            args: [inAmount, base, quote],
-          }
-        ],
-      }) as [number]
+      // Execute RPC call with automatic rotation on failure
+      const results = await executeWithRPCRotation(
+        chainId,
+        async (client) => {
+          return await client.multicall({
+            allowFailure: false,
+            blockNumber: BigInt(blockNumber),
+            contracts: [
+              {
+                ...router,
+                functionName: "getQuote",
+                args: [inAmount, base, quote],
+              }
+            ],
+          }) as [number];
+        },
+        { enableBatch: true, enableMulticall: true }
+      );
+      
+      price = Number(results[0]);
     } catch (error) {
-      results = [0]
-      console.error("First multicall failed, trying alternate method", error)
+      console.error(
+        `All RPC attempts failed for getQuote on chain ${chainId}, block ${blockNumber}. ` +
+        `Returning default value. Error: ${error}`
+      );
+      context.cache = false
+      price = 0;
     }
-
-    const [price] = results
 
     return {
       price,
