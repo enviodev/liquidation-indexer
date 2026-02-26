@@ -42,12 +42,13 @@ export async function processAavePositionSnapshot(
   userAddress: string,
   chainId: number,
   blockNumber: bigint,
+  priceBlockNumber: bigint,
   seizedAsset: string,
   repaidAsset: string,
   snapshotId: string
 ): Promise<PositionSnapshotData> {
-  
-  // Fetch user position data
+
+  // Fetch user position data at blockNumber (N-1, pre-liquidation state)
   const positionData = await context.effect(getAaveUserPositionData, {
     userAddress,
     chainId,
@@ -105,14 +106,14 @@ export async function processAavePositionSnapshot(
         const price = await context.effect(getAssetPrice, {
           assetAddress,
           chainId,
-          blockNumber,
+          blockNumber: priceBlockNumber,
         });
-        
+
         // Convert scaled balance to USD
         const amountInTokens = Number(reserve.scaledATokenBalance) / (10 ** tokenMetadata.decimals);
         const priceInUSD = Number(price.price) / (10 ** 8);
         collateralPriceUSD = amountInTokens * priceInUSD;
-        
+
         totalCollateralUSD += collateralPriceUSD;
 
         // Only count for LTV if enabled as collateral
@@ -153,7 +154,7 @@ export async function processAavePositionSnapshot(
         const price = await context.effect(getAssetPrice, {
           assetAddress,
           chainId,
-          blockNumber,
+          blockNumber: priceBlockNumber,
         });
 
         // Convert current debt balance to USD (includes accrued interest)
@@ -277,11 +278,12 @@ export async function processEulerPositionSnapshot(
   userAddress: string,
   chainId: number,
   blockNumber: bigint,
+  priceBlockNumber: bigint,
   seizedVault: string,
   repaidVault: string,
   snapshotId: string
 ): Promise<PositionSnapshotData> {
-  // Fetch user position data from AccountLens
+  // Fetch user position data from AccountLens at blockNumber (N-1, pre-liquidation state)
   const positionData = await context.effect(getEulerUserPositionData, {
     userAddress,
     chainId,
@@ -352,7 +354,7 @@ export async function processEulerPositionSnapshot(
             base: assetAddress,
             quote: usdAddress,
             chainId,
-            blockNumber,
+            blockNumber: priceBlockNumber,
           });
           collateralPriceUSD = Number(quoteResult.price) / 1e18;
         } catch (error) {
@@ -401,7 +403,7 @@ export async function processEulerPositionSnapshot(
             base: assetAddress,
             quote: usdAddress,
             chainId,
-            blockNumber,
+            blockNumber: priceBlockNumber,
           });
           debtPriceUSD = Number(quoteResult.price) / 1e18;
           totalDebtUSD += debtPriceUSD;

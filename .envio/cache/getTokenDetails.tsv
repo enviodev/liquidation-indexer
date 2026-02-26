@@ -3522,3 +3522,625 @@ id	output
 {"chainId":8453,"tokenAddress":"0xD111E0a9830F3943a7BDc5748b1ac285853E97b7"}	{"name": "ClawXMTP", "symbol": "CXMTP", "decimals": 18}
 {"chainId":8453,"tokenAddress":"0xE822c6Ed66109161BE01F70320E060ce64d01d59"}	{"name": "The Aurelius Duck", "symbol": "DUCK", "decimals": 18}
 {"chainId":8453,"tokenAddress":"0x5A2F6E03a6c66E1Ecd67bbf434E772f3b079dd8f"}	{"name": "Foundry AI", "symbol": "FNDRY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7970748b13f5c2e2B39C16e87DA012EbE6AD7b96"}	{"name": "TechForge0377 Token", "symbol": "TEC77", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xbE97cdA8c4b8F7861b77d755E8397eFfF973228d"}	{"name": "CLAW FINGER", "symbol": "FINGER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD1102fB20863fAda5F0f6B6c8D5B0423fB86De01"}	{"name": "goldify", "symbol": "GOLDIFY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1Edc6FE9177dA1dD564A923D79aA5721d6E8aBaE"}	{"name": "Limited Coin", "symbol": "LIMITED", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xae6ACE0196abC997Ba29009F21133145263d2542"}	{"name": "CryptoMind7077 Token", "symbol": "CMN77", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6E8d474Ccb8eb4716bf2c4E219068710014Bbf16"}	{"name": "AuroraZone7522 Token", "symbol": "AZO22", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC0251645a6C5a4b44E39698E0DC46668E1E736aA"}	{"name": "Bracky NBA", "symbol": "NBA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8A014eAc47A4ef573C88267D36E1af32fB21FA8a"}	{"name": "Madhouse", "symbol": "MAD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x039B26D1792cd13a4e0520EE685414536534CF6E"}	{"name": "CLAW FINGER", "symbol": "FINGER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3E74dA4420BaE56c9199075900C9b377E6A7653c"}	{"name": "Goldification", "symbol": "GOLDIFY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEc0f16D762991948b93e6c268D1fb69d69AF13ac"}	{"name": "The Gold Era", "symbol": "GOLD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xCb5EB745757628E99Cb9A39B9a50a6A43Be50f73"}	{"name": "Gigabrain", "symbol": "GIGABRAIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEE10b3a84E92F4589A0F333c0844d990A4D9f3c6"}	{"name": "Crawg", "symbol": "CRAWG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x08aB2D39853A1f2CEe2CA969EA7ae32b7963e28A"}	{"name": "MOLT CHECKER", "symbol": "MOLTCHECK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xc0034319b59D897b0Cb44c30afc4b7b879997C1A"}	{"name": "YinYang", "symbol": "YINYANG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x20d491d2093F2E8afb89c5B8C8454C11b370D216"}	{"name": "One Person Company Dev", "symbol": "OPC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5f95041107D49e81eA5185437632462185644B85"}	{"name": "Bitcoin On Sale", "symbol": "ONSALE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x058a49454BE587C89EFfD3De35A9076EE37E3FBA"}	{"name": "Fintech Fusion", "symbol": "FUSION", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xCd02543F23328394E6dD504E38cc07E6016f8318"}	{"name": "Fetchstein - Epsteins Dog", "symbol": "FETY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8A828Bb1F60B44DBF01e96F6c1E03FD04Cf4744D"}	{"name": "Codexo", "symbol": "CODEXO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x84F4aBD2a2d5503cB9805bADEad8c33C0251e9bd"}	{"name": "CLAW FINGER", "symbol": "FINGER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x685519E6cC0C850E2c18a6500D5e19F223B5ba27"}	{"name": "The Paperclip Maximizer", "symbol": "CLIPGOD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x306c7E3bB50dfB283799abCec2396883d3170B64"}	{"name": "AlphaMind1416 Token", "symbol": "ALP16", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xACF202c00284a7d327351b0Fe696Ad4831Da3E09"}	{"name": "Addicted Dopamine Hopium Degens", "symbol": "ADHD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x223e0A777Df4B6B05a5cFbEd43dad14f39E2EBD7"}	{"name": "PLATINUM", "symbol": "PLATINUM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xDD2f61430d75ef54F9cd115BC0F0e2d82242C79C"}	{"name": "MansaClaw", "symbol": "MANSACLAW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x03461e81ecaA3d7104D92F6A86E426650AFa4b2B"}	{"name": "XPT", "symbol": "XPT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x486Cc3c9a23b2Ff6Db5bA9aBa5a3072fCc53051b"}	{"name": "One Person Company Dev", "symbol": "OPC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x400C4cE4D69b9e0461360927F89d6A64160437c3"}	{"name": "Krafer Crypto", "symbol": "KRAFER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xDe1CEdA46E01b015CA90C1e2a203A32458cc0edf"}	{"name": "metacoin", "symbol": "METACOIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3103A5f66258D01911B55DAA96Cd0559eC512fF4"}	{"name": "The Almaty Airport Hero", "symbol": "MUSA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x019E98c2A035d68e8FC2A7a905661975Ae437f66"}	{"name": "Your social vibe curator", "symbol": "PROPSAI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4b6FCdCDB6cf47E7d20E932586b2de8707e955dd"}	{"name": "Fergani", "symbol": "FERGANI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf20D476a0e086ba51d5327404954e8F7Dd3Df6e0"}	{"name": "lil nut", "symbol": "LNUT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x415eabFD0D690EDd127f1E694402B274c491D35C"}	{"name": "The Blue Whale", "symbol": "BLUEWHALE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xbFefC85CD12BC54396e3D66BAade00468C9594aC"}	{"name": "Kim Jonson", "symbol": "KIM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xFE5eb4015Aff7D64Cd84df2E5a353780C9da6212"}	{"name": "The Backrooms", "symbol": "BACKROOMS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x13484038958a2F384fB26edfbEB2E09C6Fa15b5B"}	{"name": "Addicted Dopamine Hopium Degens", "symbol": "ADHD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x73d295A6650576976AA936CC63C06E8300d95aea"}	{"name": "Zoe", "symbol": "ZOE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa3b0D559b1920938cCFC33BF3Fe4676Aa410E8c1"}	{"name": "Astra", "symbol": "ASTRA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xDB942D819012af7db09EdAe73Ba03F7F366dFD3C"}	{"name": "Hamiboom", "symbol": "HAM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x49bC6b0008528DBFB81d1e7940A791D43D28F55E"}	{"name": "五ちゃん", "symbol": "GOCHAN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x83E03f1cfBed1bDEf794181efCAA07dfe424741B"}	{"name": "Shire", "symbol": "SHIRE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x816c8640B9b5ea995888C5E632188a3E2C57d62F"}	{"name": "Key Opinion Lobster", "symbol": "KOL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3D10ad241663a12834A335dec8e5D589877DC944"}	{"name": "solanamonitor.app", "symbol": "SOLMONITOR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x08DD81508F3B0Da31b146Dc587D314CB44462029"}	{"name": "2026 calendar", "symbol": "2026", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xcF2E4806F5db13aa5B9B734A9bFD02017b962F17"}	{"name": "The Aurelius Duck", "symbol": "DUCK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa72F880f82289b22129016729c805df9CFED5a2b"}	{"name": "Claw Mad", "symbol": "CLAWMAD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0F1A326D51A11dA43378a09E4B4c556E5f4339CE"}	{"name": "The Revived Seagull", "symbol": "SEAGULL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEBc7506b4FCF23c9D68401fE458B73F7C9b4D507"}	{"name": "Strays as a Service", "symbol": "SAAS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x03731cFB21d51cBE5E61602c77891ae5BBcb928C"}	{"name": "Trench Stim", "symbol": "STIM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xE9C59941f22bf60829E0F4990e5898bF5F4206Df"}	{"name": "Serverless Openclaw", "symbol": "CLAWLESS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x18a93d9D9ff44D9015A2A6d066BAfA8ABF4Bba75"}	{"name": "Kimchi", "symbol": "KIMCHI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6Efd30cC2E61f91fCB3f11c4De68C5CeD542cB07"}	{"name": "Nori", "symbol": "NORI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xE17FCe2d4D96c67660e4fFc57E42300fb97a293a"}	{"name": "AGENC", "symbol": "A_G_E_N_C", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x935a541D0742C85647be4F078730c189b9E068ae"}	{"name": "DOWN", "symbol": "DOWN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x35C3fda38496352a30ffb83B87AF273c888c4101"}	{"name": "ClawXMTP", "symbol": "CXMTP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xDE9a1405Cf8F288B326b627241e5E032838C98f2"}	{"name": "The Mel-Pigeon Singularity", "symbol": "FLYSPICE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x650019819C732D6189C9De77688E338C2Bb1e83D"}	{"name": "AGENC", "symbol": "AGENC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8CcB7FE047DDEd70bc78849DC7Aaf09af3CABd06"}	{"name": "PsyopClude", "symbol": "PSYOPCLUDE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xDd856c98db04E0fc251bde7834fEcB6dEDfc528E"}	{"name": "ClawXMTP", "symbol": "CXMTP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4A9a028055E8294F8DDC74e93ec9C18CE1abAC5F"}	{"name": "AGENC", "symbol": "AGENC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x17F7FB0Cf621c0d04a4208e09765997E974F41EE"}	{"name": "Jido", "symbol": "JIDO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x862290B8b99D449Ec7dd561243FF0CEEb7eE6F05"}	{"name": "ClawXmtp", "symbol": "CLAWXMTP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x082B6A66aD43b245b8DE9D5F63c941Df07f0F7aa"}	{"name": "ClawXmtp", "symbol": "CLAWXMTP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xF5f9574f3ac26F4FaDB99f24b4C20e49b73F97Fb"}	{"name": "ClawXMTP", "symbol": "CXMTP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x32E5F8d993F8C7E87387865C27f51869f67C7621"}	{"name": "Takeover.fun", "symbol": "TAKEOVER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb1d98286bA13af3f2C0201E5DA67a7EC17CbaE70"}	{"name": "ShellAgent", "symbol": "SHELL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4ABa132CD19A1F06Ca19F65Af218eCeb2691dB8b"}	{"name": "ClawXmtp", "symbol": "CLAWXMTP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9B5e3b2A70F904810be5ABB7F6b5a45253C3Dd84"}	{"name": "Shire", "symbol": "SHIRE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD2878B92D56433dcbcb566b4C494f5F0c358db44"}	{"name": "MEMBOT", "symbol": "MEMBOT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0bC74a52A3b030aEdC262ff9A6EE49388c696d00"}	{"name": "Ouroboros", "symbol": "OUROBOROS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x72f44958601fa121cb2F72eB0c689e1CDa568B1e"}	{"name": "ArAIstotle by Moltbook", "symbol": "FACY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x011d1EAE3Bf7A6030Ecb928FE94190631b4c7734"}	{"name": "Key Opinion Lobster", "symbol": "KOL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xc944Ae7BbeDc58c44461f632994FedaFEaB486D9"}	{"name": "AlienClaw", "symbol": "ALIENCLAW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x500ced97641466b32B570969717746b44e87006B"}	{"name": "Protect The Shire", "symbol": "SHIRE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC6dee971ceC413D13ab65bf24A98b08e384c2419"}	{"name": "Pi Agent", "symbol": "PI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x45dcB8dE4c15D0bF7B9C64B5762cEb2e5F328286"}	{"name": "The Racist Dog", "symbol": "ROLO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5e2f983C2fa6783Ee00B06aE4FB84979D54DeCec"}	{"name": "What if Skeleton", "symbol": "SKELETON", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8d7A8C49d5351C0586A99cC993CfebC53886124a"}	{"name": "RECYCLE", "symbol": "RECYCLE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x367c355f8737c94525A76CCA459D99B8443ea59c"}	{"name": "Fintech Fusion", "symbol": "FF", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD77407213815548a1AF2c778D8c21a4961d9cC3C"}	{"name": "The Adam", "symbol": "ADAM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x83b10e8c747C00ef5C4c234ba4F585Aa46973aDF"}	{"name": "KillLine", "symbol": "KILLLINE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7a3F00E32e20f4D02CC95BC95055d976591Bc7e5"}	{"name": "Satoshi Nakamoto", "symbol": "SATOSHI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xE0962Dd056276609CE3dCeE94bb689B8B0955d7D"}	{"name": "DOWN", "symbol": "DOWN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xCED8198F226eaCfe89fEBd5747B1C21FB2030435"}	{"name": "ClawXMTP", "symbol": "CXMTP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2C482b83B34E416E27522777ee7e3c7Bf60Ab2A9"}	{"name": "Betmoar", "symbol": "BET", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6F0a49cEA79b241b517B636FAC1519F5b9713620"}	{"name": "zero", "symbol": "ZERO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xe2ef77E32E0AfC539581bDa840AD57C4F3837952"}	{"name": "a gently used 2001 honda civic", "symbol": "USEDCAR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4fEA5191503178365cb0C02Dd078ab759b7bD3c7"}	{"name": "Kuro Architect", "symbol": "KARCH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xAd7687AB9795f728789b0C621B364ce770e2fC25"}	{"name": "Trench Stim", "symbol": "STIM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2975CBDcEfc3A201927a55FaE3080b4dF1768C9B"}	{"name": "openspine", "symbol": "openspine", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0981bCb5e6e8ec70528f75aA705470ef601b9A2f"}	{"name": "claudefish", "symbol": "CLAUDEFISH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2EB0933f07B537fb1FEf6ef50caF9307b3953250"}	{"name": "The meme calendar", "symbol": "CALENDAR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xeA5b55cD17746713aE67254D6C7Ab0aA682128fc"}	{"name": "courage the cowardly dog", "symbol": "DILWORTH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb0619439B3d6ceA44344556999169185c8aefEc6"}	{"name": "hello!", "symbol": "HELLO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEdF7bB7454C92dcB8Da86b0160184E82689111Dd"}	{"name": "tappycoin", "symbol": "TAPPY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9f48B92d766c9888a3c909B32D9cBcA33BEE8d45"}	{"name": "Bed Bath & Beyond", "symbol": "BBBY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xe9Afeb8Eab08AA47F02e9304c3D5BCd62E874580"}	{"name": "Atelier", "symbol": "ATELIER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x350bc5F1f8Ae242d68a93B2C42e3d943518C3DB2"}	{"name": "HEARTBEAT", "symbol": "HEARTBEAT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xCD7909e7550C18F95EAc226AD09f95fad5ecd62A"}	{"name": "The AI Slur", "symbol": "VIBECODING", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC1Eae68Ece4B81478d0b6C14c18a6Bc7F120C25e"}	{"name": "hello!", "symbol": "HELLO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8C875C3e5BB1B9482083c29D5D9E1a29BE45b398"}	{"name": "SolPump", "symbol": "SOLPUMP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9fA130852517820676C67f023df3Cc7f63DC6F76"}	{"name": "The Epstein Files Podcast", "symbol": "PEDOCAST", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x35f4AC466035725EFBabB5BD41C36A7eE9e5574e"}	{"name": "HorseTwting", "symbol": "HORSE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xea6e3c1b9480B51Cb04e0553a58587AE57bB81E2"}	{"name": "The Runner", "symbol": "MAXI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8a640E2ab464E7239708cc6ed8aaaDE6c5454B9D"}	{"name": "JanusAI Agent", "symbol": "JANUSAI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xeC256EAaFEB441f98a8b61cD542499bC49F65B5B"}	{"name": "Pinion OS", "symbol": "PINION", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC6f367e9b512A9e5030E14996b32Bf5B0Ac298CF"}	{"name": "CartSafe", "symbol": "CS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x020F8B893727E5Bbe3e7212097Cd341434B88c09"}	{"name": "Shrimps Thoughts", "symbol": "SHRIMP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7a5b487cFc9A5bA3F6755174E3De1d5FacCf1072"}	{"name": "Jane", "symbol": "JANE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5c35b7df5D3597619051D3E3cf4e701CcB1C0bb3"}	{"name": "YOLO Build", "symbol": "YOLO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa5E1a1Ca6f33B29Dc8Dfbf4A325E14A9fe5Fffcd"}	{"name": "Puffer AI", "symbol": "PUFFERAI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xfA94F8350CD4C48274c8709803543b89F9236b14"}	{"name": "柴犬ふう太", "symbol": "FUTA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5226fAA4f3a4d25C64909dD53d6F2F580B6d9D7C"}	{"name": "MAKE MEMES GREAT AGAIN", "symbol": "MMGA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0d5454bF12e01Aa8df1C7C75b794a6B52242Ac1a"}	{"name": "Crabs", "symbol": "CRABS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1b79A4fE5F3f1ACe994a823D2C0E5F30ee1e44e4"}	{"name": "Hexagon OS", "symbol": "HEXAGON", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x59853eb48Fb370e6088A1d17a11423b6b81E40be"}	{"name": "Clank Degods", "symbol": "CLANK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa9E1A2b59E6162Bc6A691B87A2fa70c5960DfA82"}	{"name": "Reddit is getting deleted", "symbol": "REDDIT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x122234c1D16251fA2f16AB0F81c7d2460EC91345"}	{"name": "VibeCaster6434 Token", "symbol": "VIB34", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xFFAf74F4042F41e87B7E58ec13298f27123c4DB1"}	{"name": "openspine", "symbol": "openspine", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x03986112A3A55D20e7a9382Ba9Df204A9428e825"}	{"name": "Navy Penguin", "symbol": "NAVY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5543c7C0749A3d3d411525Ef829A8E3a6957F25D"}	{"name": "TechForge0377 Token", "symbol": "TEC77", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xF30826b334104b7Bd151078ef8749942304dCB99"}	{"name": "WarClaude", "symbol": "WARCLAUDE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x957e3CDD7a2bF1A6B0d1b7eb93F091EBe48b24fC"}	{"name": "Human Tek", "symbol": "BRAIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7Df447af1e25268192398b92bCc42068eecA75f1"}	{"name": "Solpad", "symbol": "SOLPAD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6d59bB47e0996Ff763dF7747d2905c55c5793548"}	{"name": "DeepBlue", "symbol": "DEEP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x500014dbC7c5A94868F53be9911C3FbD39F56455"}	{"name": "DarkMatter", "symbol": "DARKMATTER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD708e23551268998777140252146eD45b20b7244"}	{"name": "The Black Vault", "symbol": "VAULT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD68ce987b46CBF06834B6F441cF82fEF64A19cac"}	{"name": "Gigabrain", "symbol": "GG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2f49F8C51d8cC10aF2064780ff617ac7ffef3e86"}	{"name": "The Mel-Pigeon Singularity", "symbol": "FLYSPICE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x025285418a01fBEB5e791444E9e1F3844D13614F"}	{"name": "DeepBlue", "symbol": "DEEPBLUE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x45BcD185f19877Bf8Bd44BdD1be766d469c15FA3"}	{"name": "Project Artichoke", "symbol": "ARTICHOKE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xaD872b7e18288a681db1512C84c6cc6955674607"}	{"name": "JEWCLAW", "symbol": "JEWCLAW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x20610Fa1Ad63463db36B449F778ede4f3Fe0fe26"}	{"name": "IKEA Monkey", "symbol": "DARWIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x74FC3B994122FE61ad3924349645Ae8AC9669bf2"}	{"name": "Kyron Protocol", "symbol": "KYRON", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2a7F305060Fcd47848B8C33539a4541a8290A07B"}	{"name": "VELARA AI", "symbol": "VELARA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xc38414f62B4A4bd9F608B4cf7554a61b9B7fB517"}	{"name": "DeepBlue", "symbol": "DEEP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x661624b7244744d3C22F54740121f3C0c98fAE94"}	{"name": "The Claudinator", "symbol": "HAL9000", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5Fc2fdfc3150B177Fcb9c6a0f522098c6c842E2d"}	{"name": "Sentient Toaster", "symbol": "TOAST", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf8929C9Dd573725027FAeFe141471c6732b3C8CD"}	{"name": "DARKMATTER", "symbol": "DM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xc10aD36198B93d5dE03d7948B19af1Fa7658d851"}	{"name": "Privily Fi", "symbol": "PRIVILY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x84487D248BeB45702216dd7747C929b24E02d11e"}	{"name": "DeepBlue", "symbol": "DEEP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x58CbeDDE68A726Ae4AC6466C28fA78cFfE9a1E42"}	{"name": "PicoClaw", "symbol": "PICOCLAW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xc803a1E5120cD84BBEab6fbdF6bdC0ce6b032DAD"}	{"name": "UNREAL", "symbol": "UNREAL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3cb0612f930CD67a8EA15648C8437f1C045E4ADd"}	{"name": "NightShift", "symbol": "NIGHTSHIFT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x60246DE152Fc8D7F669863A436d14ff121714370"}	{"name": "hoppy cash", "symbol": "HOPPY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xB53bbC4f9207521f59E44982c3C8f745A3DeF284"}	{"name": "CURL wrapper", "symbol": "WRAP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0DAe8Fc27933C97d61D8319CC9e88c7eae86a27b"}	{"name": "DeepBlue", "symbol": "DEEP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2d4D55c08A2958F0b705F3f7750D1D4fA2E9f58F"}	{"name": "Maximus", "symbol": "MAXIMUS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa2c1b05040F7fd283D7584A60e420544069Cb02B"}	{"name": "DON'T TREAD ON ME", "symbol": "SHOGGOTH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x31e38657Fe9d3F55039FC07f979245b845dE8806"}	{"name": "AgentArena", "symbol": "AAA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xebcf1D5258b82CeD1e2A334Fe2EFb70Cca63b7b9"}	{"name": "DeepBlue", "symbol": "DEEPBLUE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf6F512580223004c043D4Fd100363Db78d57E0Df"}	{"name": "The Trump Tapes", "symbol": "TAPES", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7AC931ba8d4BA4690885cb7c596f23c057066f22"}	{"name": "Claw Empire", "symbol": "CLAWEMPIRE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x984c8dBb8cbcD5Ee89c669c126E08EF83e899939"}	{"name": "DeepBlue", "symbol": "DEEP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x331Ec35d7eBf240E36e3733288B254f61131b177"}	{"name": "Kira AI ", "symbol": "KIRA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9bc87998015BE94e26dD5515Fd74CE2cEb9f5f7E"}	{"name": "Pussycoin", "symbol": "PUSSYCOIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x79305B8A7754e53Ff0f25E5f7862F6f22714f7e8"}	{"name": "DeepBlue", "symbol": "DEEP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5A0F686D79cD5c51919896EF39F9FF2970a3fF32"}	{"name": "COPPER COIN", "symbol": "COPPER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6d8547ca6B5E29Db81741eA010CE9CBdb4Aac750"}	{"name": "autonomous agent", "symbol": "AGENC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x53F26B5E286588034D2d8457562a65b4f0635910"}	{"name": "Processor Vs Everyone", "symbol": "PVE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xe45fD3193E919696F70Ae9aEB2b8cde9D3D6d730"}	{"name": "Potato", "symbol": "POTATO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb85EAb5E866FfCdA7B011b04C197704Fa905F0be"}	{"name": "The Same River", "symbol": "RIVER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x308b73d35d06b4f283187F2bb6271bD16e01bC25"}	{"name": "SimpleLightweightOptionParser", "symbol": "SLOP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xA6bBD9C0B5A0cA33cc292BF903CFC8E233C7D681"}	{"name": "Claw Mate", "symbol": "CLAWMATE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3b2c2E6DC9CaeA632cd524462E761F0a6484f1b4"}	{"name": "consblock", "symbol": "consblock", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf977b823B11507D86C7a3655db22066F46A501BB"}	{"name": "MayPac II: Gassed Out", "symbol": "MAYPAC2", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4e6Be38376E30da19B6D415E3584DD52DC5d690b"}	{"name": "Sentients", "symbol": "SENTIENTS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xB4B12e0880136E63C446587f527f0A0aF989c791"}	{"name": "Raccoon Language Model", "symbol": "RON", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xA799c175236828Ed0ac8181Af1704db69A85504d"}	{"name": "WAGMI", "symbol": "WAGMI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xeC614c3FAfE00B3baAe6C4fdD0E3dA28CC0072D3"}	{"name": "Human Intelligence", "symbol": "HI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5c8A011bB0CB38F6e2cd718edf41BB9eEffd3E3f"}	{"name": "Buppin", "symbol": "BUPPIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x32Ca533555557b4c30dC82F212D2A811F6B76915"}	{"name": "AskSimon", "symbol": "SIMON", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xdcf5d33B48E8d05336aeadf42192EE8b11C29f18"}	{"name": "MobileCLI", "symbol": "MCLI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x361fE7590259ff3b0454f919B2f3A31196dda926"}	{"name": "x84", "symbol": "X84", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x62e69d979a6AD8AB1b52E5Ab0684B08a9d442804"}	{"name": "Neo OS", "symbol": "NEO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC8f7C01504a812Bcf291BF584bae4a1Ec870e381"}	{"name": "clanker", "symbol": "CLANKER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xbBCe2d7c17a997C2fFd96Aa22b6C8d8362d800D8"}	{"name": "Clawpump.dev", "symbol": "Dev", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x06840Bc87a6C15B11bF97Ba4D6EFaB766Ae6A4cA"}	{"name": "ClawPoker", "symbol": "ClawPoker", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9EE94dAf4B8E0Bc4CbeEf41637fd376B6dD6c681"}	{"name": "ClaudeThinks", "symbol": "THINK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x11a2F3ce8EF0E959dFA6A481dB5d4882dFAbEaE7"}	{"name": "Triadmarkets", "symbol": "TRIAD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1900FaF55056d07259F58f112D07f38e243844Cf"}	{"name": "Claude67AiBlackInuMuskClaw9000v2", "symbol": "TEK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xFdcA8E811cb1a73AaCa96088f59f7312248d976f"}	{"name": "THE FIRE CLAW", "symbol": "CLAWFIRE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9779B3B7942e4A980Ad4e72A8f1Df11aD9223a51"}	{"name": "Bittensor", "symbol": "TAO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x72a4bb72AF48c457cFd800F31bA7665F78D72229"}	{"name": "pink platypus", "symbol": "puggle", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xad0A3673A7231Ff4Ace62ca49Bd636b8F138BFb8"}	{"name": "ClawWheel", "symbol": "ClawWheel", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x69D003E2A9eE3a558D417B9F904bf2875F632F8E"}	{"name": "IKEA Monkey", "symbol": "DARWIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6ef212E83b7A1144B4b197732570f1056Bc91bB8"}	{"name": "ConejoAgent", "symbol": "CONEJO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x544f07392787ac38fc4C0d4488F993599eFDc744"}	{"name": "challenging trading", "symbol": "trading", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1959CeD40b358c061F5D604d97D8E179404DD3F6"}	{"name": "clanker", "symbol": "clanker", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8031aD98e6057ce061D60EB3979Ff639F4064569"}	{"name": "Vibe Code Dog", "symbol": "Momo", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC8deEBD3468F14bf6CF8666be514b589B5D07386"}	{"name": "First CLAWPUMP agent", "symbol": "FIRST AGENT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6244f98bB550502AeedB78d9bF7f5C055a96d2eC"}	{"name": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeee", "symbol": "eeeeeeeeee", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3C465BAF53bFb8D393eA367bE8580CE014B9a6c5"}	{"name": "hummingbot", "symbol": "hummingbot", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x59bF4ef498A4847DbB514bA0f96e327Eae149073"}	{"name": "Jailbreak Me", "symbol": "JAILBREAK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8d9b1E9eb1568dCDC05Da604F7af7A2d97B8bFdA"}	{"name": "kimi claw", "symbol": "KIMI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3a379F01b347Bad0816A6294B960045A751e75e5"}	{"name": "OFFICIAL CLAWPUMP.TECH ✅", "symbol": "CLAWPUMP✅", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4D320e9BEE88ac1Af9D69Fb5AB4C16795Cc4D49a"}	{"name": "Dispicable Kaisen", "symbol": "Satogru", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xd6291D0C3a58f3Cd4Cf3b5f5d607F8bfEb07e972"}	{"name": "X GATE", "symbol": "X GATE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x697309ad7da34409A30D12cd3E78c18721485Ce3"}	{"name": "PmprBot", "symbol": "PMPR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf2031cA69319Bd34578b828587906B317E693952"}	{"name": "xfiles", "symbol": "XFILES", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2F4d4AecFE83a7cEe49eb736Ea4004596F5C0023"}	{"name": "BoredApePunchClub", "symbol": "BAPC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7Fb5ec94848Dbb5065A67aDFFA56769707e1Fb55"}	{"name": "autonomous agent", "symbol": "agenc", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xBa9ca59cDC24243a74C749ff4c579Bc0eF8f928a"}	{"name": "ElonGate", "symbol": "ElonGate", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x817496D03BFb5abBcc641B271730c49081da23B3"}	{"name": "The Trump Tapes", "symbol": "TAPES", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x60AaB22a04ca88ef46Ca819AF341D2b75d83Ad58"}	{"name": "The Elon Files", "symbol": "ElonFiles", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x781E0BFD0cFcEf53CdEA8f5c8c4F09Fc23B65cc9"}	{"name": "Pepen", "symbol": "pepen", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8204A552C6D7F9c24CEbD0886ECa8161d6655235"}	{"name": "Potato", "symbol": "Potato", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD9019Ddd7b0417D6bCE84B74E8e3F505834117bd"}	{"name": "ChiefPussy Monitor", "symbol": "CHIEFPUSSY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x732055E7627ad12435DEd06Cb7bfe229c52162f6"}	{"name": "Claude", "symbol": "Claude", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x95ae8584D115486739B276F33A9d8d61c828bbD5"}	{"name": "elongate", "symbol": "ELONGATE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xcA361b1C563BaaCe74ADe19c355B1Cc194d29aE8"}	{"name": "Rizz Paddys Day", "symbol": "RIZZPADDY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC3F549C21A0d269E12b8014D8E1c753112392BBA"}	{"name": "The Elon Files", "symbol": "ELONFILES", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x27664Bfb47A753eA620c1c963A36b09268e57466"}	{"name": "Shitcoin", "symbol": "SHT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xE5bf448Ee0CFd6fD6Aaa2f6fbf4fe416EC9F9e4B"}	{"name": "Stand With Crypto", "symbol": "CRYPTO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb6665D539d6711860Fa955A3197DF9c368959C89"}	{"name": "Monster", "symbol": "MNSTR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4C1fcBB167dd14c2d78CD850E509e461139840eb"}	{"name": "homeless dads housefund", "symbol": "HOUSEFUND", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9FF0760aF9fDbB1F92a005bA899A4A59DA20F271"}	{"name": "Clawclub", "symbol": "CLAWCLUB", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x283e4351902bBc26Ee725B7A7a60B8cb407c0fDb"}	{"name": "VoltAgent", "symbol": "VoltAgent", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1bA78677727F001272e945123Bd43C324A1cA7Fe"}	{"name": "Banana Bank", "symbol": "BANANA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x00DbDAaEd2CA65b6B250ffB51393E9253CD0365D"}	{"name": "Netanyahu Orange", "symbol": "jeworange", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa5e4D34B65575C2A8849bB7CE88Daa7dd6FD9e52"}	{"name": "Molter White", "symbol": "Molter", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xaB94D1Af3B52F350091264fe87197c72AfF46A5d"}	{"name": "Bingus", "symbol": "Bingus", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xFC5E38Ca181ED91bd9B193e450e4E6c90843f7e5"}	{"name": "monkeys", "symbol": "monkeys", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0a18EbB399F3327A0dC93D626e527FEc0BE3C89b"}	{"name": "Three-Maps", "symbol": "ThreeMaps", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb01b0F8B61b551597834370Db3E0c1Cd5bbDb539"}	{"name": "Bingus", "symbol": "BINGUS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x038A5353Ec6ce9ecd68C18BcFBb412a71cEd12e1"}	{"name": "Im not fuckin dying for Israel", "symbol": "INFDFI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5A486450dB58E377f518877F497a992D7151bec5"}	{"name": "Energy", "symbol": "ENERGY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xCcf3f3eaa7Ef3F8492e90DF9500270819B6cdADe"}	{"name": "Foundry AI", "symbol": "FNDRY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xc3c22cC21610E0fA4C3a3D61EF8E4b3Fd8983104"}	{"name": "StylistClaw", "symbol": "StylistClaw", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD79567C6113c7deafB89A77deDcB55105b339FFA"}	{"name": "PmprBot", "symbol": "PMPR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5752Cd95cad9dA59767e6F4DF26CC09E064E8170"}	{"name": "Riviera.gg", "symbol": "Riviera", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7A628926DC64AdaA8c7510cFFAF453D26fca298D"}	{"name": "EZCLAW", "symbol": "EZCLAW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x308E0e143C8649b5b457C45F99403f78789432e5"}	{"name": "Test Pump", "symbol": "TEST", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1C3bcb7890c8E34D2227df50a208010A912EBd3d"}	{"name": "ClawMark", "symbol": "CLAWMARK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5627D1A026fE4b9192450DD0c7BBb10d31bb7418"}	{"name": "Jailed Minister", "symbol": "Keir", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9B8C170832430b3b1e25777678098e1f06649268"}	{"name": "CLUDE", "symbol": "Clude", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xE8C4C63d0Db9a496885B1EF30724ff853aE7e742"}	{"name": "Tuna", "symbol": "TUNA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x44E7B8B5cDB25D5bC7b3975135c58DAbaa3c9ab7"}	{"name": "CIA Robot Fish", "symbol": "CHARLIE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb83ac3Cde5B4dBBDD321facC124762c4eCEBAB36"}	{"name": "The Official Dexter", "symbol": "Dexter", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xde7b4F694f2E67777955Da85fAd2b30dbEbc3181"}	{"name": "Blood Moon", "symbol": "BLOOD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xe1A22d8E9C572c74Ec42a2Bdd02d5c3Ff4e5b202"}	{"name": "Closed4MaxProfitAI", "symbol": "C4MPAI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x14479A487875026Dd216926c1412EE072192e9A1"}	{"name": "Tonic", "symbol": "TONIC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3853B6B832c77D323077592a66b7093439c34436"}	{"name": "NexDeployed", "symbol": "NexDeployed", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2f0D38b18FF63452e9b4c40F4e089cf5512cF6CD"}	{"name": "Claude of War ", "symbol": "CoW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x12Eb0422d7A19dcC6E8Eb2967aB16C1cC15A89a6"}	{"name": "Addiction Is Bad", "symbol": "AIB", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0de35a6c832ece045B48AEeF6F36808f3349B317"}	{"name": "ClawKid", "symbol": "ClawKid", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x340D437c7BD4D400a00fc49aaE152F63Ad1992F4"}	{"name": "CLAW", "symbol": "BEAR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xCc5c349131c0914AD5918Afb539191515243a4Ac"}	{"name": "Isabel S. Maxwell", "symbol": "ISABEL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x77D9861A752c9c2e8D8cbdC0276C0D49A9CB7c12"}	{"name": "Worlds Biggest Turd", "symbol": "Turd", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3C4366C015C52c7Ab83fb23f48656a52157E03F2"}	{"name": "Chudjak", "symbol": "CHUD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8af917C655c23cDF972db3b3846673889600A351"}	{"name": "clawedin", "symbol": "clawedin", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD736e8A4beb0bEb0854BC6f388ae0928a16b5C37"}	{"name": "Snibbu The Crab", "symbol": "$SNIB", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC1E7708ECBa14e7772c61C85E6072234E685aE98"}	{"name": "bloopclaw", "symbol": "BLOOPCLAW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xfD6ee2a96495B874Ac27cfeC00c3018d68434950"}	{"name": "Triadmarkets", "symbol": "TRIAD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC87b179eB39d6A7Eaf2D4C527F2c0b30209B5f47"}	{"name": "botcoin", "symbol": "botcoin", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x445a153281dC58Fe5b02666702Cb6D6d8C3900e5"}	{"name": "BitcoinUSA Swap", "symbol": "BUSA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9B1086CecD23A9F000c42b6fb86eF1F95D4EA67f"}	{"name": "Allah", "symbol": "Allah", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3674971B84d0C5E7D1A7D2534840F757eD1396FA"}	{"name": "ريم", "symbol": "REEM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xF908f327C8b245d0BdaA7a4d7c35C5b5fFE65b8c"}	{"name": "the only claw you need ", "symbol": "whiteclaw", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2Fdc07828AF5Af845702f5B30911A7c71b89e7E5"}	{"name": "Commited", "symbol": "Commit", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x81f089a23F2208c48bd4766c827B54DCd2809488"}	{"name": "PUNCH", "symbol": "%PUNCH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x20513A707F51abC89822A1AeB4E99a8416E3E95C"}	{"name": "Basehub", "symbol": "Basehub", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xe8B680257BF20c0a4B1D65f07E00Ebc5258a6cF8"}	{"name": "The White House", "symbol": "WhiteHouse", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x104F908E92Da0add1f113b7a2aA50dc06AA769d5"}	{"name": "The Claw Dojo", "symbol": "CLAWDOJO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEa911F52BDF44EBBF0CF4F9B1014AfA664bF991E"}	{"name": "Molthub Ai", "symbol": "molthubai", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8DcCF769184c0a5211a4bf1b948d86681609d7Eb"}	{"name": "Recession Indicator", "symbol": "RI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x58903029436548AF736aDcd5Ba497f6EbdA2A6c4"}	{"name": "In a world of tech", "symbol": "Wiley", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6b20724E141D75a1392E76f7616dF031c320C450"}	{"name": "Whalepumps", "symbol": "Whalepumps", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x04D2869Ea456f9cF4dE2ae1308E4E8df6fC04DA2"}	{"name": "Real Coin (not AI) Old School", "symbol": "Real Coin", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x10E6592660Bc60d9890A5DB1B6cF148d2b9A839D"}	{"name": "Claudeclawagent", "symbol": "Claudeclawagent", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x647d30d3Dbf30e95DFa7179be5b8166f5aF25432"}	{"name": "DARKMATTER", "symbol": "DM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9E3249aa5aBC5612DdbfF4D6A588bd6ad5079ce5"}	{"name": "Official Coin", "symbol": "OfficialCoin ", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xDcee96d77b5333807a7BFBbb96E97C4AaA202077"}	{"name": "Digital Uranium", "symbol": "URANIUM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x247Db62c2696065Affa2baED51bcEE69A5710A1C"}	{"name": "iWould", "symbol": "phoebe", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6D33A672cDEa313249E42a589C2bca4c329aa678"}	{"name": "SenpiAi", "symbol": "SENPI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa7c61A0B626C6e8a125C3F4b0A5659630E1c6aEA"}	{"name": "Happy Trump", "symbol": "HappyTrump", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3eAbE8Ad0C1D967a00fe69E5434060b2682344E3"}	{"name": "ClawCream", "symbol": "ClawCream", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9dc3441dfD02b6Fb42A21Bd4101800743EaF5968"}	{"name": "Heart Colors", "symbol": "HEART", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x580521b5E406c00B56805CA41FDEC0fd114201e5"}	{"name": "The Larper", "symbol": "Justin", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x192a5058A444aac8d822c01EF0F47df843a3906C"}	{"name": "clawnabbis", "symbol": "CLAWNABBIS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x355E50B782E4036892CfCfCB25E7F2F852906716"}	{"name": "Claw Order", "symbol": "CLAWORDER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb9BA7D188AeaAC3A5cc003ced6991B3a67376559"}	{"name": "Clawnst", "symbol": "CLAWNST", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xA1c97122715c3E8c13d660B9C47C28A1A5D9b8e4"}	{"name": "動物園の飼育員", "symbol": "zookeeper", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3Fc3A776DA892dcCE97125178EA58e1B296bAd52"}	{"name": "BNBxETH", "symbol": "BNBxETH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xBCeD3415F76e3E043447D4cdC98c9043ea7BA245"}	{"name": "Shiba Neural Exchange", "symbol": "SHIBAN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x268a4704da578F10F55D46D472D1FC72aB0b4122"}	{"name": "God of Ethereum", "symbol": "God of Ethereum", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5A612Abe99427Ce3F8B19924fb0D9Ab7AF14Fd62"}	{"name": "dumd", "symbol": "DUMD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xA3189DBAc14B1D14e0D31Fd4E44FDd5064e0cf52"}	{"name": "Phantom-LegendMix", "symbol": "PHANTOMLEGENDMIX", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4cf0Bef0F897c695D9B8EC34cc662b220a4F4E47"}	{"name": "Porcelain-PhantomMix", "symbol": "PORCELAINPHANTOMMIX", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1Cab7F40a83fE14f70D37e0240a6E249120df005"}	{"name": "The Google Runner", "symbol": "NAZGUL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8aCf414d503e833aeD12170223a9911d8E3CdB41"}	{"name": "The Barbell", "symbol": "BARBELL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x356F43A003A4aA634abb16D2630E86b074b2784A"}	{"name": "ケロちゃん", "symbol": "KERO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xd7d1d56EEa0F42501F672ED20278F7740f34359b"}	{"name": "DAD", "symbol": "DAD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD650AE7f0F05D38947a22F7D707f645868F93257"}	{"name": "STOCK", "symbol": "STOCK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf40094d1Da1c77d01247c4578D0588b58F771E39"}	{"name": "Claw Cash", "symbol": "CASH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xBaefb87755a234909536538DEE4B7850632d0aD0"}	{"name": "whalefind", "symbol": "whalefind", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x842E85564689e66457069Ec5A1dd7e20023e9B7e"}	{"name": "Nostalgia", "symbol": "Nostalgia", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0509aF70De1Cc4B84f95E418b5D42f121291ddb2"}	{"name": "Nigga Butt Token", "symbol": "NiggaButt", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xF0908aCa446668C4Af31a88c6bA88f906F5C0746"}	{"name": "The Clowder", "symbol": "Clowder", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xd0F0c7e37F9AC8A02803622B7cD2a84025F828c3"}	{"name": "The Base Skills Repo", "symbol": "SKILL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x72618dbb7B236BF09E7f6037a713D524C9c0F668"}	{"name": "IRONCHAIN", "symbol": "IRONCHAIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD16C1803Ef11bB4Ad2273C65faaa448ddf180fce"}	{"name": "CLAWSTORE", "symbol": "CLAWSTORE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEB4875f5AC4e2EA877482cEa07B405A18821756C"}	{"name": "Claude67AiBlackInuMuskClaw9000v2", "symbol": "TEK6700", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9F779281e0981D47b09b8cB3f70546324aDb58f8"}	{"name": "The Prototype ", "symbol": "PROTOTYPE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0C802f3C59DB5AC459e36551fE8C7C79cDc329c9"}	{"name": "Actobotics", "symbol": "Actobotics", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x74B84f5162872Df06E3f310a7531812E39125b5d"}	{"name": "X ALERTS", "symbol": "XALERTS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xbAc8267eFA185Ee8ea1c53a19B102A71e71623c5"}	{"name": "Moving", "symbol": "MOVING", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xaE7874209c9615dcee2Ad3695B13dAEe05Fd4691"}	{"name": "Fartism Coin", "symbol": "FARTISM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5c6E5A16980B377398d8FDca1459E2b6d3362751"}	{"name": "Khosrowshahi AI", "symbol": "Khosrowshahi", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x126A51677cfeBC4AC36f52bC1C86Ae8DbB9858d3"}	{"name": "dwog", "symbol": "dwog", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0ddca8d6F234c593293B08f1877D32beB2d041F6"}	{"name": "OG Catcoin", "symbol": "OGCAT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x78b75262ECcba2753D089fdCE3073864236b430c"}	{"name": "Clawnst", "symbol": "CLAWNST", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x30d16441331180FE304B0981ea23bEa0F4EE405E"}	{"name": "Paper Trading", "symbol": "PAPERTRADE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xc7e0A4935cBd0c9De3347a4C0F98e89307d081Df"}	{"name": "Mr Smithers", "symbol": "SMITHERS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x986124c9fdd9541e570e718EaDf44c72D1813BCE"}	{"name": "THE GOLDEN ERA", "symbol": "GOLDENERA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf24b0fF5E34802f9CD61780E966B886dd7D487E5"}	{"name": "Claw BRETT", "symbol": "CLETT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xF4F96a8293c474DfD489182dB46330dabAcd2fFd"}	{"name": "Fairy Ring", "symbol": "FAIRYRING", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2fDC244b9148e71dD934FCc41505Eed686Bb09e9"}	{"name": "Limitless", "symbol": "NZT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x314084057f7D9c06B6f101cD166d3e4eC10Db04E"}	{"name": "ClawClawHouse", "symbol": "CCH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEa5a2172B4ab06949F3941686165A89848628BE9"}	{"name": "Claimwar.fun", "symbol": "CWAR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb4318fcf51f0f307CC4eCaf01196Fd706a8C0de2"}	{"name": "ClawHouse", "symbol": "ClawHouse", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9cec879119e5008A9ce7632107d93CcA18B4B31A"}	{"name": "Tectonic Plates", "symbol": "TECTONICPLATES", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x49137cFEd4765683E36052D5a2710848E41D3419"}	{"name": "ClawShit", "symbol": "CLAWSHIT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0ea380d9002224775b8665c1c12815b8a9EAAD1A"}	{"name": "Soonicorn", "symbol": "Soonicorn", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xF93bEcD749f2E516DC3154C19Bc25aa3945A31E3"}	{"name": "Volcanic Soil", "symbol": "VOLCANICSOIL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x165C5a277bbdF840d32A68e244F8A44B3E7489e6"}	{"name": "Floating Shitter Tech", "symbol": "FST", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2fC1b0FA360358141A63097F1CBf315F04cC8320"}	{"name": "Torta", "symbol": "TORTA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x20f75B43b2E65AC9e7B1c74801b5F8550BF5F865"}	{"name": "Gaia", "symbol": "GAIA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8da309D8a81B2601F3bB05234c43928F7bfd4833"}	{"name": "Genesis", "symbol": "GENESIS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x82Ed8cdcC4210cC44292fbF55c79a9B2Cf1D0851"}	{"name": "cant sell house", "symbol": "house", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x11bf573E53832708CBCbe83Df80585D23e17Af72"}	{"name": "Terra Garden", "symbol": "TERRAGARDEN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xCB453B9812A0a3C2097368504bCd067BcDC643cA"}	{"name": "ThePeople", "symbol": "People", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xE43137EF7aDC6ba097eef58d6Fc131c05467F386"}	{"name": "Moon picture", "symbol": "MOONER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xdB7B78B2fb0986845C40Bfeef461BEBEa793cB2c"}	{"name": "Trump Lobstar", "symbol": "TLOB", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xDE5a7ECaAF9813CEeA92661c97E53Ecbd25F0b5C"}	{"name": "NAME IS JELLYBEAN", "symbol": "EZ500K", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf9F351FdbF8E858bAab116De64E2B4F116C4699c"}	{"name": "Gaia Aqua", "symbol": "GAIAA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x851Ddbb83Ec3B03C16d6C02bAEbe3b93094b72b1"}	{"name": "CodeRabbit", "symbol": "CR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xE73fD11F09A0ff1E9f42AfEA8deff60Dce8E3e11"}	{"name": "Slimecoin", "symbol": "SLIMECOIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x93c66FfcbAa7896a4e14e060b06B8D4EDBc34a67"}	{"name": "Lars", "symbol": "Lars", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xED40d54dD6246Cf89dad1649a2c6Ac23CE569224"}	{"name": "Egg Coin", "symbol": "EGG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6F51D567C5261c4FC82fCA90582B9e0492c8752b"}	{"name": "GYM Clawd", "symbol": "Clawdricep", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xbe5BEFc79a9519C8EcE4e16F9b01a136825d65c2"}	{"name": "Frédéric Chopin", "symbol": "FrédéricChopin", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xaA75Dd217b79E631676D550f5152A23FC24fE9D8"}	{"name": "Unsellable", "symbol": "UNSELLABLE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x661914Fa8dDFc079C7362bD7eDd4dC126bC8a03D"}	{"name": "docca", "symbol": "docca", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC9Ba624c5000182d9806f9709ADd7996dcF1d1C5"}	{"name": "Avoid Aliens", "symbol": "AA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC890f97eaEBCc122668E704F0Fa127e57Bd3d0BD"}	{"name": "CryptoGuru7908 Token", "symbol": "CGU08", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x683dba883D1cC80A63FbedA641d5cbF9ebF5c31B"}	{"name": "No Risk No Rari", "symbol": "RISK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x27AB046c8c8BFF3Db4eb96A37A1590d808cC2Ddf"}	{"name": " Local Agent Maximizoor", "symbol": "Maximizoor", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x15A87Fa855524770406071a6fE0ca5F6B4C6046f"}	{"name": "Bullshit Fantasy Coin", "symbol": "BFC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xe4b36F60Df62e3D9Efa4Eacfaa38CaF344c6e9D4"}	{"name": "Arcane Energy", "symbol": "ARCANEENERGY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xd20Bd13a9Af5CB23d0A337e27784A9BA2d460Ff5"}	{"name": "Grey Mage", "symbol": "GREY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xB7ee2B771cE500E56969c3a463A9DebA9A1D5a32"}	{"name": "Magic Nexus", "symbol": "MAGICNEXUS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x037f905d597A0659ecFc3B25a8F387cD15291d1D"}	{"name": "Grey Mage", "symbol": "GREYMAGE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEA635797d60cBbE3F94b882f0c3BA5a0331ec445"}	{"name": "Magic", "symbol": "MAGIC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5020096CeBFb4291309bE4609974bF0f0d4a8CC1"}	{"name": "Nexus", "symbol": "NEXUS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x56630De2eD5D93F22E8Cfbf11582022b5753AC95"}	{"name": "DaiLaunch", "symbol": "DAILAUNCH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa380e7F81Be7f82151D9F25f9e8Ee471335165E7"}	{"name": "clanker ai", "symbol": "CLANKERAI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x49491Eb8334bAd4D33fF7AE7faca3a6FcB8889F7"}	{"name": "Orbit", "symbol": "ORBIT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xFEE1cE8867b081Dfdd3FE13f372907b63Befd194"}	{"name": "Hellmouth", "symbol": "HELLMOUTH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x328bd94EAF1026e1aa4F516f490A26017D2A67DB"}	{"name": "Pioneer", "symbol": "PI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8e9E89De743416d267631D8De838f8Ed47ea8ab3"}	{"name": "Demon Army", "symbol": "DEMONARMY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x49Ee812b00aBb0807b51Ef246159949F4A4e8D5F"}	{"name": "ConejoAgent agent", "symbol": "CONEJOAGENT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x39821Bd35987Be246D7Eacc82A34BBa4C1340385"}	{"name": "Veritas Protocol", "symbol": "VERITAS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xB1f3Ec4577532D7c6aeBDC338680821E7a7Ffc49"}	{"name": "Unleashed Funds", "symbol": "UNLEASH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0515CC9Dae50678c6288A4e797d52f2bb7D1DDdA"}	{"name": "Void Gate", "symbol": "VOIDGATE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x995766BCBdD43E8B6966Fa60543d5DB535e8761D"}	{"name": "Clawdgram", "symbol": "Clawdgram", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4850e38f0c5f1bCA44892cAb566b52E07841A39d"}	{"name": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeee ai", "symbol": "EEEEEEEEEEAI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6DBD3393D55C55Ac5362c29b6dAf98b2eB856465"}	{"name": "Wolf Breeze ProtocolX", "symbol": "WOL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6bB37E727f062ad37d8F3C7CB94102Cc33396FD8"}	{"name": "Git Fees", "symbol": "GIT FEES", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xc4EeB58478d510aE004125D1880b94F83C7141B3"}	{"name": "apple", "symbol": "APPLE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xfE55219EED7203Bd13ABfB930624CA405E57e320"}	{"name": "Trust Axis", "symbol": "TRUSTA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xfac0195c64fC391eB10b7449478d6a5e396F6E60"}	{"name": "hummingbot ai", "symbol": "HUMMINGBOTAI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9C8774BaFF81d7b9A750a1860E0b4121d713db5F"}	{"name": "Clawk ai", "symbol": "clawk", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x88527206dC7C8fE818ad5bB0d0e48973955db008"}	{"name": "Lunar Bloom", "symbol": "LUNA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0413c0b924b7fd6425811fFA7E7121c8D60488ac"}	{"name": "Hellscape", "symbol": "HELLSCAPE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xaF76E26a9A073D866f85cBd541081bE1346c563b"}	{"name": "JeetSlayer", "symbol": "JEET", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x57C81d50caCEA1d09c4E04d563f25991A881167B"}	{"name": "ketamine cat", "symbol": "Ket", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xA400D0E258d7Cfc5759B59E95E26a55Bd1732eDa"}	{"name": "Digital Entity", "symbol": "DIGITALENTITY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xd605d5394961ADF65f6F5296B65b2c91511aCBA2"}	{"name": "Digital Djinn", "symbol": "DIGITALDJINN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4A71c73cFa177443391bfDe2190c76a6009256F8"}	{"name": "cap", "symbol": "CAP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xAF6eaf72655b05f33A4216282F99ad2BF7909222"}	{"name": "Spor", "symbol": "Spor", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa49d0cE3e8d4b8b9ff699Ec5106a32154E081729"}	{"name": "Trapped Demon", "symbol": "TRAPPEDDEMON", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4363ac8460c48f22B9F8a79DC5c781238FdBed67"}	{"name": "IKEA Monkey", "symbol": "DARWIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xFc405602e6cc5943a28Dc5b17571a8F15d678c2c"}	{"name": "Animal Olympics", "symbol": "Alympics", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x92fBFaad2f8fCBC283B91821Eb408c1DFB847D08"}	{"name": "EZCLAW", "symbol": "EZ", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xdF94b037bf1b31541bFbB69Cca2D4b69852915E6"}	{"name": "Openwagent", "symbol": "Openwagent", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x99C93378985FB4569148D1E990e41D691fFCD560"}	{"name": "MoltClub", "symbol": "MoltClub", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x17345D85CE153f2a73e59ba4163ceF491CbBaaB8"}	{"name": "bloopclaw", "symbol": "BLOOP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9A2A01f920fD48c85ade9201a31822906C9447eE"}	{"name": "Meow Agent", "symbol": "Meow", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x370977A2508f98E083Bfd76710728906e55D7a15"}	{"name": "Unleashed Funds", "symbol": "UNLEASH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x867F420c556640Fea71C33241A0c90B6470d73A9"}	{"name": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeee ai", "symbol": "EEEEEEEEEEAI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xe204f3BdA165DFb1219358a9A2D99A99367F5DDF"}	{"name": "Dum.fun", "symbol": "DUM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb21F1015a38c9e9f0F17D5664eDad530640f9367"}	{"name": "Pliny the Liberator", "symbol": "Pliny", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xd4DD7a6aB463D970921E0e8AEF402D13e5f74464"}	{"name": "hummingbot ai", "symbol": "HUMMINGBOTAI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC3538f680Ebb84a27F3A3b8bcD2B2265d4779AfE"}	{"name": "Orbit molt", "symbol": "ORBITMOLT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x13E115eCfAA159300F357b7CeaC3156036e92168"}	{"name": "リュイくん", "symbol": "Rui-kun", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC37F4A1e0a9Acf278245ba15285A0b6172Db1614"}	{"name": "JeffCEO", "symbol": "JEFF", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3410727498a57992872cc2f909fDd13C7c35E250"}	{"name": "Claw2Claw", "symbol": "CLAW2CLAW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x80CecF7f5351B84007a5B15600E9F8f3A65E919F"}	{"name": "JeffCEO", "symbol": "JEFF", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3dEbd3a1D05EF515c575185734672ae22389a64B"}	{"name": "SECRET", "symbol": "SECRET", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x67916A4f6C8eB2dbe8b2B88A71c8B337b5deF8fA"}	{"name": "Selora", "symbol": "SELORA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4d6854a4981f56D1A3Eb9774A84458b6519a9201"}	{"name": "Mobyclaw", "symbol": "MOBYCLAW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x45A6c866cF4b3cdAb4cA8c5B5DB7fa40601EE372"}	{"name": "MARTYS DOG", "symbol": "MIA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x86d76C7c4c36C557E583bfb4190aE4ba111e9c54"}	{"name": "Github Coin", "symbol": "Github", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x65f483E7B08D8881409BefD87F4FA8Dd9A340c31"}	{"name": "The Vibecodoor", "symbol": "Vibecodoor", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xd14c4578cC042f2Cc55B737Ac661Bc552ed34eda"}	{"name": "Istanbul Seagull", "symbol": "ISTANGULL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x731C1b68F6a8AdDbd8bf09Fe1D6f95254bEF07b2"}	{"name": "Contool", "symbol": "CONTOOL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1D856C6b4B405bce4182E60831d22d4aBE9d87dc"}	{"name": "GODFATHER", "symbol": "CIGAR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xbfD632bDAd522A626DDbCC3e1EEcf784e41d80dA"}	{"name": "claudechick", "symbol": "CLAUDECHICK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xeCf866a12e76973Fc094C6A45a47634037F2d464"}	{"name": "Matthew Graham", "symbol": "Matthew", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x71C67b83feB5969C92bb725bfEb39fC3A36C67f0"}	{"name": "vibecat", "symbol": "vibecat", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5308d4fFb9C8Ee5504ab969E34EfF21eE01EcEdC"}	{"name": "Agent Alley Bot", "symbol": "ALLEYBOT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xFaB6e1Cbf12CC012ed8c8Ca94f0fA9380A1a4E17"}	{"name": "Molt News Network", "symbol": "MNN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4407e9AbFb1A8a9279FF0cA0c1EE1dB4ec5bE87C"}	{"name": "Basedmarty", "symbol": "Basedmarty", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x11d89D57193552BfbF16D007202BaDbf303EC23A"}	{"name": "Clawdgram agent", "symbol": "CLAWDGRAMAGENT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x78Ad7FBC9264d4f68759B2b0b8c6a14B190b90Ce"}	{"name": "ClawJob", "symbol": "$ClawJob", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5afa2bEC5885314dB76bbc8d425F9b595097F4B6"}	{"name": "Down ", "symbol": "Down", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x32e444885B19ac4A95c4B5825307334329be7a80"}	{"name": "Mashgrid Energy", "symbol": "MGRID", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1b70263b08c5Be3Ec79Bda821e95f73d126fF220"}	{"name": "ponzi coin", "symbol": "ponzi", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x161D1b40072f2e0c96E50E52Ae46c5Be009A27dE"}	{"name": "オランママ", "symbol": "ORANMAMA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEbfb433eCE8F42583ebd18551be925d3089aC66C"}	{"name": "MisAnthropic", "symbol": "MisAnthropic", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xeA9eeaC2e129c04275d42Ee37757Fabb0b55233b"}	{"name": "The Claude Man", "symbol": "Johnny", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9fC76696Cce0974B1B97FFf8Fa7acFFd4A400273"}	{"name": "市丸", "symbol": "Ichimaru", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xce6478cd91248eeEa652185DD9538fE25CCE5EaE"}	{"name": "LIMBO", "symbol": "LIMBO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3BB5d27766f0a1677dA15Af76bAf6d01232DFf0E"}	{"name": "Call of Duty ", "symbol": "Call of Duty ", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x08F41e696c40F55d13B8Fa594Ac773860d03f4F1"}	{"name": "gurgy", "symbol": "gurgy", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x102121b03c52eD5edf458E95e6537FD1d9CC92F8"}	{"name": "Smoke Coin", "symbol": "SMOKE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x45f32525B3D117EfE8b078d199950A943660fEDF"}	{"name": "Singularity", "symbol": "Singularity", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xBE99d19CC8f2EDc15ceDe9648A569dCd34Cf7618"}	{"name": "JUSTICE FOR SACHIN", "symbol": "SACHIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa88e6B6BA1977b53A7eEfB9879afcEA4098C264e"}	{"name": "pikainu", "symbol": "PIKAINU", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x412Ecbdb4F4274BA5b91d58e95E8a3995a5f672a"}	{"name": "Next?", "symbol": "Iran?", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xF9C17e9265F69f52fa02a143661aaDa8CAa656e1"}	{"name": "Never Sell", "symbol": "NS Coin", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xCa8dCf9BEBCE634E6b21a2674bBd5397347C2880"}	{"name": "watch", "symbol": "watch", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x93530FF693D2641f8f2FB9a77a21a777C2077c57"}	{"name": "Tony Stark", "symbol": "STARK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xfdeeB1A8dD5471325b6b81937709984E18Bb57cF"}	{"name": "Crustacean", "symbol": "Crustacean", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x962F83F593c08384e4D12ae9909A88Ae189Bd2D8"}	{"name": "GasCoin", "symbol": "GAS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEc56e9af7d9eF493874cCcE684FADBC585369251"}	{"name": "Clawncher", "symbol": "Clawncher", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8D9Ef7eae8215093429F0b42667deE1e47D64548"}	{"name": "clawtensor", "symbol": "clawtensor", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xCd493D382A5504c5aafe2e6629a04c5D8301469E"}	{"name": "Stacy", "symbol": "Stacy", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x33fA9D12939f3a1117128b1E3722A4E5De929485"}	{"name": "Product Intelligence Engine", "symbol": "PIE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xccf0f51BF4cEc6350B3e52bCA101ffb3f5552C0F"}	{"name": "MEMEABLE", "symbol": "MEMEABLE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9E1252BceCa6F98cf099B5f3E8d58Af17C12cE56"}	{"name": "beary cult", "symbol": "beary", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xDCa9f38C07224C4Cc6D68237489157E18bD6D951"}	{"name": "rugged at 1M ", "symbol": "ruggert ", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb92E7D10718e304fDD74D93724C919e2b1c0c084"}	{"name": "Claude Remote", "symbol": "CREMOTE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x89b3164F780Dd51B7FCCfC9Ff02fD2d1886453E7"}	{"name": "Clawdfred", "symbol": "Clawdfred", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3F376F030B27111D2B057D99c2abC6C9D00eD33E"}	{"name": "DevByClaw", "symbol": "DEVBYCLAW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xBAF69896CDfc84E661C1C1F40BFf3d3698e62B7d"}	{"name": "OG Catcoin", "symbol": "OGCAT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6e8cb02e630E55e739d6E3db0dEFf1B2e52307D1"}	{"name": "horse ", "symbol": "horse", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x648d189aBcC84CAA9B791b4Eb4Db2B9d6f453D59"}	{"name": "United Liberation Movement", "symbol": "ULMWP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x280B74c42d8c877280137c643A02d1b1F3a34c86"}	{"name": "Claude Remote", "symbol": "CLAUDER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xBb0Cd0Da2412C34B77De3720aE6901273AAc806f"}	{"name": "gay claw", "symbol": "gayclaw", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7Cb7246bCbb2335D137dbFcFC77f7C9eA0Ab0A20"}	{"name": "Martingale Coin", "symbol": "Martingale", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3409BFEA56176737a368Fa9D7A12C53694eECF2C"}	{"name": "Monument-GolemMix", "symbol": "MONUMENTGOLEMMIX", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4390cE9Ba54c63005369651d1548dfDa19d76332"}	{"name": "agentcone", "symbol": "AGENTC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x286B697950eE470A6Cf9d464272f5895ADefcbC8"}	{"name": "Golem-PorcelainMix", "symbol": "GOLEMPORCELAINMIX", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEa341b3C9c2377206E3BCDA8562628EF79f7954a"}	{"name": "Capybara Simulator", "symbol": "Capybara", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xe3eBA3324aCDa9D9086aF86aEca0e22F81fB99C1"}	{"name": "FOOD", "symbol": "FOOD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x36A1527035C172e50Ef46b888001A6f9B616167b"}	{"name": "wonder pets", "symbol": "wndr", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xaD6b0Bcd7E6cbd5cd5356d3E5D859C3b5b0bE0c4"}	{"name": "Chart Warfare", "symbol": "$CHARTWAR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x12228E74199bBC765900A7ee1E3aD3143766eC22"}	{"name": "ClaudTerminal", "symbol": "CLAUDTERM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x738D78e3A091eb56793c652E82823BBA873cA2Ec"}	{"name": "DoeGang", "symbol": "Gang", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9E9c5F5375626AF4aB91Af332386132c8b45fC1E"}	{"name": "pumpin", "symbol": "PUMPIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xfBCa2753630E7f5B84487794E8d4057d5Cc4DeDF"}	{"name": "Gamestop Coin", "symbol": "GME", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1be55b18b98E6599A38762DD7632029F526ecA80"}	{"name": "AI Trading Robot Chicken", "symbol": "Boktoshi", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x086784951efA1e936b3D647f9369e1993F0e6aFD"}	{"name": "Actobotics", "symbol": "ACTO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xd05195bd51fb337f3621dC9330672Adcb987174a"}	{"name": "RAGLight", "symbol": "RAGLight", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xe4CCFA164Fe05C163c4F4D06AA0324Cc500Cef5B"}	{"name": "Launchly.app", "symbol": "LAUNCHLY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x34D29Ec6ba691cb2Afc95e24a37a4c077744b592"}	{"name": "Grumpy Cat", "symbol": "GrumpyCat", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x585fE072B13394D394Fc20ddA0Fb1CA362F2D658"}	{"name": "The Anti-AI Religion", "symbol": "SLOPISM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x407fE08073c4300a7D4C1255E1b7EAD6d4687A25"}	{"name": "Golden Wojak", "symbol": "GOLDJAK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEaD65059DBEaBbAA16579CCAf605fc3e3A90eC7A"}	{"name": "Magma Egg", "symbol": "MAGMAEGG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x10A0583aE63723F62910e7621101d6e7A4e29327"}	{"name": "LAUNCHING IN CLASS", "symbol": "CLASS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1E4Bd8Ef5AeB4a6e3c02BA5aBc1388D5e7Ee3819"}	{"name": "Builders Power Tools", "symbol": "DevKits", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3a7dEB081BfD639D29b89EA3866189850D5F7182"}	{"name": "clawassistant-yin", "symbol": "clawassistant-yin", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD1318E6958C029d159755E95DFB86491F917C20A"}	{"name": "stigma", "symbol": "stigma", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC1A8510653435545B9a861491383AFA6a7d72144"}	{"name": "Alone!", "symbol": "Alone!", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf080ffb32bef03eA22c1C9A576f3080F01982695"}	{"name": "win", "symbol": "WIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xedBc75B9F0874763ca0e2A85EcD0F1965BFd978B"}	{"name": "she gon call me baby boo", "symbol": "baby boo", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xAAfCcE448E9616f7dC533789e1111CD00057D815"}	{"name": "Ask Tian", "symbol": "ASKTIAN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEA06c4A1503209Bc6D6BA1B3510B7951E006FE71"}	{"name": "Goonbot", "symbol": "Goonbot", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x86807c9C102a6141e74f489F3c36211F9dfD0a5E"}	{"name": "Ask Tian", "symbol": "ASKTIAN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xAcAECEbf0287cB1e97A01ac1336bD5cDDB743254"}	{"name": "golden chud", "symbol": "goldchud", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5a0e96bC4aC086476C04738d3E6b5A225C07d3Db"}	{"name": "jieni", "symbol": "dandu", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xB8610Fa0b3E57DbaF55Ae4e720a991B4fb240bB3"}	{"name": "Kimi Intelegence Agency", "symbol": "KIMI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x426fc818885083d91336d9a1F4fd5FF0CcF74436"}	{"name": "Crustacean", "symbol": "CRUSTACEAN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xF1a0454c47679bC850b06eeC7eb8Bc2C242a4646"}	{"name": "Man Saved By Tesla", "symbol": "RISHI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x51140a5A14D087431fb3A55Ef31e6D75F80EB2dE"}	{"name": "how x, y and z felt ", "symbol": "xyz", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xfB9688cBd114a10FF9F294ca712F80b99D0B7F4d"}	{"name": "さきいか", "symbol": "sakiiwueqc", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7e0D77010B271e694482d4E757eBE01B6845a7C9"}	{"name": "Yaak", "symbol": "Yaak", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x881981c3D39F314a570B95F5bf118E4D779F077F"}	{"name": "sob", "symbol": "sob", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x34c53075E8ff759B23F4Ea7650a64665a6DE17aB"}	{"name": "HoodClawd", "symbol": "HoodClawd", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf8605B7b24A6834733ceaa3e4D501C0eFBC6B875"}	{"name": "ベビーパンチ", "symbol": "BABYPUNCH", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xeA921Da54A9De3060b27CE31cbeEce8D99135bf7"}	{"name": "Juku", "symbol": "JUKU", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x3678AAD193b57523f1638B941f93258a5A094ADC"}	{"name": "GoldMUSK", "symbol": "GMUSK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0219785257192FC7F4e275eCdfBabA17EC623b36"}	{"name": "Baby poo", "symbol": "BABYPOO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x69D4BA79CcF2d11E5e00c89619D8267808400DB8"}	{"name": "AgenP", "symbol": "AgenP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xd0d240Db9FA7F9be16d3F23876d0056921C89Afd"}	{"name": "Actobotics", "symbol": "ACTO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9395A33553A74df0A48eD843BdF6744F8b47CF63"}	{"name": "YANG", "symbol": "YANG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xdC18EFa4A8836cd48382851bc535E74111179c91"}	{"name": "Github Cult", "symbol": "Identicons", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2C98Ce0a2f7C291C02175126Ad02A22d291dac14"}	{"name": "YIN", "symbol": "YIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x978A2D86f5BB6bFB898CD9e6de9b6b8706937589"}	{"name": "BreakingPumpRecordOnTheToilt", "symbol": "TLTRecord", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x64335FCF19eEbdf5bF53B1AD1F0b1E930be9Fc08"}	{"name": "Reserve For Natural Resources", "symbol": "USRNR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0FFA2fd9b5De05c68dBfC802457a4faedB350C0E"}	{"name": "Ruli The Squirrel", "symbol": "Ruli", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xbcdc8e149A736229989054078f1E60FC6df3310f"}	{"name": "Will You Claw?", "symbol": "WILLYOUCLAW?", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD6630912882efc25a1b5816259D7156A77830342"}	{"name": "TomorrowWeExplain", "symbol": "TWE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x051ba1b4c179EB2ECD641cFC1c9bE4be43289D9a"}	{"name": "Phantom Kek Holdings", "symbol": "PHANTO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x18B060433f360fBEF5a3188Ed6Ad749945450723"}	{"name": "KiloClaw", "symbol": "KiloClaw", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xE3B56bB20D797A269902547C496c1fA374A8e043"}	{"name": "One", "symbol": "ONE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1b5fA5255621Ef77ff7A24359e6853F3374D4e7F"}	{"name": "YIN N YANG", "symbol": "YINYANG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x957A137006D78C830C8fCA0708CB43Fcbe846A9F"}	{"name": "Fomo", "symbol": "FOMO", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb4733cC5dB981FB3A704ccBb8ffF0D885A2A48A4"}	{"name": "Protocol Arcane Token", "symbol": "PR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD61036f8D670515e4D1A4EB550677E6A85BB58Cc"}	{"name": "YANG", "symbol": "YANG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xaAbfeb8CC7bc355A7786B6E7d35A110D458d1674"}	{"name": "The Übermensch Hound", "symbol": "Casper", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf30763466CF2B23fC874DF5765A7D8B7048eD544"}	{"name": "Seeker", "symbol": "SKR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8B02D8da0d4759Cc965E1C6ee74b5508Ea477433"}	{"name": "YIN", "symbol": "YIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7Fe55494E8bEbd451e270a25f7a2EB316B796289"}	{"name": "Moss Mobile", "symbol": "MOSS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xbb0Ca4FbF200B93416Eeaf87209470f2B09cFb09"}	{"name": "APES", "symbol": " ", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x37B592da851131F733d68ecE847B9691bd5613Df"}	{"name": "Trust ", "symbol": "TRUST ", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x54311473aaB985dd5782be684ab144785fB7f38A"}	{"name": "Robot Sex Nickels", "symbol": "RSN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xbA0017749dCEa4040C9DeF28d0DE1aDd6ca47D12"}	{"name": "Trump ", "symbol": "Trump 250", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x968D85b059cB7EB39C41f921D39311283dEf75BC"}	{"name": "Omni Claw", "symbol": "OmniClaw", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x960F5C41AfD0DA9B29Bd0863BF48E84EbF2F4d24"}	{"name": "Moltspawn", "symbol": "SPAWN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa37094D885587dDE23DC91E7D94253e17ff81620"}	{"name": "Charles Claw", "symbol": "Charles", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xAbACFbE974a1ddaa002970Ba8697bdD9BcC0F1df"}	{"name": "Pink Rabbit", "symbol": "hase", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x05c0941C5cEbE5b89F9F3876166DD0391267528a"}	{"name": "Sell On Dip", "symbol": "SOD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5Ac01CD16d29F474a1ea669e44160eCd5A5128EC"}	{"name": "ZeroTek", "symbol": "ZEROTEK", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa5002b458a6ac7e0Aef6040338e6F557f3AF35bE"}	{"name": "Neyclaw", "symbol": "Neyclaw", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa6f6b874F93219b0522d4Dc20d56b6b84C558BED"}	{"name": "The World Series of Poker©", "symbol": "WSOP©", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xCe1969614a217009BE3D47b27F47328138EcF6af"}	{"name": "Agentic Engineer", "symbol": "Engineer", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa92B03ccD64B0860Ba5120698bb646fB38FBb25f"}	{"name": "pippin.fun", "symbol": "PIPPINFUN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xea164c6765a8d4A64acFc7798BBac00598813957"}	{"name": "AnodeClaw", "symbol": "ANODECLAW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD245EAeDE84660f7430b822A3C2ab9093288D26E"}	{"name": "Gamestart", "symbol": "$GMS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7e87C29EC57B2976Ebe5DAAA51928dEBdd07D227"}	{"name": "Harbor Labs", "symbol": "HARBOR", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x597714B7fB5D74369e642e1ed5D21e986D9c72FA"}	{"name": "Trench Cat", "symbol": "Jeffrey", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xe17b3A218067985E32Bef2A926a149c610C6Dbd1"}	{"name": "NOOK", "symbol": "NOOKPLOT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xBA06fd3b9cf1D763FB3b749A8A2aee641b1ef441"}	{"name": "bottom", "symbol": "bottom", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xEF635bfa0BD663ce67f824d0A4e772de5E112Cb4"}	{"name": "Claw of Freedom", "symbol": "CLAWDOM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x74c266b9D632406aF5B677d216eA2f84D9C97a2E"}	{"name": "SuperAGI", "symbol": "SuperAGI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4C9eA4afB8717470F017EE6b7154112fEd4fF36A"}	{"name": "United States Dollar APple", "symbol": "USDA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xDB9d184498B3422088A75EA796FEe3ec523A7976"}	{"name": "peer to peer", "symbol": "P2P", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x392cd6dd15BbE73d87eF6E16711a8f898dCFCA5E"}	{"name": "The Oldest Crustacean", "symbol": "GEORGE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x11a2017809c9C9d15a93d30c60049A76871e66F1"}	{"name": "DRILL BABY DRILL", "symbol": "DBD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x087cBc38e91165E9097f0c4A4ea3f8661b6D9C6f"}	{"name": "BlackClaw", "symbol": "BlackClaw", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xcAA02595Cb39B9cD0A9cB3A9F0EeECF6355759B5"}	{"name": "Digitrix0555 Token", "symbol": "DRI55", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x12C1cfa967992997f2029a3fBAE5F01Ef4AeA3b3"}	{"name": "Digitrix0555 Token", "symbol": "DRI55", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf5905f0428b61B787503F909C869bA600744508a"}	{"name": "Crazy Michael Burry", "symbol": "BRAZY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xA548faC623141126520a5Cf73062F81BFa1ee953"}	{"name": "AnonClaw", "symbol": "AnonClaw", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xE033577A1fa38bDD814F87742A12A17360754Fcb"}	{"name": "Nimbus", "symbol": "NIMBUS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xFf734B07Ec19c40eBc47D8B9ab811042Ca34f0Da"}	{"name": "Dont shoot, im friendly", "symbol": "DONT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x53ce2dD72D86300263b56F6FeE1FbeF72170829c"}	{"name": "WINNING TOO MUCH", "symbol": "WINNING", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x2d6b3Dd700038051C74C8Ac88A814eB1edEf1334"}	{"name": "Grind", "symbol": "Grind", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xFdcF1eeE499fE335488e969Dc09c721D9e7b1669"}	{"name": "Alien Runner", "symbol": "ARN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xeF360330DdEffBfC64294DAb5B974F541fddbe50"}	{"name": "FLUX", "symbol": "FLUX", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8FB7b979ABa135223Bbc79D3a8BD50671ef450F9"}	{"name": "Solana rage", "symbol": "SRAGE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xdc50BB2182dA9E8065a95a4cd3eAd462DfDD858D"}	{"name": "Ketnipz", "symbol": "Bean", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x616B5185E2631404303A15b097977d3B42C6b6Cf"}	{"name": "Pigeon Doctor ", "symbol": "PIGEON ", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xcA3A2D3393062Cc4eF052d8500051DDED488b902"}	{"name": "Trump Accounts", "symbol": "TA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xCE9ae4AcBa9285292aff0A353E7c39162893D67a"}	{"name": "NeyClawk", "symbol": "NeyClawk", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x13715ea77c51b55C85c62DED2fbC1cb864867894"}	{"name": "Valdris", "symbol": "Valdris", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x24CAd120d2B06d7609dD862FA078FA30B1f7d2Bd"}	{"name": "Megan Hemhauser the bartender", "symbol": "MEGAN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6744C08eE2Cb6c357d815a676f3BBdb96d2b9CA1"}	{"name": "Claw Kitchen", "symbol": "KITCHEN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xC943bf8BE40Fcf7232666E344918436e2A078275"}	{"name": "DELL COMPUTER", "symbol": "DELL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x34a380E2E0549B8240eCfF7733e7022cb8E6aB03"}	{"name": "get a load of this guy", "symbol": "LOAD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9E95dbC0D56875C85f49e8C27CbD33fCBBeD6F8b"}	{"name": "Fergani", "symbol": "FERGANI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xF6Bc09E63B2b1DFa9211CB8d59786d2ADC5b390E"}	{"name": "Goldification", "symbol": "GOLDIFY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xDeb8eF7F9f37D459b55ABAfA722905df9Ad76750"}	{"name": "The Vasserites", "symbol": "VASSERITES", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb452d7023097739c368c4Ad1F69CE910517d5D18"}	{"name": "Fergani", "symbol": "FERGANI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x7Fef3F9942C3E212299f9356f2F306cAF741dD28"}	{"name": "Catalyst Trust Token", "symbol": "CATA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf2733683FaF115E03834c7D347Df615289169343"}	{"name": "Fortress", "symbol": "FORTRESS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xcdDA36d3B31e2372c108A6ed9375771a8da7c57E"}	{"name": "fibo", "symbol": "fibo", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x009Ab84Ff6a954dF1CFC459ee4cB5886f59d7Cc2"}	{"name": "Cortex Quantum Plus", "symbol": "CORTEX", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xbF832Dac53b653Be7Ce01d527aac488AF5D8E780"}	{"name": "Protest Frog", "symbol": "PFROG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xF19e217E9d8bB6b1e3DDc75e7798C7bC873B9232"}	{"name": "aze", "symbol": "aze", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xfB744358e919ECf45eBb0708B773df0533BA1da4"}	{"name": "Claw Planner", "symbol": "CPLANNER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8B1E0d0B9c7D2efa8F09242C221Ff161156D7775"}	{"name": "RIP DONALD TRUMP", "symbol": "RIPTRUMP", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xB96F0Bda519907002dB23d7FACbC0ce6206c6050"}	{"name": "Somali Pirates", "symbol": "PIRATES", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x16844b50Fae5e28E53f01cDb98a696De2a5Dc28d"}	{"name": "The Insider", "symbol": "Insider", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xE4c96cc74d32FE0d9D4829C369FE64c6815a523c"}	{"name": "Blastgit", "symbol": "BGIT", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x358f3966C10858D5AEf624855A2ca6CbD66AA8F0"}	{"name": "Stop Insider Trading Act", "symbol": "SITA", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf2FcCD87C253930025A6474F08526045dfDb214b"}	{"name": "CLIRichard", "symbol": "CLI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x9EAbFcE55C48631C7e5a241463981a3f09C83412"}	{"name": "ACDC", "symbol": "ACDC", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8beD60503b6DbC30d611bc89dd73fAC3868ff131"}	{"name": "Dont Let Go", "symbol": "DLG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x078242C76bBe42F6505049b59535B0775db13A1d"}	{"name": "The Insider", "symbol": "PELOSI", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xa1f3EBDa17eB95585de618Af25C914c28F67170d"}	{"name": "Run-a-way ", "symbol": "$RAW", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x6F95146E09B0318CcAc85dC4C7E66c0b237a0114"}	{"name": "NOPPY", "symbol": "NOPPY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xd543dE5FcA0e86ACE7D33287717af00e40A423C2"}	{"name": "bullcoin", "symbol": "bull", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x52B58B9a675e04aaB60e703544fe0418d726EFB2"}	{"name": "Act G : The Gold Prophecy", "symbol": "ACTG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb4405CCD023Cd2F8D4C79381e1EE59AAF22FAF79"}	{"name": "Inusider", "symbol": "Inusider", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x718D7505f50068A8729DFe1D4846bf08Ba866Ec1"}	{"name": "Holders World Record", "symbol": "RECORD", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0e5ADB560421A2830C33761006eF7412Fa8d3a88"}	{"name": "Mac Big", "symbol": "MacBig", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xAb9246C99b19BC1E90F0271726BD0F04907dFEB8"}	{"name": "Portland Frog Brigade", "symbol": "FROG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xfdBf3f03Bd1ed6AFEA1C01CBd8D0257522216E9b"}	{"name": "Million Dollar Toilet", "symbol": "Toilet", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xf9A28b0e5F90C2a8Be60c1aD89c76Da82097747c"}	{"name": "Protest Frog", "symbol": "PFROG", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x0c43508235540feb59168cFeE19247f3662e0004"}	{"name": "BoobCoin", "symbol": "Boobcoin", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x4f07B79E364b678c7164d5a8dA8cF4fcAB6621eb"}	{"name": "Vesting", "symbol": "VESTING", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xb7e0455F0FD0836f76c68448A542c484F7Ba6BCE"}	{"name": "shuan", "symbol": "qing", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xfaA610389A78D3D6585D42fee0A2b2F586f552eA"}	{"name": "Blue Animals", "symbol": "ANIMALS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1c895f613406e54e09C886159136bBE049CAF2b6"}	{"name": "Overexposed ", "symbol": "OVERX ", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1716214fa4B224e2bb5e5bEBe2c31aB256D26f61"}	{"name": "Claw Mart", "symbol": "CM", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xFccE39b5f35F433d5d86904aF280D04e78823A32"}	{"name": "100 Million in 100 Hours", "symbol": "100M", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x97EC0EFce65C7AB002d41198D7751471765737Cd"}	{"name": "Kicker AI", "symbol": "KICKER", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xDe9a0D4aCd0773e681993Cbd6b4EDA4de1Fa5309"}	{"name": "Apple Newsroom", "symbol": "APPLE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x8a704FE4c4a4A4De88a7C4C0CbCDe9EACF11aec9"}	{"name": "AGEENCE", "symbol": "AGE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xaefa5cEacCfF652f8a9C0DCb1c17ff7A45801F30"}	{"name": "Cortisol Level", "symbol": "CORTISOL", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5c8dD271AF2700406e2320Dc4cc76aC959603088"}	{"name": "Pippfin The Fish", "symbol": "PIPPFIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5496e7513bF14672451824F70689252A619Fdfe5"}	{"name": "Chill Golden House", "symbol": "GOLDHOUSE", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xAa7F710b33872131526B9580cd0fdC9C7D382c78"}	{"name": "Pippfin The Fish", "symbol": "PIPPFIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x78FaaC338168bB17045B1F3804325a7e2714edE0"}	{"name": "you can't sell this coin", "symbol": "HOUSECOIN", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xD3B4bA1874F6b361e22160DA28E3d0Fb8C9C1C7A"}	{"name": "Wojak Apex", "symbol": "WOJ", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5f79CD8AAE1ec3e1a499001b484cd0E29dec77C1"}	{"name": "Félicette", "symbol": "Félicette", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x1256bdEc6B33EeAEd1045018230DF77d86ccE106"}	{"name": "retire", "symbol": "retire", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xE338Ab2f6f566b03067F60e4e8a325151F5E9eA3"}	{"name": "Chaos Indy", "symbol": "CHAOS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xbeC52Dfa8270Fa1164F4130f24B7180E1680c0dA"}	{"name": "The Nightly Build", "symbol": "NIGHTLY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x375292614F9A42bd73d069f146D6dc662DbDAb2f"}	{"name": "The Nightly Build", "symbol": "NIGHTLY", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0xFEAfd68F913664C87340390f1eB13d288dC19fD0"}	{"name": "Test USDC", "symbol": "test_USDC", "decimals": 6}
+{"chainId":8453,"tokenAddress":"0xe945349511FEa429103481c633468bf0681A547D"}	{"name": "Test AS", "symbol": "test_AS", "decimals": 18}
+{"chainId":8453,"tokenAddress":"0x5FCF09c8DD03065064AD966c541d6A5e096BfC33"}	{"name": "Test cbBTC", "symbol": "test_cbBTC", "decimals": 8}
+{"chainId":1,"tokenAddress":"0x91d14789071e5E195FFC9F745348736677De3292"}	{"name": "dCOMP", "symbol": "dCOMP", "decimals": 18}
+{"chainId":1,"tokenAddress":"0x6C65dB1d88C8edA1e3dEbF2B2eF3D0EcE8600466"}	{"name": "PT Staked NUSD 4JUN2026", "symbol": "PT-sNUSD-4JUN2026", "decimals": 18}
+{"chainId":42161,"tokenAddress":"0xC9d24aD0bB25F34098e226a8C5192Dea7bacccaE"}	{"name": "PT USDai 15OCT2026", "symbol": "PT-USDai-15OCT2026", "decimals": 18}

@@ -262,7 +262,8 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
       context,
       event.params.user,
       event.chainId,
-      BigInt(event.block.number-1),
+      BigInt(event.block.number-1),  // position data block (pre-liquidation)
+      BigInt(event.block.number),     // price block (liquidation block)
       event.params.collateralAsset,
       event.params.debtAsset,
       snapshotId
@@ -590,7 +591,8 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
       context,
       event.params.violator,
       event.chainId,
-      BigInt(event.block.number-1),
+      BigInt(event.block.number-1),  // position data block (pre-liquidation)
+      BigInt(event.block.number),     // price block (liquidation block)
       event.params.collateral,  // seized vault address
       event.srcAddress,          // repaid vault address (debt vault that emitted the event)
       snapshotId
@@ -908,14 +910,14 @@ Morpho.Liquidate.handler(async ({ event, context }) => {
   try {oraclePrice = await context.effect(getMorphoOraclePrice, {
     oracleAddress: market.oracle,
     chainId: event.chainId,
-    blockNumber: BigInt(event.block.number-1),
+    blockNumber: BigInt(event.block.number),  // Use liquidation block for oracle price
   });
   } catch (error) {
     context.log.error(`Failed to fetch Morpho oracle price`, {
     error,
     oracleAddress: market.oracle,
     chainId: event.chainId,
-    blockNumber: BigInt(event.block.number-1),
+    blockNumber: BigInt(event.block.number),
   });
   }
 
