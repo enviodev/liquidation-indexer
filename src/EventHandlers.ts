@@ -3,17 +3,19 @@
  */
 import {
   AaveProxy,
-  AaveProxy_LiquidationCall,
   EulerFactory,
-  EVaultDetails,
   EulerVaultProxy,
-  EulerVaultProxy_Liquidate,
   Morpho,
+} from "generated";
+import type {
+  AaveProxy_LiquidationCall,
+  EVaultDetails,
+  EulerVaultProxy_Liquidate,
   Morpho_Liquidate,
+  Morpho_CreateMarket as Morpho_CreateMarketEntity,
   GeneralizedLiquidation,
   LiquidationStats,
 } from "generated";
-import type { Morpho_CreateMarket as Morpho_CreateMarketEntity } from "generated/src/Types.gen";
 import { updateLiquidatorData, updateBorrowerData, processAavePositionSnapshot, processEulerPositionSnapshot } from "./helpers";
 import { getEVaultMetadata } from "./evaultMetadata";
 import { getTokenDetails } from "./tokenDetails";

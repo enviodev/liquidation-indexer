@@ -1,65 +1,68 @@
 import { Address, erc20Abi, erc20Abi_bytes32 } from "viem";
 import { mainnet, optimism, arbitrum, polygon, base, gnosis, linea, scroll, avalanche, bsc } from 'viem/chains'
-import * as fs from "fs";
-import * as path from "path";
-import { AaveV3Ethereum, AaveV3Optimism, AaveV3Arbitrum, AaveV3Polygon, AaveV3Base, AaveV3Gnosis, AaveV3Linea, AaveV3Scroll, AaveV3Avalanche, AaveV3BNB } from "@bgd-labs/aave-address-book"; 
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+import { AaveV3Ethereum, AaveV3Optimism, AaveV3Arbitrum, AaveV3Polygon, AaveV3Base, AaveV3Gnosis, AaveV3Linea, AaveV3Scroll, AaveV3Avalanche, AaveV3BNB } from "@bgd-labs/aave-address-book";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const evaultAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/EVault.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/EVault.json"), "utf8")
 );
 
 const eulerRouterAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/EulerRouter.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/EulerRouter.json"), "utf8")
 );
 
 const aaveV3OracleAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AaveV3Oracle.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/AaveV3Oracle.json"), "utf8")
 );
 
 const aaveUiPoolDataProviderAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AaveUiPoolDataProvider.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/AaveUiPoolDataProvider.json"), "utf8")
 );
 
 const aaveV3ProtocolDataProviderAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AaveV3ProtocolDataProvider.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/AaveV3ProtocolDataProvider.json"), "utf8")
 );
 
 const aaveV3PoolAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AaveV3Pool.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/AaveV3Pool.json"), "utf8")
 );
 
 const aavePoolAddressesProviderAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AavePoolAddressesProvider.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/AavePoolAddressesProvider.json"), "utf8")
 );
 
 // Load default AccountLens ABI
 const accountLensAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AccountLens.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/AccountLens.json"), "utf8")
 );
 
 // Load Arbitrum-specific AccountLens ABI
 const accountLensAbi_42161 = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AccountLens_42161.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/AccountLens_42161.json"), "utf8")
 );
 
 // Load Base-specific AccountLens ABI
 const accountLensAbi_8453 = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AccountLens_8453.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/AccountLens_8453.json"), "utf8")
 );
 
 // Load Avalanche-specific AccountLens ABI
 const accountLensAbi_43114 = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AccountLens_43114.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/AccountLens_43114.json"), "utf8")
 );
 
 // Load BSC-specific AccountLens ABI
 const accountLensAbi_56 = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/AccountLens_56.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/AccountLens_56.json"), "utf8")
 );
 
 const evcAbi = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../abis/EVC.json"), "utf8")
+    readFileSync(join(__dirname, "../abis/EVC.json"), "utf8")
 );
 
 // Helper function to get the correct AccountLens ABI based on chain ID
