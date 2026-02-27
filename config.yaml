@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
 name: envio-indexer
 unordered_multichain_mode: true
-preload_handlers: true
+preload_handlers: false
 rollback_on_reorg: false
 contracts:
   - name: AaveProxy
@@ -32,7 +32,7 @@ contracts:
             - hash
 networks:
   - id: 1
-    start_block: 0
+    start_block: 16291126
     contracts:
       - name: AaveProxy
         address:

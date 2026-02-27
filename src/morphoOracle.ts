@@ -1,4 +1,4 @@
-import { experimental_createEffect, S } from "envio";
+import { createEffect, S } from "envio";
 
 type HistoricalPricePoint = {
   x: number
@@ -22,7 +22,7 @@ const getMorphoHistoricalPriceSchema = S.schema({
 // Infer the type from the schema
 type getMorphoHistoricalPrice = S.Infer<typeof getMorphoHistoricalPriceSchema>;
 
-export const getMorphoHistoricalPrice = experimental_createEffect(
+export const getMorphoHistoricalPrice = createEffect(
   {
     name: "getMorphoHistoricalPrice",
     input: {
@@ -33,8 +33,12 @@ export const getMorphoHistoricalPrice = experimental_createEffect(
     output: getMorphoHistoricalPriceSchema,
     // Enable caching to avoid duplicated calls
     cache: true,
+    rateLimit: {
+      calls: 100,
+      per: "second"
+    },
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     const { assetAddress, chainId, timestamp } = input
 
     // Calculate the closest full hour before the liquidation timestamp
@@ -75,6 +79,7 @@ export const getMorphoHistoricalPrice = experimental_createEffect(
 
       if (json.errors) {
         console.error("Morpho GraphQL errors:", json.errors)
+        context.cache = false
         return { price: 0 }
       }
 
@@ -96,6 +101,7 @@ export const getMorphoHistoricalPrice = experimental_createEffect(
       return { price }
     } catch (error) {
       console.error(`Failed to fetch Morpho price for asset ${assetAddress}:`, error)
+      context.cache = false
       return { price: 0 }
     }
   }
