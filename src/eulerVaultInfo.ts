@@ -1,14 +1,18 @@
 import { createEffect, S } from "envio";
-import * as fs from "fs";
-import * as path from "path";
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 import {
   executeWithRPCRotation,
   getEulerVaultLensAddress,
 } from "./utils";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 // Load the EulerVaultLens ABI
 const eulerVaultLensAbi = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "../abis/EulerVaultLens.json"), "utf8")
+  readFileSync(join(__dirname, "../abis/EulerVaultLens.json"), "utf8")
 );
 
 function getEulerVaultLensContract(address: `0x${string}`) {

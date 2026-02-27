@@ -1,16 +1,20 @@
 import { createEffect, S } from "envio";
 import { executeWithRPCRotation } from "./utils";
-import * as fs from "fs";
-import * as path from "path";
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Load Morpho Blue ABI
 const morphoBlueAbi = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "../abis/Morpho.json"), "utf8")
+  readFileSync(join(__dirname, "../abis/Morpho.json"), "utf8")
 );
 
 // Load Morpho Oracle ABI
 const morphoOracleAbi = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "../abis/MorphoOracle.json"), "utf8")
+  readFileSync(join(__dirname, "../abis/MorphoOracle.json"), "utf8")
 );
 
 function getMorphoBlueContract(address: string) {
