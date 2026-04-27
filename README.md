@@ -1,27 +1,32 @@
 # Liquidation Indexer
 
-A multi-protocol, multichain liquidation indexer built with [Envio HyperIndex](https://docs.envio.dev). Tracks liquidation events from Aave V3, Euler, and Morpho across 10 chains and exposes them through a unified GraphQL API.
+Envio HyperIndex indexer covering 4 contracts across 10 chains.
 
-## Chains (10)
+## Chains
 
-`1`, `10`, `56`, `100`, `137`, `8453`, `42161`, `43114`, `59144`, `534352`
+| Network | Chain ID |
+|---|---|
+| Ethereum Mainnet | 1 |
+| Optimism | 10 |
+| Arbitrum | 42161 |
+| Polygon | 137 |
+| Base | 8453 |
+| Gnosis | 100 |
+| Linea | 59144 |
+| Scroll | 534352 |
+| Avalanche | 43114 |
+| Bsc | 56 |
 
-## What it indexes
+## Contracts
 
-- **Aave V3** (`AaveProxy.LiquidationCall`): collateral asset, debt asset, user, debt covered, liquidated collateral, liquidator
-- **Euler** (`EulerFactory.ProxyCreated` plus `EulerVaultProxy.Liquidate`): factory-created vault proxies and per-vault liquidation events (liquidator, violator, collateral, repay assets, yield balance)
-- **Morpho** (`Morpho.CreateMarket` plus `Morpho.Liquidate`): market creation and liquidation events with repaid/seized assets and bad debt accounting
+- **`AaveProxy`**: `LiquidationCall`
+- **`EulerFactory`**: `ProxyCreated`
+- **`EulerVaultProxy`**: `Liquidate`
+- **`Morpho`**: `CreateMarket`, `Liquidate`
 
-A `GeneralizedLiquidation` entity normalises liquidations across all three protocols for unified queries.
+## Schema entities (14)
 
-## Schema
-
-14 GraphQL entities including:
-
-- `GeneralizedLiquidation`, `LiquidationStats`, `Liquidator`, `Borrower`
-- `Token`, `PositionSnapshot`, `PositionCollateral`, `PositionDebt`
-- Per-protocol entities: `AaveProxy_LiquidationCall`, `EVaultDetails`, `EulerVaultProxy_Liquidate`, `Morpho_CreateMarket`, `Morpho_Liquidate`
-- `AaveV3ReserveConfigurationData`
+`AaveProxy_LiquidationCall`, `EVaultDetails`, `EulerVaultProxy_Liquidate`, `Morpho_CreateMarket`, `Morpho_Liquidate`, `GeneralizedLiquidation`, `LiquidationStats`, `Liquidator`, `Borrower`, `Token`, `AaveV3ReserveConfigurationData`, `PositionSnapshot`, `PositionCollateral`, `PositionDebt`
 
 ## Run locally
 
@@ -40,7 +45,7 @@ pnpm codegen
 
 ## Pre-requisites
 
-- [Node.js (use v18 or newer)](https://nodejs.org/en/download/current)
+- [Node.js v22+ (v24 recommended)](https://nodejs.org/en/download/current)
 - [pnpm](https://pnpm.io/installation)
 - [Docker](https://www.docker.com/products/docker-desktop/) or [Podman](https://podman.io/)
 
