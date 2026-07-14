@@ -1,7 +1,6 @@
 import { createEffect, S } from "envio";
 import { executeWithRPCRotation, getEVaultContract } from "./utils";
 
-
 // Define the schema for the effect output
 const EVaultMetadataSchema = S.schema({
   asset: S.string,

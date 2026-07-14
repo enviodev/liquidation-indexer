@@ -1,21 +1,9 @@
 /*
  * Please refer to https://docs.envio.dev for a thorough guide on all Envio indexer features.
  */
-import {
-  AaveProxy,
-  EulerFactory,
-  EulerVaultProxy,
-  Morpho,
-} from "generated";
-import type {
-  AaveProxy_LiquidationCall,
-  EVaultDetails,
-  EulerVaultProxy_Liquidate,
-  Morpho_Liquidate,
-  Morpho_CreateMarket as Morpho_CreateMarketEntity,
-  GeneralizedLiquidation,
-  LiquidationStats,
-} from "generated";
+import { indexer, type Entity } from "envio";
+
+import type { AaveProxy_LiquidationCall, EVaultDetails, EulerVaultProxy_Liquidate, Morpho_Liquidate, Morpho_CreateMarket, GeneralizedLiquidation, LiquidationStats , Morpho_CreateMarket as Morpho_CreateMarketEntity } from "envio";
 import { updateLiquidatorData, updateBorrowerData, processAavePositionSnapshot, processEulerPositionSnapshot } from "./helpers";
 import { getEVaultMetadata } from "./evaultMetadata";
 import { getTokenDetails } from "./tokenDetails";
@@ -27,7 +15,9 @@ import { getEulerOracleAddress, getEulerUSDAddress } from "./utils";
 import { getEulerVaultLtvInfo } from "./eulerVaultInfo";
 import { getMorphoUserPositionData, getMorphoOraclePrice } from "./morphoPositionSnapshot";
 
-AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AaveProxy", event: "LiquidationCall" },
+  async ({ event, context }) => {
   const entity: AaveProxy_LiquidationCall = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     chainId: event.chainId,
@@ -363,9 +353,12 @@ AaveProxy.LiquidationCall.handler(async ({ event, context }) => {
     totalCount: BigInt(existingGlobal?.totalCount ?? 0n) + 1n,
   };
   context.LiquidationStats.set(global);
-});
+}
+);
 
-EulerFactory.ProxyCreated.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "EulerFactory", event: "ProxyCreated" },
+  async ({ event, context }) => {
   try {
     const evaultMetadata = await context.effect(getEVaultMetadata, {
       vaultAddress: event.params.proxy,
@@ -428,13 +421,19 @@ EulerFactory.ProxyCreated.handler(async ({ event, context }) => {
     );
     return;
   }
-});
+}
+);
 
-EulerFactory.ProxyCreated.contractRegister(async ({ event, context }) => {
-  context.addEulerVaultProxy(event.params.proxy);
-});
+indexer.contractRegister(
+  { contract: "EulerFactory", event: "ProxyCreated" },
+  async ({ event, context }) => {
+  context.chain.EulerVaultProxy.add(event.params.proxy);
+}
+);
 
-EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "EulerVaultProxy", event: "Liquidate" },
+  async ({ event, context }) => {
   const entity: EulerVaultProxy_Liquidate = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     chainId: event.chainId,
@@ -693,9 +692,12 @@ EulerVaultProxy.Liquidate.handler(async ({ event, context }) => {
     totalCount: BigInt(existingGlobal2?.totalCount ?? 0n) + 1n,
   };
   context.LiquidationStats.set(global2);
-});
+}
+);
 
-Morpho.CreateMarket.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Morpho", event: "CreateMarket" },
+  async ({ event, context }) => {
   const entity: Morpho_CreateMarketEntity = {
     id: `${event.chainId}_${event.params.id}`,
     chainId: event.chainId,
@@ -759,10 +761,12 @@ Morpho.CreateMarket.handler(async ({ event, context }) => {
     return;
   }
 
-});
+}
+);
 
-
-Morpho.Liquidate.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Morpho", event: "Liquidate" },
+  async ({ event, context }) => {
   const entity: Morpho_Liquidate = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     chainId: event.chainId,
@@ -1044,4 +1048,5 @@ Morpho.Liquidate.handler(async ({ event, context }) => {
     totalCount: BigInt(existingGlobal3?.totalCount ?? 0n) + 1n,
   };
   context.LiquidationStats.set(global3);
-});
+}
+);

@@ -1,4 +1,4 @@
-import { Liquidator, Borrower } from "generated";
+import { Liquidator, Borrower } from "envio";
 import { getAaveUserPositionData } from "./aavePositionSnapshot";
 import { getEulerUserPositionData } from "./eulerPositionSnapshot";
 import { getTokenDetails } from "./tokenDetails";

@@ -26,6 +26,6 @@
   },
   "include": [
     "src",
-    "test"
+    "envio-env.d.ts"
   ]
 }

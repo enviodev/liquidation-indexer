@@ -1,5 +1,5 @@
 import assert from "assert";
-import { TestHelpers, AaveProxy_LiquidationCall } from "generated";
+import { TestHelpers, AaveProxy_LiquidationCall } from "envio";
 const { MockDb, AaveProxy } = TestHelpers;
 
 describe("AaveProxy contract LiquidationCall event tests", () => {

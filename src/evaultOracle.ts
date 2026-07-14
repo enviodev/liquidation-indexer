@@ -1,7 +1,6 @@
 import { createEffect, S } from "envio";
 import { executeWithRPCRotation, getEulerRouterContract } from "./utils";
 
-
 // Define the schema for the effect output
 const getQuoteSchema = S.schema({
   price: S.number,

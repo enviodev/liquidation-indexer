@@ -1,7 +1,6 @@
 import { createEffect, S } from "envio";
 import { executeWithRPCRotation, getAaveV3OracleContract, getAaveV3OracleAddress } from "./utils";
 
-
 // Define the schema for the effect output
 const getAssetPriceSchema = S.schema({
   price: S.bigint,
