@@ -37,7 +37,6 @@ export const getAaveUserPositionData = createEffect(
     name: "getAaveUserPositionData",
     input: {
       userAddress: S.string,
-      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: getUserPositionDataSchema,

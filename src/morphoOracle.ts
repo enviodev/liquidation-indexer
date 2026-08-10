@@ -28,7 +28,6 @@ export const getMorphoHistoricalPrice = createEffect(
     name: "getMorphoHistoricalPrice",
     input: {
       assetAddress: S.string,
-      chainId: S.number,
       timestamp: S.bigint,
     },
     output: getMorphoHistoricalPriceSchema,
@@ -47,8 +46,8 @@ export const getMorphoHistoricalPrice = createEffect(
     const hourTimestamp = Math.floor(liquidationTimestamp / 3600) * 3600
 
     const query = `
-      query HistoricalAssetPrice($address: String!, $chainId: Int!, $start: Int!, $end: Int!) {
-        assetByAddress(address: $address, chainId: $chainId) {
+      query HistoricalAssetPrice($address: String!, $$start: Int!, $end: Int!) {
+        assetByAddress(address: $address
           historicalPriceUsd(options: { startTimestamp: $start, endTimestamp: $end, interval: HOUR }) {
             x
             y

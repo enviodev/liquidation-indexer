@@ -196,7 +196,7 @@ class RPCManager {
   /**
    * Record a request attempt for the current RPC.
    */
-  recordRequest(chainId: number, success: boolean): void {
+  recordRequest(success: boolean): void {
     const config = this.chainConfigs.get(chainId);
     if (!config || config.endpoints.length === 0) {
       return;
@@ -226,7 +226,6 @@ const rpcManager = new RPCManager();
  * @throws Error if all RPCs fail
  */
 export async function executeWithRPCRotation<T>(
-  chainId: number,
   operation: (client: any) => Promise<T>,
   options?: {
     enableBatch?: boolean;

@@ -18,7 +18,6 @@ export const getTokenDetails = createEffect(
     name: "getTokenDetails",
     input: {
       tokenAddress: S.string,
-      chainId: S.number,
     },
     output: tokenMetadataSchema,
     cache: true,

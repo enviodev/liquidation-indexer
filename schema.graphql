@@ -1,6 +1,5 @@
 type AaveProxy_LiquidationCall {
   id: ID!
-  chainId: Int!
   timestamp: BigInt!
   collateralAsset: String!
   debtAsset: String!
@@ -13,7 +12,6 @@ type AaveProxy_LiquidationCall {
 
 type EVaultDetails {
   id: ID!
-  chainId: Int!
   timestamp: BigInt!
   asset: String!
   name: String!
@@ -25,7 +23,6 @@ type EVaultDetails {
 
 type EulerVaultProxy_Liquidate {
   id: ID!
-  chainId: Int!
   timestamp: BigInt!
   liquidator: String!
   violator: String!
@@ -36,7 +33,6 @@ type EulerVaultProxy_Liquidate {
 
 type Morpho_CreateMarket {
   id: ID!
-  chainId: Int!
   timestamp: BigInt!
   loanToken: String!
   collateralToken: String!
@@ -47,7 +43,6 @@ type Morpho_CreateMarket {
 
 type Morpho_Liquidate {
   id: ID!
-  chainId: Int!
   timestamp: BigInt!
   id_bytes32: String!
   caller: String!
@@ -61,7 +56,6 @@ type Morpho_Liquidate {
 
 type GeneralizedLiquidation {
   id: ID!
-  chainId: Int!
   timestamp: BigInt! @index
   blockNumber: BigInt!
   protocol: String!
@@ -84,7 +78,6 @@ type GeneralizedLiquidation {
 
 type LiquidationStats {
   id: ID!
-  chainId: Int
   aaveCount: BigInt!
   eulerCount: BigInt!
   morphoCount: BigInt!
@@ -94,7 +87,6 @@ type LiquidationStats {
 type Liquidator {
   id: ID!
   liquidator: String!
-  chainId: Int
   aaveLiquidations: BigInt!
   eulerLiquidations: BigInt!
   morphoLiquidations: BigInt!
@@ -107,7 +99,6 @@ type Liquidator {
 type Borrower {
   id: ID!
   borrower: String!
-  chainId: Int
   aaveLiquidations: BigInt!
   eulerLiquidations: BigInt!
   morphoLiquidations: BigInt!
@@ -119,7 +110,6 @@ type Borrower {
 
 type Token {
   id: ID!
-  chainId: Int!
   name: String!
   symbol: String!
   decimals: Int!
@@ -127,7 +117,6 @@ type Token {
 
 type AaveV3ReserveConfigurationData {
   id: ID!
-  chainId: Int!
   decimals: Int
   liqLTV: Int
   cf: Int
@@ -137,7 +126,6 @@ type AaveV3ReserveConfigurationData {
 
 type PositionSnapshot {
   id: ID!
-  chainId: Int!
   timestamp: BigInt! @index
   protocol: String!
   borrower: String! @index

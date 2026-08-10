@@ -38,7 +38,6 @@ export const getEulerVaultLtvInfo = createEffect(
     input: {
       debtVaultAddress: S.string,
       collateralVaultAddress: S.string,
-      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: vaultLtvInfoSchema,

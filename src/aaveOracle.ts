@@ -15,7 +15,6 @@ export const getAssetPrice = createEffect(
     name: "getAssetPrice",
     input: {
       assetAddress: S.string,
-      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: getAssetPriceSchema,

@@ -40,7 +40,6 @@ interface PositionSnapshotData {
 export async function processAavePositionSnapshot(
   context: any,
   userAddress: string,
-  chainId: number,
   blockNumber: bigint,
   priceBlockNumber: bigint,
   seizedAsset: string,
@@ -210,7 +209,6 @@ export async function processAavePositionSnapshot(
 export async function updateLiquidatorData(
   context: any,
   liquidator: string,
-  chainId: number,
   protocol: "Aave" | "Euler" | "Morpho",
   timestamp: bigint
 ) {
@@ -220,7 +218,6 @@ export async function updateLiquidatorData(
   const liquidatorData: Liquidator = {
     id: liquidatorId,
     liquidator: liquidator,
-    chainId: chainId,
     aaveLiquidations:
       BigInt(existing?.aaveLiquidations ?? 0n) +
       (protocol === "Aave" ? 1n : 0n),
@@ -243,7 +240,6 @@ export async function updateLiquidatorData(
 export async function updateBorrowerData(
   context: any,
   borrower: string,
-  chainId: number,
   protocol: "Aave" | "Euler" | "Morpho",
   timestamp: bigint
 ) {
@@ -253,7 +249,6 @@ export async function updateBorrowerData(
   const borrowerData: Borrower = {
     id: borrowerId,
     borrower: borrower,
-    chainId: chainId,
     aaveLiquidations:
       BigInt(existing?.aaveLiquidations ?? 0n) +
       (protocol === "Aave" ? 1n : 0n),
@@ -276,7 +271,6 @@ export async function updateBorrowerData(
 export async function processEulerPositionSnapshot(
   context: any,
   userAddress: string,
-  chainId: number,
   blockNumber: bigint,
   priceBlockNumber: bigint,
   seizedVault: string,

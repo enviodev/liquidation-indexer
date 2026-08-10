@@ -23,7 +23,6 @@ export const getAaveV3ReserveData = createEffect(
     name: "getAaveV3ReserveData",
     input: {
       tokenAddress: S.string,
-      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: getAaveV3ReserveDataSchema,
