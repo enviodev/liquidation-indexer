@@ -37,6 +37,7 @@ type GetEulerUserPositionData = S.Infer<typeof getUserPositionDataSchema>;
 
 export const getEulerUserPositionData = createEffect(
   {
+    rateLimit: false,
     name: "getEulerUserPositionData",
     input: {
       userAddress: S.string,

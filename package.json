@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@bgd-labs/aave-address-book": "^4.31.0",
-    "envio": "3.2.1",
+    "envio": "3.6.1",
     "viem": "^2.38.5"
   },
   "engines": {

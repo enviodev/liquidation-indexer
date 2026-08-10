@@ -19,6 +19,7 @@ type getAaveV3ReserveData = S.Infer<typeof getAaveV3ReserveDataSchema>;
 
 export const getAaveV3ReserveData = createEffect(
   {
+    rateLimit: false,
     name: "getAaveV3ReserveData",
     input: {
       tokenAddress: S.string,

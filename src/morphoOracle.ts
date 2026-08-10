@@ -24,6 +24,7 @@ type getMorphoHistoricalPrice = S.Infer<typeof getMorphoHistoricalPriceSchema>;
 
 export const getMorphoHistoricalPrice = createEffect(
   {
+    rateLimit: false,
     name: "getMorphoHistoricalPrice",
     input: {
       assetAddress: S.string,

@@ -11,6 +11,7 @@ type getQuote = S.Infer<typeof getQuoteSchema>;
 
 export const getQuote = createEffect(
   {
+    rateLimit: false,
     name: "getQuote",
     input: {
       oracle: S.string,
