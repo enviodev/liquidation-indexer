@@ -41,6 +41,7 @@ export const getEulerUserPositionData = createEffect(
     name: "getEulerUserPositionData",
     input: {
       userAddress: S.string,
+      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: getUserPositionDataSchema,

@@ -43,6 +43,7 @@ export const getMorphoUserPositionData = createEffect(
       userAddress: S.string,
       marketId: S.string,
       morphoAddress: S.string,
+      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: morphoPositionSchema,
@@ -137,6 +138,7 @@ export const getMorphoOraclePrice = createEffect(
     name: "getMorphoOraclePrice",
     input: {
       oracleAddress: S.string,
+      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: morphoOraclePriceSchema,

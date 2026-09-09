@@ -18,6 +18,7 @@ export const getQuote = createEffect(
       inAmount: S.bigint,
       base: S.string,
       quote: S.string,
+      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: getQuoteSchema,

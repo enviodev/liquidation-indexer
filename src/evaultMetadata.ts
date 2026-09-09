@@ -20,6 +20,7 @@ export const getEVaultMetadata = createEffect(
     name: "getEVaultMetadata",
     input: {
       vaultAddress: S.string,
+      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: EVaultMetadataSchema,
