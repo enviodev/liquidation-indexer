@@ -14,7 +14,6 @@ type TokenMetadata = S.Infer<typeof tokenMetadataSchema>
 
 export const getTokenDetails = createEffect(
   {
-    rateLimit: false,
     name: "getTokenDetails",
     input: {
       tokenAddress: S.string,

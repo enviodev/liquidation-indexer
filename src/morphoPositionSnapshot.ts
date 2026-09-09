@@ -37,7 +37,6 @@ type MorphoPositionData = S.Infer<typeof morphoPositionSchema>;
 
 export const getMorphoUserPositionData = createEffect(
   {
-    rateLimit: false,
     name: "getMorphoUserPositionData",
     input: {
       userAddress: S.string,
@@ -134,7 +133,6 @@ type MorphoOraclePriceData = S.Infer<typeof morphoOraclePriceSchema>;
 
 export const getMorphoOraclePrice = createEffect(
   {
-    rateLimit: false,
     name: "getMorphoOraclePrice",
     input: {
       oracleAddress: S.string,

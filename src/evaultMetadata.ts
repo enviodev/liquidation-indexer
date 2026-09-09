@@ -16,7 +16,6 @@ type EVaultMetadata = S.Infer<typeof EVaultMetadataSchema>;
 
 export const getEVaultMetadata = createEffect(
   {
-    rateLimit: false,
     name: "getEVaultMetadata",
     input: {
       vaultAddress: S.string,

@@ -11,7 +11,6 @@ type getAssetPrice = S.Infer<typeof getAssetPriceSchema>;
 
 export const getAssetPrice = createEffect(
   {
-    rateLimit: false,
     name: "getAssetPrice",
     input: {
       assetAddress: S.string,
