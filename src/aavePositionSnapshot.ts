@@ -33,10 +33,10 @@ type GetUserPositionData = S.Infer<typeof getUserPositionDataSchema>;
 
 export const getAaveUserPositionData = createEffect(
   {
-    rateLimit: false,
     name: "getAaveUserPositionData",
     input: {
       userAddress: S.string,
+      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: getUserPositionDataSchema,

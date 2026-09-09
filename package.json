@@ -7,7 +7,7 @@
     "dev": "envio dev",
     "start": "envio start",
     "stop": "envio stop",
-    "test": "vitest run --passWithNoTests"
+    "test": "vitest run"
   },
   "devDependencies": {
     "@types/node": "^22.12.0",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@bgd-labs/aave-address-book": "^4.31.0",
-    "envio": "3.6.1",
+    "envio": "3.11.0",
     "viem": "^2.38.5"
   },
   "engines": {

@@ -33,11 +33,11 @@ type VaultLtvInfo = S.Infer<typeof vaultLtvInfoSchema>;
 
 export const getEulerVaultLtvInfo = createEffect(
   {
-    rateLimit: false,
     name: "getEulerVaultLtvInfo",
     input: {
       debtVaultAddress: S.string,
       collateralVaultAddress: S.string,
+      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: vaultLtvInfoSchema,

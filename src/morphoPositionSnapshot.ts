@@ -37,12 +37,12 @@ type MorphoPositionData = S.Infer<typeof morphoPositionSchema>;
 
 export const getMorphoUserPositionData = createEffect(
   {
-    rateLimit: false,
     name: "getMorphoUserPositionData",
     input: {
       userAddress: S.string,
       marketId: S.string,
       morphoAddress: S.string,
+      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: morphoPositionSchema,
@@ -133,10 +133,10 @@ type MorphoOraclePriceData = S.Infer<typeof morphoOraclePriceSchema>;
 
 export const getMorphoOraclePrice = createEffect(
   {
-    rateLimit: false,
     name: "getMorphoOraclePrice",
     input: {
       oracleAddress: S.string,
+      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: morphoOraclePriceSchema,

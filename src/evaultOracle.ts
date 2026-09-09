@@ -11,13 +11,13 @@ type getQuote = S.Infer<typeof getQuoteSchema>;
 
 export const getQuote = createEffect(
   {
-    rateLimit: false,
     name: "getQuote",
     input: {
       oracle: S.string,
       inAmount: S.bigint,
       base: S.string,
       quote: S.string,
+      chainId: S.number,
       blockNumber: S.bigint,
     },
     output: getQuoteSchema,
